@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Staff Dashboard – CSE Dept</title>
+  <link rel="icon" href="image.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    (function () {
+      try {
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <!-- NAV with Dashboard link after quick links -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <img src="image.png" alt="CSE logo">
+        <div>
+          <h1>CSE Department</h1>
+          <div class="brand-sub">SRM Valliammai Engineering College</div>
+        </div>
+      </a>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About us</a>
+        <a href="index.html#faculty">Faculty</a>
+        <a href="index.html#labs">Labs</a>
+        <a href="index.html#placements">Placements</a>
+        <a href="index.html#alumni">Alumni</a>
+        <a href="index.html#blog">Blog</a>
+        <a href="index.html#contact">Contact</a>
+
+        <!-- dashboard button (only useful if logged in) -->
+        <a href="dashboard.html">Dashboard</a>
+      </div>
+      <button class="hamb" id="hamb" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+    </div>
+  </nav>
+
+  <main style="max-width:900px;margin:130px auto 40px;padding:0 20px;">
+    <h2>Staff Dashboard</h2>
+    <p class="muted">Welcome back, <span id="staffName">Staff</span>.</p>
+
+    <div class="grid-2" style="margin-top:18px;">
+      <div class="card">
+        <h3>Profile</h3>
+        <p><strong>Name:</strong> <span id="name"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+        <p><strong>Phone:</strong> <span id="phone"></span></p>
+        <p><strong>Designation:</strong> <span id="designation"></span></p>
+      </div>
+
+      <div class="card">
+        <h3>Notes</h3>
+        <p class="muted-sm">Your private notes are saved securely and will appear every time you log in.</p>
+        <textarea id="notes" style="width:100%;height:180px;margin-top:10px;"></textarea>
+        <button class="btn-primary" style="margin-top:10px;" id="saveNotesBtn">Save Notes</button>
+        <p id="notesStatus" class="muted-sm" style="margin-top:8px;"></p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    async function loadStaff() {
+      const res = await fetch('/api/me');
+      if (!res.ok) {
+        // not logged in
+        window.location.href = 'login.html';
+        return;
+      }
+      const staff = await res.json();
+      document.getElementById('staffName').textContent = staff.name;
+      document.getElementById('name').textContent = staff.name;
+      document.getElementById('email').textContent = staff.email;
+      document.getElementById('phone').textContent = staff.phone;
+      document.getElementById('designation').textContent = staff.designation;
+    }
+
+    async function loadNotes() {
+      const res = await fetch('/api/notes');
+      if (!res.ok) return;
+      const data = await res.json();
+      document.getElementById('notes').value = data.notes || '';
+    }
+
+    document.getElementById('saveNotesBtn').addEventListener('click', async () => {
+      const notes = document.getElementById('notes').value;
+      const res = await fetch('/api/notes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ notes })
+      });
+      if (res.ok) {
+        document.getElementById('notesStatus').textContent = 'Saved!';
+        setTimeout(() => document.getElementById('notesStatus').textContent = '', 2000);
+      } else {
+        document.getElementById('notesStatus').textContent = 'Failed to save';
+      }
+    });
+
+    loadStaff();
+    loadNotes();
+  </script>
+</body>
+</html>

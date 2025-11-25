@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>GPA Calculator – SRM Valliammai Engineering College</title>
+    <link rel="icon" href="image.png" />
+
+    <script>
+        (function () {
+            try {
+                const saved = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const theme = saved || (prefersDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <style>
+        /* GPA container */
+        .gpa-container,
+        #gpa-page {
+            max-width: 1200px;
+            margin: 120px auto 48px;
+            padding: 0 20px 40px;
+        }
+
+        /* Header */
+        .gpa-header h2 {
+            margin: 0 0 6px;
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        .gpa-header p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        /* Card */
+        .card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 18px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* Grid */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 820px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Custom text selection color */
+        ::selection {
+            background: #7D2AE8;
+            color: #ffffff;
+        }
+
+        ::-moz-selection {
+            background: #7D2AE8;
+            color: #ffffff;
+        }
+
+
+        /* Label */
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text);
+            font-size: 13px;
+        }
+
+        /* INPUTS + SELECT — SET BASE STYLES */
+        .gpa-container select,
+        .gpa-container input,
+        #gpa-page select,
+        #gpa-page input {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 10px;
+            font-size: 14px;
+            border: 1px solid #bfbfbf;
+            background: #ffffff;
+            /* White background for inputs in both themes */
+            color: #000;
+            /* Black text for inputs in both themes */
+            outline: none;
+        }
+
+        /* DARK MODE — slight border change for white input on dark background */
+        html[data-theme="dark"] #gpa-page select,
+        html[data-theme="dark"] #gpa-page input {
+            /* Keep background white and text black, but adjust border for contrast */
+            border: 1px solid #444 !important;
+            box-shadow: 0 0 6px rgba(255, 255, 255, 0.12);
+        }
+
+        /* Focus highlight */
+        .gpa-container select:focus,
+        .gpa-container input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(125, 42, 232, 0.20);
+        }
+
+        /* TABLE WRAPPER */
+        .table-wrap {
+            overflow-x: auto;
+            border-radius: 10px;
+            border: 1px solid var(--border-subtle);
+            margin: 12px 0 18px;
+            /* Change: Allow table wrapper to use card background for dark mode */
+            background: var(--card-bg);
+        }
+
+        /* TABLE */
+        table.gpa-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 640px;
+            /* Change: Removed hardcoded background/color. It should use the parent's color. */
+            background: var(--card-bg);
+            color: var(--text);
+        }
+
+        /* TABLE CELLS */
+        table.gpa-table th,
+        table.gpa-table td {
+            padding: 12px 10px;
+            text-align: left;
+            border-bottom: 1px solid #e6e6e6;
+            /* Change: Use color variables for text and background */
+            background: var(--card-bg) !important;
+            color: var(--text) !important;
+        }
+
+        /* Sticky header */
+        table.gpa-table thead th {
+            background: var(--primary) !important;
+            color: #fff !important;
+            font-weight: 700;
+            position: sticky;
+            top: 0;
+            z-index: 5;
+        }
+
+        /* Dark mode table border separation */
+        html[data-theme="dark"] .gpa-table td,
+        html[data-theme="dark"] .gpa-table th {
+            border-color: #555 !important;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            box-shadow: 0 10px 28px rgba(125, 42, 232, 0.25);
+        }
+
+        .note {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 22px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* Mobile table */
+        @media (max-width: 600px) {
+            table.gpa-table {
+                min-width: 520px;
+            }
+        }
+
+        html[data-theme="dark"] #gpa-page .card {
+            background: #111827 !important;
+            /* soft dark grey */
+            border-color: rgba(255, 255, 255, 0.08) !important;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="brand">
+                <img src="image.png" alt="CSE logo">
+                <div>
+                    <h1>CSE Department</h1>
+                    <div class="brand-sub">SRM Valliammai Engineering College</div>
+                </div>
+            </a>
+
+            <!-- Desktop menu -->
+            <div class="menu">
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About us</a>
+                <a href="index.html#faculty">Faculty</a>
+                <a href="index.html#labs">Labs</a>
+                <a href="index.html#events">Events</a>
+                <a href="index.html#placements">Placements</a>
+                <a href="index.html#alumni">Alumni</a>
+                <a href="index.html#blog">Blog</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="cgpa.html">GPA-Calculator</a>
+            </div>
+
+
+            <!-- Hamburger -->
+            <button class="hamb" id="hamb" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- Mobile full-screen menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About us</a>
+            <a href="index.html#faculty">Faculty</a>
+            <a href="index.html#labs">Labs</a>
+            <a href="index.html#events">Events</a>
+            <a href="index.html#placements">Placements</a>
+            <a href="index.html#alumni">Alumni</a>
+            <a href="index.html#blog">Blog</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="cgpa.html">GPA-Calculator</a>
+        </div>
+
+    </nav>
+
+    <main id="gpa-page">
+        <div class="gpa-header">
+            <h2>GPA Calculator</h2>
+            <p class="muted">Calculate your semester GPA using your regulation & department.</p>
+        </div>
+
+        <div class="card" role="region" aria-label="GPA Calculator card">
+            <div class="form-grid" role="form" aria-label="GPA form">
+                <div>
+                    <label for="regulation">Select Regulation</label>
+                    <select id="regulation" onchange="updateDepartments()" aria-required="true">
+                        <option value="" disabled selected>Select</option>
+                        <option value="R2019">R2019</option>
+                        <option value="R2023">R2023</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="degreeSelect">Select Degree</label>
+                    <select id="degreeSelect" onchange="updateDepartments()" aria-required="true">
+                        <option value="" disabled selected>Select</option>
+                        <option value="ug">UG</option>
+                        <option value="pg">PG</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="departmentSelect">Select Department</label>
+                    <select id="departmentSelect" onchange="updateRows()" aria-required="true">
+                        <option value="default">Select</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="semesterSelect">Select Semester</label>
+                    <select id="semesterSelect" onchange="updateRows()" aria-required="true">
+                        <option value="default">Select</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-wrap" aria-live="polite">
+                <table class="gpa-table" id="gradeTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">Subject</th>
+                            <th scope="col">Grade</th>
+                            <th scope="col">Credits</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="display:flex; gap:12px; align-items:center; justify-content:flex-end; flex-wrap:wrap;">
+                <button class="btn-primary" onclick="calculateResults()">Calculate GPA</button>
+            </div>
+
+            <div class="note">Grades: O (10), A+ (9), A (8), B+ (7), B (6), C (5), U (0)</div>
+        </div>
+
+        <div class="footer">
+            <div>Designed by Karthick S & Shakthi K, Dept. of CSE</div>
+            <div>&copy; 2022 - 2026 Dept of CSE - SRM VEC</div>
+        </div>
+    </main>
+
+
+    <div class="floating-controls">
+        <button id="themeToggle" class="fab" aria-label="Toggle theme">🌙</button>
+        <button id="backToTop" class="fab" aria-label="Back to top">↑</button>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const hamb = document.getElementById('hamb');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamb.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('open');
+            hamb.classList.toggle('open', isOpen);
+            hamb.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+        mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            hamb.classList.remove('open');
+        }));
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const root = document.documentElement;
+        function updateThemeIcon() {
+            const theme = root.getAttribute('data-theme') || 'light';
+            themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+        themeToggle.addEventListener('click', () => {
+            const current = root.getAttribute('data-theme') || 'light';
+            const next = current === 'light' ? 'dark' : 'light';
+            root.setAttribute('data-theme', next);
+            try { localStorage.setItem('theme', next); } catch (e) { }
+            updateThemeIcon();
+        });
+        updateThemeIcon();
+
+        // Back to top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) backToTop.classList.add('visible'); else backToTop.classList.remove('visible');
+        });
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Reveal on scroll
+        function revealInit() {
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('revealed');
+                        obs.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+        }
+
+        // subjects database and grade mapping (unchanged)
+        const subjectsDatabase = {
+            "R2019": {
+                "ug": {
+                    "cse": {
+                        "1": [
+                            { subject: "Communicative English", credits: 3 },
+                            { subject: "Engineering Mathematics I", credits: 4 },
+                            { subject: "Engineering Physics", credits: 3 },
+                            { subject: "Engineering Chemistry", credits: 3 },
+                            { subject: "Programming in C", credits: 3 },
+                            { subject: "Engineering Graphics", credits: 4 },
+                            { subject: "Physics and Chemistry Lab", credits: 2 },
+                            { subject: "C Programming Lab", credits: 2 }
+                        ],
+                        "2": [
+                            { subject: "Technical English", credits: 3 },
+                            { subject: "Engineering Mathematics II", credits: 4 },
+                            { subject: "Physics for Information Science", credits: 3 },
+                            { subject: "Environmental Science and Engineering", credits: 3 },
+                            { subject: "Basic Civil and Mechanical Engineering", credits: 3 },
+                            { subject: "Problem Solving and Python Programming", credits: 3 },
+                            { subject: "தமிழர் மரபு / Heritage of Tamils", credits: 1 },
+                            { subject: "Applied Physics and Environmental Chemistry Lab", credits: 2 },
+                            { subject: "Problem Solving and Python Programming Lab", credits: 2 },
+                            { subject: "Engineering Practices Lab", credits: 2 },
+                            { subject: "NCC/NSS/YRC/NSO", credits: 1 }
+                        ],
+                        "3": [
+                            { subject: "Discrete Mathematics", credits: 4 },
+                            { subject: "Programming & Data Structures in C", credits: 3 },
+                            { subject: "Object Oriented Programming", credits: 3 },
+                            { subject: "Digital Fundamentals and Communication", credits: 3 },
+                            { subject: "Software Engineering", credits: 3 },
+                            { subject: "Operating Systems", credits: 3 },
+                            { subject: "தமிழரும் தொழில்நுட்பமும் / Tamils and Technology", credits: 1 },
+                            { subject: "Data Structures in C Lab", credits: 2 },
+                            { subject: "Object Oriented Programming Lab", credits: 2 },
+                            { subject: "Operating Systems Laboratory", credits: 2 }
+                        ],
+                        "4": [
+                            { subject: "Probability & Queueing Theory", credits: 4 },
+                            { subject: "Computer Architecture", credits: 3 },
+                            { subject: "Database Management System", credits: 3 },
+                            { subject: "Design and Analysis of Algorithm", credits: 3 },
+                            { subject: "Object Oriented Analysis and Design", credits: 3 },
+                            { subject: "Professional Ethics", credits: 3 },
+                            { subject: "Database Management System Laboratory", credits: 2 },
+                            { subject: "Object Oriented Analysis and Design Laboratory", credits: 2 }
+                        ],
+                        "5": [
+                            { subject: "Computer Networks", credits: 3 },
+                            { subject: "Automata Theory", credits: 4 },
+                            { subject: "Web Technology", credits: 3 },
+                            { subject: "Data Warehousing and Data Mining", credits: 3 },
+                            { subject: "Open Elective-1", credits: 3 },
+                            { subject: "Web Technology Laboratory", credits: 2 },
+                            { subject: "Networks Laboratory", credits: 2 }
+                        ],
+                        "6": [
+                            { subject: "Mobile Computing", credits: 3 },
+                            { subject: "Compiler Design", credits: 3 },
+                            { subject: "Software Testing", credits: 3 },
+                            { subject: "Grid and Cloud Computing", credits: 3 },
+                            { subject: "Professional Elective-1", credits: 3 },
+                            { subject: "Mobile Application Development Laboratory", credits: 2 },
+                            { subject: "Compiler Design Laboratory", credits: 2 },
+                            { subject: "Professional Communication", credits: 1 },
+                            { subject: "Mini Project", credits: 2 }
+                        ],
+                        "7": [
+                            { subject: "Cryptography and Network Security", credits: 3 },
+                            { subject: "Artificial Intelligence", credits: 3 },
+                            { subject: "Open Elective-2", credits: 3 },
+                            { subject: "Professional Elective-2", credits: 3 },
+                            { subject: "Professional Elective-3", credits: 3 },
+                            { subject: "Security Laboratory", credits: 2 },
+                            { subject: "Artificial Intelligence Laboratory", credits: 2 },
+                            { subject: "Project Work-Phase 1", credits: 2 },
+                            { subject: "Internship", credits: 1 }
+                        ],
+                        "8": [
+                            { subject: "Professional Elective-4", credits: 3 },
+                            { subject: "Professional Elective-5", credits: 3 },
+                            { subject: "Project Work-Phase 2", credits: 6 }
+                        ]
+                    }
+                },
+                "pg": {
+                    "mecse": {
+                        "1": [
+                            { subject: "Applied Probability and Statistics", credits: 4 },
+                            { subject: "Advanced Data Structures and Algorithms", credits: 4 },
+                            { subject: "Advanced Computer Architecture", credits: 3 },
+                            { subject: "Operating System Internals", credits: 3 },
+                            { subject: "Advanced Software Engineering", credits: 3 },
+                            { subject: "Machine Learning Techniques", credits: 3 },
+                            { subject: "Data Structures Laboratory", credits: 2 }
+                        ],
+                        "2": [
+                            { subject: "Network Design and Technologies", credits: 3 },
+                            { subject: "Security Practices", credits: 3 },
+                            { subject: "Internet of Things", credits: 3 },
+                            { subject: "Big Data Analytics", credits: 3 },
+                            { subject: "Professional Elective - I", credits: 3 },
+                            { subject: "Professional Elective – II", credits: 3 },
+                            { subject: "Data Analytics Laboratory", credits: 2 },
+                            { subject: "Term Paper Writing and Seminar", credits: 1 }
+                        ],
+                        "3": [
+                            { subject: "Professional Elective – III", credits: 3 },
+                            { subject: "Professional Elective – IV", credits: 3 },
+                            { subject: "Professional Elective – V", credits: 3 },
+                            { subject: "Project Work – Phase I", credits: 6 }
+                        ],
+                        "4": [
+                            { subject: "Project Work - Phase II", credits: 12 }
+                        ]
+                    }
+                }
+            },
+            "R2023": {
+                "ug": {
+                    "cse": {
+                        "1": [
+                            { subject: "Professional English - I", credits: 3 },
+                            { subject: "Matrices and Calculus", credits: 4 },
+                            { subject: "Engineering Physics", credits: 3 },
+                            { subject: "Engineering Chemistry", credits: 3 },
+                            { subject: "Basic Electrical and Electronics Engineering", credits: 3 },
+                            { subject: "தமிழர் மரபு / Heritage of Tamils", credits: 1 },
+                            { subject: "Physics and Chemistry Laboratory", credits: 2 },
+                            { subject: "Engineering Practices Laboratory", credits: 2 },
+                            { subject: "English Language Learning Laboratory", credits: 1 }
+                        ],
+                        "2": [
+                            { subject: "Professional English - II", credits: 3 },
+                            { subject: "Statistics and Numerical Methods", credits: 4 },
+                            { subject: "Physics for Information Science", credits: 3 },
+                            { subject: "Chemistry for Information Science", credits: 3 },
+                            { subject: "Problem Solving and Python Programming", credits: 3 },
+                            { subject: "தமிழரும் தொழில்நுட்பமும் / Tamils and Technology", credits: 1 },
+                            { subject: "Engineering Graphics and Design", credits: 3 },
+                            { subject: "Engineering Sciences Laboratory", credits: 2 },
+                            { subject: "Problem Solving and Python Programming Laboratory", credits: 2 }
+                        ],
+                        "3": [
+                            { subject: "Discrete Mathematics", credits: 3 },
+                            { subject: "Digital Principles and Computer Organization", credits: 3 },
+                            { subject: "Programming and Data Structures", credits: 3 },
+                            { subject: "Object Oriented Programming", credits: 3 },
+                            { subject: "Introduction to Data Science", credits: 3 },
+                            { subject: "Software Engineering", credits: 3 },
+                            { subject: "Programming and Data Structures Laboratory", credits: 1.5 },
+                            { subject: "Object Oriented Programming Laboratory", credits: 1.5 },
+                            { subject: "Data Science Laboratory", credits: 1.5 }
+                        ],
+                        "4": [
+                            { subject: "Applied Mathematics for Information Science", credits: 2 },
+                            { subject: "Theory of Computation", credits: 3 },
+                            { subject: "Object Oriented Analysis and Design", credits: 3 },
+                            { subject: "Database Management Systems", credits: 3 },
+                            { subject: "Design and Analysis of Algorithms", credits: 3 },
+                            { subject: "Operating Systems", credits: 3 },
+                            { subject: "Object Oriented Analysis and Design Laboratory", credits: 1.5 },
+                            { subject: "Database Management Systems Laboratory", credits: 1.5 },
+                            { subject: "Operating Systems Laboratory", credits: 1.5 }
+                        ],
+                        "5": [
+                            { subject: "Computer Networks", credits: 3 },
+                            { subject: "Compiler Design", credits: 3 },
+                            { subject: "Artificial Intelligence and Machine Learning", credits: 3 },
+                            { subject: "Web Development and User Interface Design", credits: 3 },
+                            { subject: "Environmental Studies", credits: 2 },
+                            { subject: "Professional Elective – I", credits: 3 },
+                            { subject: "Professional Elective – II", credits: 3 },
+                            { subject: "Computer Networks Laboratory", credits: 1.5 },
+                            { subject: "Artificial Intelligence and Machine Learning Laboratory", credits: 1.5 },
+                            { subject: "Web and Full stack Development Laboratory", credits: 1.5 }
+                        ],
+                        "6": [
+                            { subject: "Mobile Computing", credits: 3 },
+                            { subject: "Cloud Computing and IoT", credits: 3 },
+                            { subject: "Big Data Analytics", credits: 3 },
+                            { subject: "Professional Elective-III", credits: 3 },
+                            { subject: "Professional Elective-IV", credits: 3 },
+                            { subject: "Management Elective", credits: 2 },
+                            { subject: "Mandatory Course-I", credits: 0 },
+                            { subject: "Mobile Application Development Laboratory", credits: 1.5 },
+                            { subject: "Mini Project", credits: 2 },
+                            { subject: "Professional Communication Laboratory", credits: 1 }
+                        ],
+                        "7": [
+                            { subject: "Cryptography and Cyber Security", credits: 3 },
+                            { subject: "Introduction to BlockChain Technologies", credits: 3 },
+                            { subject: "Professional Elective-V", credits: 3 },
+                            { subject: "Professional Elective-VI", credits: 3 },
+                            { subject: "Human Values and Ethics", credits: 2 },
+                            { subject: "Open Elective", credits: 3 },
+                            { subject: "Mandatory Course-II", credits: 0 },
+                            { subject: "Cryptography and Cyber Security Laboratory", credits: 1.5 },
+                            { subject: "Block chain Laboratory", credits: 1.5 },
+                            { subject: "Internship", credits: 1 }
+                        ],
+                        "8": [
+                            { subject: "Project Work", credits: 10 }
+                        ]
+                    }
+                },
+                "pg": {
+                    "mecse": {
+                        "1": [
+                            { subject: "Advanced Mathematics for Computer Science and Engineering", credits: 4 },
+                            { subject: "Machine Learning", credits: 3 },
+                            { subject: "Advanced Data Structures and Algorithms", credits: 3 },
+                            { subject: "Database Practices", credits: 3 },
+                            { subject: "Network Technologies", credits: 3 },
+                            { subject: "Agile Methodologies", credits: 3 },
+                            { subject: "Advanced Data Structures and Algorithms Laboratory", credits: 1.5 },
+                            { subject: "Machine Learning Laboratory", credits: 1.5 }
+                        ],
+                        "2": [
+                            { subject: "Internet of Things", credits: 3 },
+                            { subject: "Cloud Computing Technologies", credits: 3 },
+                            { subject: "Advanced Data Science", credits: 3 },
+                            { subject: "Professional Elective - I", credits: 3 },
+                            { subject: "Professional Elective - II", credits: 3 },
+                            { subject: "Professional Elective – III", credits: 3 },
+                            { subject: "Mini Project", credits: 1.5 },
+                            { subject: "Advanced Data Science Laboratory", credits: 1.5 }
+                        ],
+                        "3": [
+                            { subject: "Research Methodology and IPR", credits: 3 },
+                            { subject: "Professional Elective – IV", credits: 3 },
+                            { subject: "Professional Elective – V", credits: 3 },
+                            { subject: "Project Work – Phase I", credits: 6 },
+                            { subject: "Technical Seminar", credits: 1 },
+                            { subject: "Internship (4 weeks)", credits: 2 }
+                        ],
+                        "4": [
+                            { subject: "Project Work - Phase II", credits: 12 }
+                        ]
+                    }
+                }
+            }
+        };
+
+        const gradePoints = { "O": 10, "A+": 9, "A": 8, "B+": 7, "B": 6, "C": 5, "U": 0 };
+
+        // DOM refs
+        const regulation = document.getElementById('regulation');
+        const degreeSelect = document.getElementById('degreeSelect');
+        const departmentSelect = document.getElementById('departmentSelect');
+        const semesterSelect = document.getElementById('semesterSelect');
+        const tableBody = document.getElementById('tableBody');
+        const gradeTable = document.getElementById('gradeTable');
+
+        function clearSelect(selectEl) { selectEl.innerHTML = ''; }
+        function addOption(selectEl, value, label) {
+            const opt = document.createElement('option'); opt.value = value; opt.text = label; selectEl.add(opt);
+        }
+
+        function initDefaults() {
+            clearSelect(departmentSelect); addOption(departmentSelect, 'default', 'Select Department');
+            clearSelect(semesterSelect); addOption(semesterSelect, 'default', 'Select Semester');
+            tableBody.innerHTML = '';
+            // Initially, the table is visible but empty.
+        }
+
+        function updateDepartments() {
+            const reg = regulation.value;
+            const degree = degreeSelect.value;
+
+            clearSelect(departmentSelect); addOption(departmentSelect, 'default', 'Select Department');
+            clearSelect(semesterSelect); addOption(semesterSelect, 'default', 'Select Semester');
+
+            if (!reg || !degree) {
+                tableBody.innerHTML = '';
+                gradeTable.style.display = 'table'; // keep visible but empty; CSS ensures contrast
+                return;
+            }
+
+            const regNode = subjectsDatabase[reg] || {};
+            const degreeNode = regNode[degree] || {};
+
+            // Add departments based on the selected regulation and degree
+            Object.keys(degreeNode).forEach(dep => addOption(departmentSelect, dep, dep.toUpperCase()));
+
+            // Add semesters
+            const semRange = degree === 'ug' ? 8 : 4;
+            for (let i = 1; i <= semRange; i++) addOption(semesterSelect, i.toString(), 'Semester ' + i);
+
+            gradeTable.style.display = 'table';
+            updateRows();
+        }
+
+        function updateRows() {
+            tableBody.innerHTML = '';
+            const reg = regulation.value;
+            const degree = degreeSelect.value;
+            const dept = departmentSelect.value;
+            const sem = semesterSelect.value;
+
+            if (!reg || !degree || !dept || !sem || dept === 'default' || sem === 'default') return;
+
+            const subs = ((subjectsDatabase[reg] || {})[degree] || {})[dept] || {};
+            const subjects = subs[sem] || [];
+
+            if (!Array.isArray(subjects) || subjects.length === 0) {
+                tableBody.innerHTML = `<tr><td colspan="3" style="padding:12px;color:var(--muted)">No subjects available for the selected combination.</td></tr>`;
+                return;
+            }
+
+            subjects.forEach((s, idx) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+          <td>${s.subject}</td>
+          <td>
+            <select aria-label="Grade for ${s.subject}" data-idx="${idx}">
+              <option value="" selected disabled>Select Grade</option>
+              ${Object.keys(gradePoints).map(g => `<option value="${g}">${g}</option>`).join('')}
+            </select>
+          </td>
+          <td>${s.credits}</td>
+        `;
+                tableBody.appendChild(tr);
+                if (window.gsap) gsap.from(tr, { opacity: 0, y: 16, duration: 0.45, delay: idx * 0.03 });
+            });
+        }
+
+        function calculateResults() {
+            const dept = departmentSelect.value;
+            const sem = semesterSelect.value;
+
+            if (!dept || dept === 'default' || !sem || sem === 'default') {
+                Swal.fire({ icon: 'error', title: 'Please select department & semester', confirmButtonColor: getComputedStyle(document.documentElement).getPropertyValue('--primary').trim() || '#7D2AE8' });
+                return;
+            }
+
+            const rows = Array.from(tableBody.querySelectorAll('tr'));
+            let totalCredits = 0, totalGradePoints = 0, missing = false;
+
+            rows.forEach(row => {
+                const gradeSel = row.querySelector('select');
+                if (!gradeSel) return;
+                const grade = gradeSel.value;
+                const credits = parseFloat(row.cells[2].textContent) || 0;
+                if (!grade) missing = true;
+                else {
+                    const gp = gradePoints[grade] || 0;
+                    totalGradePoints += gp * credits;
+                    totalCredits += credits;
+                }
+            });
+
+            if (missing) {
+                Swal.fire({ icon: 'error', title: 'Please select a grade for every subject', confirmButtonColor: getComputedStyle(document.documentElement).getPropertyValue('--primary').trim() || '#7D2AE8' });
+                return;
+            }
+
+            if (totalCredits === 0) {
+                Swal.fire({ icon: 'error', title: 'No credits found', text: 'Check the selected semester subjects', confirmButtonColor: getComputedStyle(document.documentElement).getPropertyValue('--primary').trim() || '#7D2AE8' });
+                return;
+            }
+
+            const gpa = totalGradePoints / totalCredits;
+            Swal.fire({ icon: 'success', title: 'Your GPA', text: gpa.toFixed(3), confirmButtonColor: getComputedStyle(document.documentElement).getPropertyValue('--primary').trim() || '#7D2AE8' });
+        }
+
+        // expose functions
+        window.updateDepartments = updateDepartments;
+        window.updateRows = updateRows;
+        window.calculateResults = calculateResults;
+
+        // init
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.gsap) {
+                gsap.from(".gpa-header", { opacity: 0, y: -20, duration: 0.7 });
+                gsap.from(".card", { opacity: 0, y: 20, duration: 0.7, delay: 0.2 });
+            }
+            revealInit();
+            initDefaults();
+        });
+    </script>
+</body>
+
+</html>
