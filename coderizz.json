@@ -1,0 +1,26 @@
+[
+    {
+        "title": "CodeRush Hackathon 2023",
+        "date": "October 15, 2023",
+        "description": "A 24-hour competitive coding event where participants solved real-world problems using innovative solutions.",
+        "image": "coderizz/c1.jpg"
+    },
+    {
+        "title": "Web Development Workshop",
+        "date": "September 8, 2023",
+        "description": "Hands-on workshop covering modern web development technologies including React, Node.js and MongoDB.",
+        "image": "coderizz/c2.jpg"
+    },
+    {
+        "title": "Algorithm Bootcamp",
+        "date": "August 20, 2023",
+        "description": "Intensive training session focusing on data structures and algorithms for competitive programming.",
+        "image": "coderizz/c3.jpg"
+    },
+    {
+        "title": "Tech Talk: AI in Modern Applications",
+        "date": "July 12, 2023",
+        "description": "Guest lecture by industry experts on implementing artificial intelligence in real-world applications.",
+        "image": "coderizz/c4.jpg"
+    }
+]

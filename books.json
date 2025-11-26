@@ -1,0 +1,5407 @@
+[
+    {
+        "title":"Artificial Intelligence 3\/E",
+        "author":[
+            "Patrick Henry Winston"
+        ],
+        "accno":5423
+    },
+    {
+        "title":"Object Oriented Analysis And Design",
+        "author":[
+            "Booch G"
+        ],
+        "accno":9049
+    },
+    {
+        "title":"Data Structures And Program Design In C",
+        "author":[
+            "Kruse R.L"
+        ],
+        "accno":10246
+    },
+    {
+        "title":"Artificial Itelligence 2\/E",
+        "author":[
+            "Elain Rich"
+        ],
+        "accno":10784
+    },
+    {
+        "title":"Introduction To Artificial Itelligence",
+        "author":[
+            "Eugene Charniak"
+        ],
+        "accno":10938
+    },
+    {
+        "title":"Computer Graphics 2\/E",
+        "author":[
+            "Foley J.D"
+        ],
+        "accno":11317
+    },
+    {
+        "title":"Neural Networks",
+        "author":[
+            "James Freeman A"
+        ],
+        "accno":11392
+    },
+    {
+        "title":"Gate Computer Science And Engineering",
+        "author":[
+            "A.Handa"
+        ],
+        "accno":11755
+    },
+    {
+        "title":"Computer Networks And Internets 4\/E",
+        "author":[
+            "Douglas E.Comer"
+        ],
+        "accno":13521
+    },
+    {
+        "title":"Computer Networks And Internets 4\/E",
+        "author":[
+            "Douglas E.Comer"
+        ],
+        "accno":13522
+    },
+    {
+        "title":"Internetworking With Tcp\/Ip Vol. Ii 2\/E",
+        "author":[
+            "Douglas E.Comer David L.Stevens"
+        ],
+        "accno":13526
+    },
+    {
+        "title":"Internetworking With Tcp\/Ip Vol. Ii 4\/E",
+        "author":[
+            "Douglas E.Comer"
+        ],
+        "accno":13528
+    },
+    {
+        "title":"Tcp\/Ip Illustrated Vol. I",
+        "author":[
+            "Richard Stevens"
+        ],
+        "accno":13529
+    },
+    {
+        "title":"Tcp\/Ip Illustrated Vol. Ii",
+        "author":[
+            "Gary R. Wright Richard Stevens"
+        ],
+        "accno":13531
+    },
+    {
+        "title":"Tcp\/Ip Illustrated Vol. Ii",
+        "author":[
+            "Gary R. Wright Richard Stevens"
+        ],
+        "accno":13532
+    },
+    {
+        "title":"Tcp\/Ip Illustrated Vol. Iii",
+        "author":[
+            "Richard Stevens"
+        ],
+        "accno":13533
+    },
+    {
+        "title":"Tcp\/Ip Illustrated Vol. Iii",
+        "author":[
+            "Richard Stevens"
+        ],
+        "accno":13534
+    },
+    {
+        "title":"Visual J++ Java Programming",
+        "author":[
+            "Jim Flynn"
+        ],
+        "accno":1035
+    },
+    {
+        "title":"Web Programming : Desktop Reference 6 In 1",
+        "author":[
+            "Michael Afergan"
+        ],
+        "accno":1042
+    },
+    {
+        "title":"Oracle Data Warehousing Unleashed",
+        "author":[
+            "Bonnie Jennings"
+        ],
+        "accno":1244
+    },
+    {
+        "title":"Database Developer'S Guide With Visualbasic 4 2\/E",
+        "author":[
+            "Roger Jennings"
+        ],
+        "accno":1330
+    },
+    {
+        "title":"Visual Basic 6.0",
+        "author":[
+            "Scottwarner"
+        ],
+        "accno":2729
+    },
+    {
+        "title":"Practice And Principles Of Compiler Building With C",
+        "author":[
+            "Henk Alblass Albert Nymeyer"
+        ],
+        "accno":2772
+    },
+    {
+        "title":"The Spirit Of C",
+        "author":[
+            "Mullish Cooper"
+        ],
+        "accno":3301
+    },
+    {
+        "title":"Computer Algorithms 3\/E",
+        "author":[
+            "Sara Baase"
+        ],
+        "accno":5616
+    },
+    {
+        "title":"Data Warehousing In The Real World",
+        "author":[
+            "Sam Anahory"
+        ],
+        "accno":6131
+    },
+    {
+        "title":"Computer Architecture And Organization 3\/E",
+        "author":[
+            "John P.Hayes"
+        ],
+        "accno":6261
+    },
+    {
+        "title":"Usb Complete",
+        "author":[
+            "Jan Axelson"
+        ],
+        "accno":6704
+    },
+    {
+        "title":"Introduction To Algorithms",
+        "author":[
+            "Thomas H.Corman"
+        ],
+        "accno":7619
+    },
+    {
+        "title":"Software Engineering Fundamentals",
+        "author":[
+            "Ali Behforooz",
+            "Frederick J.Huds"
+        ],
+        "accno":8123
+    },
+    {
+        "title":"Elements Of The Theory Of Computation",
+        "author":[
+            "Chirstos H. Papadimitriou"
+        ],
+        "accno":8169
+    },
+    {
+        "title":"Mastering C++",
+        "author":[
+            "K.R.Venugopal"
+        ],
+        "accno":9126
+    },
+    {
+        "title":"Systems Programming And Operating Systems 2\/E",
+        "author":[
+            "D.M Dhamdhere"
+        ],
+        "accno":9150
+    },
+    {
+        "title":"Object Oriented Programming In C++",
+        "author":[
+            "Nabaiyoti Barkakati"
+        ],
+        "accno":9265
+    },
+    {
+        "title":"Object Oriented Programming With C++ 2\/E",
+        "author":[
+            "E.Balagurusamy"
+        ],
+        "accno":9340
+    },
+    {
+        "title":"Programming With C++ 2\/E",
+        "author":[
+            "Johnp.Hubbard"
+        ],
+        "accno":9404
+    },
+    {
+        "title":"Introduction To Languages And The Theory Of Computation 2\/E",
+        "author":[
+            "Johnc.Martin"
+        ],
+        "accno":9469
+    },
+    {
+        "title":"Fundamentals Of Database Systems 3\/E",
+        "author":[
+            "Ramez Elmasri"
+        ],
+        "accno":10091
+    },
+    {
+        "title":"Database Management Systems 2\/E",
+        "author":[
+            "Raghu Ramakrishnan"
+        ],
+        "accno":10339
+    },
+    {
+        "title":"Systems Software 3\/E",
+        "author":[
+            "Leland L.Beck"
+        ],
+        "accno":10353
+    },
+    {
+        "title":"Artificial Intelligence 2\/E",
+        "author":[
+            "Elaine Rich"
+        ],
+        "accno":10787
+    },
+    {
+        "title":"Artificial Intelligence",
+        "author":[
+            "Nilis J.Nilsson"
+        ],
+        "accno":10788
+    },
+    {
+        "title":"Computer Organization & Design 2\/E",
+        "author":[
+            "David A. Patterson"
+        ],
+        "accno":10836
+    },
+    {
+        "title":"Database Systems Implementation",
+        "author":[
+            "Hector Garcia Molina"
+        ],
+        "accno":10856
+    },
+    {
+        "title":"Java: How To Program",
+        "author":[
+            "H.Mdeite",
+            "P.J.Deitel"
+        ],
+        "accno":10943
+    },
+    {
+        "title":"Modern Operating System 2\/E",
+        "author":[
+            "Andrew S.Tanenbaum"
+        ],
+        "accno":10966
+    },
+    {
+        "title":"Software Engineering : An Engineering Approach",
+        "author":[
+            "James Em.Peters"
+        ],
+        "accno":11099
+    },
+    {
+        "title":"Cryptography And Network Security 4\/E",
+        "author":[
+            "William Stallings"
+        ],
+        "accno":11464
+    },
+    {
+        "title":"Data And Computer Communications 6\/E",
+        "author":[
+            "William Stallings"
+        ],
+        "accno":11693
+    },
+    {
+        "title":"Multimedia In Pracice",
+        "author":[
+            "Judith Jeffcoate"
+        ],
+        "accno":12028
+    },
+    {
+        "title":"Compiler Design In C",
+        "author":[
+            "Allen I.Holub"
+        ],
+        "accno":12147
+    },
+    {
+        "title":"Computer Graphics In C 2\/E",
+        "author":[
+            "James D.Foley",
+            "Etc"
+        ],
+        "accno":12155
+    },
+    {
+        "title":"Using Html 4, Xml And Java 1.3",
+        "author":[
+            "Eric Ladd"
+        ],
+        "accno":12403
+    },
+    {
+        "title":"Ethics In Engineering 3\/E",
+        "author":[
+            "Mike W.Martin"
+        ],
+        "accno":12708
+    },
+    {
+        "title":"Beginning Javascript 2\/E",
+        "author":[
+            "Paul Wilton"
+        ],
+        "accno":12846
+    },
+    {
+        "title":"Encyclopedia Of Networking & Telecommunications",
+        "author":[
+            "Tom Scheldon"
+        ],
+        "accno":12896
+    },
+    {
+        "title":"Internet & Worldwide Web: How To Program 3\/E",
+        "author":[
+            "H.M.Deitel",
+            "Etc"
+        ],
+        "accno":12921
+    },
+    {
+        "title":"Java Servlet Programming 2\/E",
+        "author":[
+            "Jason Hunter"
+        ],
+        "accno":12953
+    },
+    {
+        "title":"Object Oriented Modeling And Design",
+        "author":[
+            "James Rumbaugh"
+        ],
+        "accno":13001
+    },
+    {
+        "title":"Principles Of Wireless Networks",
+        "author":[
+            "Kaveh Pahlavan"
+        ],
+        "accno":13026
+    },
+    {
+        "title":"Practical Unix And Iternet Security 3\/E",
+        "author":[
+            "Simson Garfinkel"
+        ],
+        "accno":13211
+    },
+    {
+        "title":"Introduction To Automata Theory, Languages And Computation 2\/E",
+        "author":[
+            "Johne.Hopcroft",
+            "Etc"
+        ],
+        "accno":13264
+    },
+    {
+        "title":"Snmp, Snmpv2, Snmpv3 And Rmon 1 And 2 3\/E",
+        "author":[
+            "William Stallings"
+        ],
+        "accno":13269
+    },
+    {
+        "title":"Computer Networking : A Top Down Approach 2\/E",
+        "author":[
+            "James F.Kurose"
+        ],
+        "accno":13672
+    },
+    {
+        "title":"Computer Organization & Architecture 6\/E",
+        "author":[
+            "William Stallings"
+        ],
+        "accno":13684
+    },
+    {
+        "title":"Engineering Ethics 2\/E",
+        "author":[
+            "Charles E.Harris"
+        ],
+        "accno":13755
+    },
+    {
+        "title":"Engineering Ethics 2\/E",
+        "author":[
+            "Charles B.Fleddermann"
+        ],
+        "accno":13874
+    },
+    {
+        "title":"Engineering Ethics",
+        "author":[
+            "M.Govindarajan",
+            "S.Natarajan"
+        ],
+        "accno":14034
+    },
+    {
+        "title":"Ethics And The Conduct Of Business 4\/E",
+        "author":[
+            "John. R.Boatright"
+        ],
+        "accno":14094
+    },
+    {
+        "title":"An Itegrated Approach To Software Engineering",
+        "author":[
+            "Pankaj Jalote"
+        ],
+        "accno":14213
+    },
+    {
+        "title":"Microsoft Asp .Net Programing With Ms Vc# .Net",
+        "author":[
+            "Andrew Duthie"
+        ],
+        "accno":14391
+    },
+    {
+        "title":"The Complete Reference Visual Basic .Net",
+        "author":[
+            "Jeffrey R.Shapiro"
+        ],
+        "accno":14538
+    },
+    {
+        "title":"Uml 2 Toolkit",
+        "author":[
+            "Hans Erik Eriksson"
+        ],
+        "accno":14560
+    },
+    {
+        "title":"The C++ Programming Language",
+        "author":[
+            "Bajarne Stroustrup"
+        ],
+        "accno":"C1284"
+    },
+    {
+        "title":"The Complete Reference Java 2 4\/E",
+        "author":[
+            "Herbert Schildt"
+        ],
+        "accno":"C167"
+    },
+    {
+        "title":"The Design And Analysis Of Computer Algorithms",
+        "author":[
+            "Alfred V.Aho"
+        ],
+        "accno":"C1750"
+    },
+    {
+        "title":"Core Java 2. V.I Fundamentals",
+        "author":[
+            "Cay S.Horstmann"
+        ],
+        "accno":"C1761"
+    },
+    {
+        "title":"Data Communication And Networking 2\/E",
+        "author":[
+            "Behrouz A.Forouzan"
+        ],
+        "accno":"C1900"
+    },
+    {
+        "title":"Database Systems 4\/E",
+        "author":[
+            "Peter Rob"
+        ],
+        "accno":"C2046"
+    },
+    {
+        "title":"Java Script",
+        "author":[
+            "Jeff Rrentzen"
+        ],
+        "accno":"C2128"
+    },
+    {
+        "title":"Object Oriented Systems Development",
+        "author":[
+            "Ali Bahrami"
+        ],
+        "accno":"C225"
+    },
+    {
+        "title":"Object Oriented Programming Using C++ 2\/E",
+        "author":[
+            "Ira Pohi"
+        ],
+        "accno":"C2442"
+    },
+    {
+        "title":"Core Java 2 Vo. Ii - Advanced Features",
+        "author":[
+            "Cay S.Horstmann"
+        ],
+        "accno":"C2791"
+    },
+    {
+        "title":"Computer Networks 2\/E",
+        "author":[
+            "Larry L.Peterson"
+        ],
+        "accno":"C2999"
+    },
+    {
+        "title":"Systems Programming And Operating Systems 2\/E",
+        "author":[
+            "John. J. Donovan"
+        ],
+        "accno":"C3011"
+    },
+    {
+        "title":"An Introduction To Operating Systems",
+        "author":[
+            "Pramod Chandra P.Bhatt"
+        ],
+        "accno":"C3156"
+    },
+    {
+        "title":"Software Engineering 6\/E",
+        "author":[
+            "Roger S.Pressman"
+        ],
+        "accno":"C3253"
+    },
+    {
+        "title":"Data Warehousing , Data Mining And Olap",
+        "author":[
+            "Alex Berson"
+        ],
+        "accno":"C3306"
+    },
+    {
+        "title":"Introduction To The Theory Of Computation",
+        "author":[
+            "Michael Sipser"
+        ],
+        "accno":"C508"
+    },
+    {
+        "title":"Artificial Intelligence 4\/E",
+        "author":[
+            "Geoge F.Luger"
+        ],
+        "accno":"C932"
+    },
+    {
+        "title":"Graphics Under C",
+        "author":[
+            "Yashavant Kanetkar"
+        ],
+        "accno":"C992"
+    },
+    {
+        "title":"Database System Concepts 3\/E",
+        "author":[
+            "Abraham Silberschatz"
+        ],
+        "accno":"D482"
+    },
+    {
+        "title":"Object Oriented Analysis And Design 2\/E",
+        "author":[
+            "Grady Booch"
+        ],
+        "accno":"D507"
+    },
+    {
+        "title":"Uml Distilled 2\/E",
+        "author":[
+            "Martin Fowler"
+        ],
+        "accno":"D562"
+    },
+    {
+        "title":"Software Engineering A Engineering Approach",
+        "author":[
+            "James F.Peters"
+        ],
+        "accno":14763
+    },
+    {
+        "title":"Data Mining Introductory And Advanced Topics",
+        "author":[
+            "Margaret H.Dunham"
+        ],
+        "accno":14682
+    },
+    {
+        "title":"Introduction To Design & Analysis Of Algorithms",
+        "author":[
+            "Anany Levitin"
+        ],
+        "accno":14696
+    },
+    {
+        "title":"Compilers Principles, Techniques And Tools",
+        "author":[
+            "Alfred V.Aho"
+        ],
+        "accno":14669
+    },
+    {
+        "title":"Operating Systems Concepts 6\/Ed",
+        "author":[
+            "Silberschatz"
+        ],
+        "accno":14701
+    },
+    {
+        "title":"Compilers Comstruction Principles And Practice",
+        "author":[
+            "Kenneth C.Louden"
+        ],
+        "accno":14667
+    },
+    {
+        "title":"Crafting A Compilers With C",
+        "author":[
+            "Charles N.Fischer"
+        ],
+        "accno":14676
+    },
+    {
+        "title":"Fundamentals Of Ethics For Scientits And Engineers",
+        "author":[
+            "Edmund G. Seebauer"
+        ],
+        "accno":14690
+    },
+    {
+        "title":"Software Testing 2\/Ed",
+        "author":[
+            "Ron Patton"
+        ],
+        "accno":14709
+    },
+    {
+        "title":"Data Mining Concepts And Techniques 2\/Ed",
+        "author":[
+            "Jiawei Han"
+        ],
+        "accno":14680
+    },
+    {
+        "title":"Wireless Communication & Networks 2\/Ed",
+        "author":[
+            "William Stallings"
+        ],
+        "accno":14783
+    },
+    {
+        "title":"Computer Graphics C Version 2\/Ed",
+        "author":[
+            "Donald Heam"
+        ],
+        "accno":14671
+    },
+    {
+        "title":"Data Warehousing Fundamentals A Comprehensive Guide",
+        "author":[
+            "Paulraj Ponniah"
+        ],
+        "accno":14687
+    },
+    {
+        "title":"Principles Of Mobile Computing 4\/Ed",
+        "author":[
+            "Uwe. Hansmaqnn"
+        ],
+        "accno":14757
+    },
+    {
+        "title":"Building The Data Warehouse 4\/Ed",
+        "author":[
+            "William H.Inmon"
+        ],
+        "accno":14665
+    },
+    {
+        "title":"A Unified Approach Principles Of Wireless Networks",
+        "author":[
+            "Kaveh Pahlavan"
+        ],
+        "accno":14758
+    },
+    {
+        "title":"The Complete References Html & Xhtml 4\/Ed",
+        "author":[
+            "Thomas A.Powell"
+        ],
+        "accno":14714
+    },
+    {
+        "title":"Internet & Java Programming",
+        "author":[
+            "R.Krishnamoorthy"
+        ],
+        "accno":14694
+    },
+    {
+        "title":"Electric Circuit Analysis (Circuit - Theory)",
+        "author":[
+            "S.R.Paranjothi"
+        ],
+        "accno":"CS0001"
+    },
+    {
+        "title":"Environmental Sience And Engineering",
+        "author":[
+            "M.Sivakumar R.Saravanan"
+        ],
+        "accno":"CS0002"
+    },
+    {
+        "title":"Object Oriented Programming- Concepts And Implementation",
+        "author":[
+            "A.Rajesh"
+        ],
+        "accno":"CS0003"
+    },
+    {
+        "title":"Operating Systems",
+        "author":[
+            "S.Sredharran"
+        ],
+        "accno":"CS0004"
+    },
+    {
+        "title":"Principles Of Analog & Digital Communication",
+        "author":[
+            "S.Sakthivel Murugan Chris Prema"
+        ],
+        "accno":"CS0005"
+    },
+    {
+        "title":"Electric Circuit Analysis",
+        "author":[
+            "T.Nageshwara Rao"
+        ],
+        "accno":"CS0006"
+    },
+    {
+        "title":"Pulse, Digital And Switching Waveforms",
+        "author":[
+            "Jaeob Millman Herbert Taub"
+        ],
+        "accno":"CS0007"
+    },
+    {
+        "title":"Principles Of Management",
+        "author":[
+            "G.K.Vijayaraghavan M.Sivakumar"
+        ],
+        "accno":"CS0008"
+    },
+    {
+        "title":"Total Quality Management",
+        "author":[
+            "V.Jayakumar"
+        ],
+        "accno":"CS0009"
+    },
+    {
+        "title":"Principles Of Compiler Design",
+        "author":[
+            "P.Sivakumar V.Thilagavathe"
+        ],
+        "accno":"CS0010"
+    },
+    {
+        "title":"Principles Of Compiler Design",
+        "author":[
+            "P.Sivakumar V.Thilagavathe"
+        ],
+        "accno":"CS0011"
+    },
+    {
+        "title":"English For Engineers And Technologies, Volume 2",
+        "author":[
+            "Humanity & Social Science Division Of Anna Unversity"
+        ],
+        "accno":"CS0012"
+    },
+    {
+        "title":"The Complete Reference Java2",
+        "author":[
+            "Herbert Schildt"
+        ],
+        "accno":"CS0013"
+    },
+    {
+        "title":"Computer Architecture",
+        "author":[
+            "A.P.Godse D.A.Godse"
+        ],
+        "accno":"CS0014"
+    },
+    {
+        "title":"Syatem Software (Introduction To System Programming)",
+        "author":[
+            "Leland L.Beek"
+        ],
+        "accno":"CS0015"
+    },
+    {
+        "title":"Computer Arichitecture",
+        "author":[
+            "J.S.Leena Jasmine",
+            "S.Lakshmi Kanthan"
+        ],
+        "accno":"CS0016"
+    },
+    {
+        "title":"Essential Elaments Of Multimedia",
+        "author":[
+            "S.Anandamurugan"
+        ],
+        "accno":"CS0017"
+    },
+    {
+        "title":"Professional Ethics",
+        "author":[
+            "Jayashree Suresh B.S.Raghavan"
+        ],
+        "accno":"CS0018"
+    },
+    {
+        "title":"Principles Of Environmental Sience & Engineering",
+        "author":[
+            "M.Sivakumar R.Saravanan"
+        ],
+        "accno":"CS0019"
+    },
+    {
+        "title":"Computer Programming",
+        "author":[
+            "V. Ramesh Babu",
+            "S. Samyuktha",
+            "M. Munirathnam"
+        ],
+        "accno":"CS0020"
+    },
+    {
+        "title":"A Text Book On Computer Programming",
+        "author":[
+            "V. Ramesh Babu",
+            "S. Samyuktha",
+            "M. Munirathnam"
+        ],
+        "accno":"CS0021"
+    },
+    {
+        "title":"Comprehensive Computer Graphics",
+        "author":[
+            "V. K. Pachghare"
+        ],
+        "accno":"CS0022"
+    },
+    {
+        "title":"Computer Programming",
+        "author":[
+            "K. Venugopal",
+            "C. Kavichithra"
+        ],
+        "accno":"CS0023"
+    },
+    {
+        "title":"Computer Based Industrial Control",
+        "author":[
+            "Krishnakant"
+        ],
+        "accno":"CS0024"
+    },
+    {
+        "title":"Software Testing Pronciples And Practices",
+        "author":[
+            "Srinivasan Desikan Gopalasamy Ramesh"
+        ],
+        "accno":"CS0025"
+    },
+    {
+        "title":"Computer Practice I",
+        "author":[
+            "V. Ramesh Babu",
+            "S. Samyuktha"
+        ],
+        "accno":"CS0026"
+    },
+    {
+        "title":"Computer Programming Lab",
+        "author":[
+            "V. Ramesh Babu",
+            "S. Samyuktha",
+            "M. Munirathnam"
+        ],
+        "accno":"CS0027"
+    },
+    {
+        "title":"Text Book On Computer Programming",
+        "author":[
+            "V. Ramesh Babu",
+            "S. Samyuktha",
+            "M. Munirathnam"
+        ],
+        "accno":"CS0028"
+    },
+    {
+        "title":"Computer Programming",
+        "author":[
+            "Dixit"
+        ],
+        "accno":"CS0029"
+    },
+    {
+        "title":"Computer Programming",
+        "author":[
+            "Dixit"
+        ],
+        "accno":"CS0030"
+    },
+    {
+        "title":"Digital Principles & Logic Design Techniques",
+        "author":[
+            "Arijitsaha Nildtpal Manna"
+        ],
+        "accno":"CS0031"
+    },
+    {
+        "title":"Computer Architecture",
+        "author":[
+            "S. Neela Vathipari",
+            "P. Edreena",
+            "K. Muthulakshmi"
+        ],
+        "accno":"CS0032"
+    },
+    {
+        "title":"Dbms",
+        "author":[
+            "Seemakedar"
+        ],
+        "accno":"CS0033"
+    },
+    {
+        "title":"Computer Programming",
+        "author":[
+            "J. Jayapoovan"
+        ],
+        "accno":"CS0034"
+    },
+    {
+        "title":"Theory Of Computation",
+        "author":[
+            "Dhnalakshmi",
+            "Lakshmi"
+        ],
+        "accno":"CS0035"
+    },
+    {
+        "title":"Digital Electronics",
+        "author":[
+            "P. Pugazhendiran"
+        ],
+        "accno":"CS0036"
+    },
+    {
+        "title":"Total Quality Management",
+        "author":[
+            "V. Jayakumar"
+        ],
+        "accno":"CS0037"
+    },
+    {
+        "title":"Computer Programming",
+        "author":[
+            "S. Saravanan"
+        ],
+        "accno":"CS0038"
+    },
+    {
+        "title":"Web Technology",
+        "author":[
+            "P. Sivakumar",
+            "V. Thilagavathi"
+        ],
+        "accno":"CS0039"
+    },
+    {
+        "title":"Unix And Network Programming",
+        "author":[
+            "S. Santhosh",
+            "J. Anand",
+            "L. Santhosh"
+        ],
+        "accno":"CS0040"
+    },
+    {
+        "title":"Priniciples Of Management",
+        "author":[
+            "G.K.Vijayaraghavan",
+            "M. Sivakumar"
+        ],
+        "accno":"CS0041"
+    },
+    {
+        "title":"Object Oriented Analysis And Design",
+        "author":[
+            "N. Kanjana Devi"
+        ],
+        "accno":"CS0042"
+    },
+    {
+        "title":"System Software",
+        "author":[
+            "M. Kanchana"
+        ],
+        "accno":"CS0043"
+    },
+    {
+        "title":"Computing Fundamentals & C Programming",
+        "author":[
+            "E. Balagurusamy"
+        ],
+        "accno":"CS0044"
+    },
+    {
+        "title":"Computer Networks",
+        "author":[
+            "Nithyanandam",
+            "Grace Mary Eswari"
+        ],
+        "accno":"CS0045"
+    },
+    {
+        "title":"Internet Programming",
+        "author":[
+            "Chirhra"
+        ],
+        "accno":"CS0046"
+    },
+    {
+        "title":"Cryptography And Network Security",
+        "author":[
+            "Haribhaskar"
+        ],
+        "accno":"CS0047"
+    },
+    {
+        "title":"System Simulation",
+        "author":[
+            "D.S. Hira",
+            "S. Chand"
+        ],
+        "accno":"CS0048"
+    },
+    {
+        "title":"Database Management Systems",
+        "author":[
+            "P. Kalamani",
+            "R. Shankar"
+        ],
+        "accno":"CS0049"
+    },
+    {
+        "title":"Datastructures Uning \"C\"",
+        "author":[
+            "D. Nirmal"
+        ],
+        "accno":"CS0050"
+    },
+    {
+        "title":"Computer Programming",
+        "author":[
+            "T. Jeyapoovan",
+            "B. Latha"
+        ],
+        "accno":"CS0051"
+    },
+    {
+        "title":"Computer Programming Laboratory I",
+        "author":[
+            "V. Ramesh Babu",
+            "R. Samyuktha",
+            "M. Mani Rathnam"
+        ],
+        "accno":"CS0052"
+    },
+    {
+        "title":"Data Structures",
+        "author":[
+            "K. Krishna Kumari",
+            "N. Rajganesh"
+        ],
+        "accno":"CS0053"
+    },
+    {
+        "title":"Computer Programming",
+        "author":[
+            "Ashok N. Kamthane"
+        ],
+        "accno":"CS0054"
+    },
+    {
+        "title":"Fundamentals Of Computing And Programming",
+        "author":[
+            "V. Ramesh Babu",
+            "R. Samyuktha",
+            "M. Mani Rathnam"
+        ],
+        "accno":"CS0055"
+    },
+    {
+        "title":"A Text Book On Computer Programming",
+        "author":[
+            "V. Ramesh Babu",
+            "R. Samyuktha",
+            "M. Mani Rathnam"
+        ],
+        "accno":"CS0056"
+    },
+    {
+        "title":"Visual Programming",
+        "author":[
+            "V. Alagarsamy",
+            "Shyamala Devi",
+            "T. Hemalatha"
+        ],
+        "accno":"CS0057"
+    },
+    {
+        "title":"Operating Systems",
+        "author":[
+            "S. Baghavathi Priya",
+            "M. Prakash"
+        ],
+        "accno":"CS0058"
+    },
+    {
+        "title":"Object Oriented Programmin",
+        "author":[
+            "N. Sasikuamr",
+            "V.Vijayakumar",
+            "R.S.D. Wasidabanu"
+        ],
+        "accno":"CS0059"
+    },
+    {
+        "title":"An Overview Of Internet Programming",
+        "author":[
+            "S. Anandamurugan"
+        ],
+        "accno":"CS0060"
+    },
+    {
+        "title":"Programming With C",
+        "author":[
+            "Byron S.Gottfried"
+        ],
+        "accno":"CS0061"
+    },
+    {
+        "title":"Professional Ethics",
+        "author":[
+            "V.Jayakumar"
+        ],
+        "accno":"CS0062"
+    },
+    {
+        "title":"Data Structures",
+        "author":[
+            "T. Sheela",
+            "N. Susila"
+        ],
+        "accno":"CS0063"
+    },
+    {
+        "title":"Programming And Data Structures",
+        "author":[
+            "Ashok N. Kamthane"
+        ],
+        "accno":"CS0064"
+    },
+    {
+        "title":"Professional Ethics And Human Values",
+        "author":[
+            "V. Vijakumar"
+        ],
+        "accno":"CS0065"
+    },
+    {
+        "title":"Total Quality Management",
+        "author":[
+            "Vijayakumar",
+            "R. Raju"
+        ],
+        "accno":"CS0066"
+    },
+    {
+        "title":"Exploring The Unix System",
+        "author":[
+            "Stephen G. Kochan Patrick H.Wood"
+        ],
+        "accno":"CS0067"
+    },
+    {
+        "title":"System Software",
+        "author":[
+            "H.Manikandan",
+            "B.Muthulakshmi H.Prabavathi"
+        ],
+        "accno":"CS0068"
+    },
+    {
+        "title":"Database Management Systems",
+        "author":[
+            "V. Chitra"
+        ],
+        "accno":"CS0069"
+    },
+    {
+        "title":"System Software",
+        "author":[
+            "A.S.Roja P.Vijayakumar"
+        ],
+        "accno":"CS0070"
+    },
+    {
+        "title":"Data Structures Using \"C\"",
+        "author":[
+            "D. Nirmal"
+        ],
+        "accno":"CS0071"
+    },
+    {
+        "title":"Visual Basic",
+        "author":[
+            "Srm Systems And Software"
+        ],
+        "accno":"CS0072"
+    },
+    {
+        "title":"Computer Programming Laboratory",
+        "author":[
+            "V. Ramesh Babu",
+            "R. Samyuktha",
+            "M. Mani Rathnam"
+        ],
+        "accno":"CS0073"
+    },
+    {
+        "title":"Fundamentals Of Computing And Programming",
+        "author":[
+            "A.P. Godse",
+            "D.A. Godse"
+        ],
+        "accno":"CS0074"
+    },
+    {
+        "title":"Software Engineering",
+        "author":[
+            "V. R. Kavitha"
+        ],
+        "accno":"CS0075"
+    },
+    {
+        "title":"Artificial Intelligence",
+        "author":[
+            "Neeta Deshpande Nanda Yadav"
+        ],
+        "accno":"CS0076"
+    },
+    {
+        "title":"A Text Book On Computer Programming",
+        "author":[
+            "V. Ramesh Babu",
+            "R. Samyuktha",
+            "M. Mani Rathnam"
+        ],
+        "accno":"CS0077"
+    },
+    {
+        "title":"Computer Programming Laboratory",
+        "author":[
+            "V. Ramesh Babu",
+            "R. Samyuktha",
+            "M. Mani Rathnam"
+        ],
+        "accno":"CS0078"
+    },
+    {
+        "title":"Data Ware Housing & Data Miming",
+        "author":[
+            "S. Poonkuzhali  C.Saravanakumar"
+        ],
+        "accno":"CS0079"
+    },
+    {
+        "title":"Artificial Intelligence",
+        "author":[
+            "S.Kavtha",
+            "V.Balasubramanian"
+        ],
+        "accno":"CS0080"
+    },
+    {
+        "title":"Artificial Intelligence",
+        "author":[
+            "Sudha Somasundharam"
+        ],
+        "accno":"CS0081"
+    },
+    {
+        "title":"Principle S Of Management",
+        "author":[
+            "G.K.Vijayaraghavan",
+            "M. Sivakumar"
+        ],
+        "accno":"CS0082"
+    },
+    {
+        "title":"Cryptography And Network Security",
+        "author":[
+            "P.Bhuvanesvary"
+        ],
+        "accno":"CS0083"
+    },
+    {
+        "title":"C# And .Net Frame Work",
+        "author":[
+            "V.R. Kavitha"
+        ],
+        "accno":"CS0084"
+    },
+    {
+        "title":"Computer Networks",
+        "author":[
+            "D.Kokila"
+        ],
+        "accno":"CS0085"
+    },
+    {
+        "title":"Object Oriented Program",
+        "author":[
+            "Bharati Ashok"
+        ],
+        "accno":"CS0086"
+    },
+    {
+        "title":"Digital Principles And System Design",
+        "author":[
+            "Helanprabha"
+        ],
+        "accno":"CS0087"
+    },
+    {
+        "title":"Internet Programming",
+        "author":[
+            "J.Suresh"
+        ],
+        "accno":"CS0088"
+    },
+    {
+        "title":"Computer Practice  Laboratory",
+        "author":[
+            "Ramesh Babu R.Samyuktha M.Muni Rathnam"
+        ],
+        "accno":"CS0089"
+    },
+    {
+        "title":"Theory Of Computation",
+        "author":[
+            "S.Kavitha V.Balasubramanian"
+        ],
+        "accno":"CS0090"
+    },
+    {
+        "title":"Fundamentals Of Computing And Programming",
+        "author":[
+            "Ramesh Babu R.Samyuktha M.Muni Rathnam"
+        ],
+        "accno":"CS0091"
+    },
+    {
+        "title":"Database Management Systems",
+        "author":[
+            "Bharati Ashok"
+        ],
+        "accno":"CS0092"
+    },
+    {
+        "title":"Fundamentals Of Computing And Programming",
+        "author":[
+            "V.Ramesh Babu",
+            "S.Samyuktha M.Munirathnam"
+        ],
+        "accno":"CS0093"
+    },
+    {
+        "title":"Theory Of Computation",
+        "author":[
+            "M.Selvi"
+        ],
+        "accno":"CS0094"
+    },
+    {
+        "title":"Computer Practice Laboratory - I",
+        "author":[
+            "V.Ramesh Babu",
+            "S.Samyuktha M.Munirathnam"
+        ],
+        "accno":"CS0095"
+    },
+    {
+        "title":"Computer Networks",
+        "author":[
+            "S.Umamaheswari"
+        ],
+        "accno":"CS0096"
+    },
+    {
+        "title":"Database Management Systems",
+        "author":[
+            "D.Menaga S.Venkatalakshmi"
+        ],
+        "accno":"CS0097"
+    },
+    {
+        "title":"Digital Electronics",
+        "author":[
+            "Dr.Bommana Raja",
+            "Dr.S.Sasikumar P.Maniraj Kumar"
+        ],
+        "accno":"CS0098"
+    },
+    {
+        "title":"Analog And Digital Communication",
+        "author":[
+            "K.Sakthidasan"
+        ],
+        "accno":"CS0099"
+    },
+    {
+        "title":"Fundamentals Of Computing And Programming",
+        "author":[
+            "Dr.Raja Subramanian"
+        ],
+        "accno":"CS0100"
+    },
+    {
+        "title":"Digital Signal Processing",
+        "author":[
+            "Dr.S.Sasikumar",
+            "Dr.K.Bommana Raja K.Selvaraj"
+        ],
+        "accno":"CS0101"
+    },
+    {
+        "title":"Operating Systems",
+        "author":[
+            "M.Lilly Florence"
+        ],
+        "accno":"CS0102"
+    },
+    {
+        "title":"Fundamantals Of Computing",
+        "author":[
+            "P.Sudharsan"
+        ],
+        "accno":"CS0103"
+    },
+    {
+        "title":"Mobile Computing",
+        "author":[
+            "Dr.N.N Janani",
+            "Kamaljit I. Lakhtaria Dr.Ashish N.Jani  Neeta Kanabar"
+        ],
+        "accno":"CS0104"
+    },
+    {
+        "title":"Engineering Economics &Financial Acc",
+        "author":[
+            "Dr. R. Senapathi"
+        ],
+        "accno":"CS0105"
+    },
+    {
+        "title":"Operating Systems",
+        "author":[
+            "Er.Rajiv Chopra"
+        ],
+        "accno":"CS0106"
+    },
+    {
+        "title":"Data Structures And Object Oriented Progarmming In C++",
+        "author":[
+            "P.Revathi",
+            "S.Punkuzhali S.Umamaheswari"
+        ],
+        "accno":"CS0107"
+    },
+    {
+        "title":"Analog And Digital Communication",
+        "author":[
+            "K.Murali Babau",
+            "Vinoth Babukumaravelu L.Agilandeeswari"
+        ],
+        "accno":"CS0108"
+    },
+    {
+        "title":"Basic Computer Programming\n(C++ And Object Oriented Programming)",
+        "author":[
+            "Dr.S.S Khandare"
+        ],
+        "accno":"CS0109"
+    },
+    {
+        "title":"Design Analysis And Algorithms",
+        "author":[
+            "Hari Mohan Panday"
+        ],
+        "accno":"CS0110"
+    },
+    {
+        "title":"Software Engineering",
+        "author":[
+            "Chitr A Gob A L"
+        ],
+        "accno":"CS0111"
+    },
+    {
+        "title":"Internet Programming",
+        "author":[
+            "A.A Puntambekar"
+        ],
+        "accno":"CS0112"
+    },
+    {
+        "title":"Fondamentals Of Computing And Prrgramming",
+        "author":[
+            "A.P. Godse",
+            "D.A. Godse"
+        ],
+        "accno":"CS0113"
+    },
+    {
+        "title":"Fondamentals Of Computing And Prrgramming",
+        "author":[
+            "J.B. Dixit"
+        ],
+        "accno":"CS0114"
+    },
+    {
+        "title":"Computer Programming",
+        "author":[
+            "J.B. Dixit"
+        ],
+        "accno":"CS0115"
+    },
+    {
+        "title":"Fondamentals Of Computing And Prrgramming",
+        "author":[
+            "E Balagurusamy"
+        ],
+        "accno":"CS0116"
+    },
+    {
+        "title":"Computer Practice Laboratory - I",
+        "author":[
+            "V.Ramesh Babu",
+            "S.Samyuktha M.Munirathnam"
+        ],
+        "accno":"CS0117"
+    },
+    {
+        "title":"Probabilaty, Queuing T Heory & Engineering",
+        "author":[
+            "G.Haraibaskaran"
+        ],
+        "accno":"CS0118"
+    },
+    {
+        "title":"Elements Of Data Communication And Networks",
+        "author":[
+            "S.A. Amutha Jeevakumari"
+        ],
+        "accno":"CS0119"
+    },
+    {
+        "title":"Computer Practice - I",
+        "author":[
+            "Venkatachalapathy",
+            "M.Bharathi",
+            "M.Kumaran                  S.Chitrakala"
+        ],
+        "accno":"CS0120"
+    },
+    {
+        "title":"Embeded Systems",
+        "author":[
+            "Steven F.Barrett Daniel J.Pack"
+        ],
+        "accno":"CS0121"
+    },
+    {
+        "title":"Dbms",
+        "author":[
+            "P.Kalaiselvi"
+        ],
+        "accno":"CS0122"
+    },
+    {
+        "title":"Dbms",
+        "author":[
+            "P.Kalaiselvi"
+        ],
+        "accno":"CS0123"
+    },
+    {
+        "title":"Computer Networks",
+        "author":[
+            "K.Murali Babau L.Agilandeeswari"
+        ],
+        "accno":"CS0124"
+    },
+    {
+        "title":"Professional Ethics And Human Values",
+        "author":[
+            "V.Jayakumar"
+        ],
+        "accno":"CS0125"
+    },
+    {
+        "title":"Principles Of Compiler Design",
+        "author":[
+            "P.Sivakuamar V.Thilagavathe"
+        ],
+        "accno":"CS0126"
+    },
+    {
+        "title":"Design And Analysis Of Algorithms",
+        "author":[
+            "K.Brindha"
+        ],
+        "accno":"CS0127"
+    },
+    {
+        "title":"Design And Analysis Of Algorithms",
+        "author":[
+            "K.Brindha"
+        ],
+        "accno":"CS0128"
+    },
+    {
+        "title":"Design And Analysis Of Algorithms",
+        "author":[
+            "K.Brindha"
+        ],
+        "accno":"CS0129"
+    },
+    {
+        "title":"Design And Analysis Of Algorithms",
+        "author":[
+            "K.Brindha"
+        ],
+        "accno":"CS0130"
+    },
+    {
+        "title":"Graphics And Multimedia",
+        "author":[
+            "S.Mehalamathivanan"
+        ],
+        "accno":"CS0131"
+    },
+    {
+        "title":"Professional Ethics And Human Values",
+        "author":[
+            "V.Jayakumar"
+        ],
+        "accno":"CS0132"
+    },
+    {
+        "title":"Elements Of Data Communication And Networks",
+        "author":[
+            "S.A. Amutha Jeevakumari"
+        ],
+        "accno":"CS0133"
+    },
+    {
+        "title":"Computing Fundamentals & C Program",
+        "author":[
+            "E. Balagurusamy"
+        ],
+        "accno":"CS0134"
+    },
+    {
+        "title":"Principles Of Compiler Design",
+        "author":[
+            "P.Sivakuamar V.Thilagavathe"
+        ],
+        "accno":"CS0135"
+    },
+    {
+        "title":"Principles Of Compiler Design",
+        "author":[
+            "P.Sivakuamar V.Thilagavathe"
+        ],
+        "accno":"CS0136"
+    },
+    {
+        "title":"Computer Organization & Architecture",
+        "author":[
+            "M.Auxiliya"
+        ],
+        "accno":"CS0137"
+    },
+    {
+        "title":"Mobile Computing",
+        "author":[
+            "K.Murali Babu",
+            "L.Agilandeeswari K.Vinothbabau"
+        ],
+        "accno":"CS0138"
+    },
+    {
+        "title":"Computer Organisation And Architecture",
+        "author":[
+            "J.S Leena Jasmine"
+        ],
+        "accno":"CS0139"
+    },
+    {
+        "title":"Mobile Computing",
+        "author":[
+            "Sundara Rajan",
+            "Ramesh Raja Sekar"
+        ],
+        "accno":"CS0140"
+    },
+    {
+        "title":"Computer Networks",
+        "author":[
+            "K.Muralibabu L.Agilandeeswari"
+        ],
+        "accno":"CS0141"
+    },
+    {
+        "title":"Principle S Of Management",
+        "author":[
+            "G.K.Vijayaraghavan",
+            "M. Sivakumar"
+        ],
+        "accno":"CS0142"
+    },
+    {
+        "title":"Cryptography And Network Security",
+        "author":[
+            "N.Sivsnesan E.Seshathri"
+        ],
+        "accno":"CS0143"
+    },
+    {
+        "title":"Software Engineering",
+        "author":[
+            "Ramesh Kumar"
+        ],
+        "accno":"CS0144"
+    },
+    {
+        "title":"Design And Analysis Of Algorithms",
+        "author":[
+            "M.Kanchana"
+        ],
+        "accno":"CS0145"
+    },
+    {
+        "title":"Fundamentals Of Computing And Programming",
+        "author":[
+            "J.B. Dixit"
+        ],
+        "accno":"CS0146"
+    },
+    {
+        "title":"Artificial Intelligence",
+        "author":[
+            "M.Auxiliya"
+        ],
+        "accno":"CS0147"
+    },
+    {
+        "title":"Computer Practice Laboratory - Ii",
+        "author":[
+            "Dr.Suresh Kumar",
+            "Dr.N.Kannan",
+            "R.P Antokumar"
+        ],
+        "accno":"CS0148"
+    },
+    {
+        "title":"Artificial Intelligence",
+        "author":[
+            "S.Kavitha V.Balasubramanian"
+        ],
+        "accno":"CS0149"
+    },
+    {
+        "title":"Computer Networks",
+        "author":[
+            "Nithyanandam",
+            "Grace Mary Eswari"
+        ],
+        "accno":"CS0150"
+    },
+    {
+        "title":"Database Management Systems",
+        "author":[
+            "Seemakedar"
+        ],
+        "accno":"CS0151"
+    },
+    {
+        "title":"Internet Programming",
+        "author":[
+            "M.Auxiliya"
+        ],
+        "accno":"CS0152"
+    },
+    {
+        "title":"Computer Architecture",
+        "author":[
+            "Grace Mary",
+            "Eswari"
+        ],
+        "accno":"CS0153"
+    },
+    {
+        "title":"Computer Architecture",
+        "author":[
+            "S.Leninisha"
+        ],
+        "accno":"CS0154"
+    },
+    {
+        "title":"Computer Organization & Architecture",
+        "author":[
+            "M.Auxiliya"
+        ],
+        "accno":"CS0155"
+    },
+    {
+        "title":"Principles Of Compiler Design",
+        "author":[
+            "P.Sivakuamar V.Thilagavathe"
+        ],
+        "accno":"CS0156"
+    },
+    {
+        "title":"Software Quality Management",
+        "author":[
+            "M.A Padma Priya",
+            "S. Radha Meena"
+        ],
+        "accno":"CS0157"
+    },
+    {
+        "title":"Design And Analysis Of Algorithms",
+        "author":[
+            "V. Sathya Priya"
+        ],
+        "accno":"CS0158"
+    },
+    {
+        "title":"Operating Systems",
+        "author":[
+            "S.Umamaheswari"
+        ],
+        "accno":"CS0159"
+    },
+    {
+        "title":"Computer Oranization & Architecture",
+        "author":[
+            "A.P. Godse",
+            "D.A. Godse"
+        ],
+        "accno":"CS0160"
+    },
+    {
+        "title":"Design And Analysis Of Algorithms",
+        "author":[
+            "R.Manjula Devi",
+            "R.Devipriya",
+            "R.C. Suganthe"
+        ],
+        "accno":"CS0161"
+    },
+    {
+        "title":"Mobile Computing",
+        "author":[
+            "Dr.Ranganathan"
+        ],
+        "accno":"CS0162"
+    },
+    {
+        "title":"Visual Programming",
+        "author":[
+            "J.Avanija"
+        ],
+        "accno":"CS0163"
+    },
+    {
+        "title":"Fundamentals Of Computing And Programming",
+        "author":[
+            "V.Ramesh Babu  S.Samyuktha M.Munirathnam"
+        ],
+        "accno":"CS0164"
+    },
+    {
+        "title":"Computer Practice Laboratory-Ii",
+        "author":[
+            "V.Ramesh Babu  S.Samyuktha M.Munirathnam"
+        ],
+        "accno":"CS0165"
+    },
+    {
+        "title":"Computer Practice Laboratory-Ii",
+        "author":[
+            "V.Ramesh Babu  S.Samyuktha M.Munirathnam"
+        ],
+        "accno":"CS0166"
+    },
+    {
+        "title":"Fundamentals Of Computing And Programming",
+        "author":[
+            "V.Ramesh Babu  S.Samyuktha M.Munirathnam"
+        ],
+        "accno":"CS0167"
+    },
+    {
+        "title":"Computer Practice Laboratory-Ii",
+        "author":[
+            "V.Ramesh Babu  S.Samyuktha M.Munirathnam"
+        ],
+        "accno":"CS0168"
+    },
+    {
+        "title":"Computer Practice Laboratory-I",
+        "author":[
+            "V.Ramesh Babu  S.Samyuktha M.Munirathnam"
+        ],
+        "accno":"CS0169"
+    },
+    {
+        "title":"Essentials Of Computers",
+        "author":[
+            "T.G. Palanivelu P.Ajay-D-Vimal Raj"
+        ],
+        "accno":"CS0170"
+    },
+    {
+        "title":"Data Ware Housing & Data Miming",
+        "author":[
+            "M.A. Padma Priya S.V.Jansi Rani"
+        ],
+        "accno":"CS0171"
+    },
+    {
+        "title":"Discrete Structures",
+        "author":[
+            "Satinder Bal Gupta C.P.Gandhi"
+        ],
+        "accno":"CS0172"
+    },
+    {
+        "title":"Design Anlysis And Algorithms",
+        "author":[
+            "Hari Mohan Panday"
+        ],
+        "accno":"CS0173"
+    },
+    {
+        "title":"Object Oriented Programming",
+        "author":[
+            "T.Ravi",
+            "Sakar Shanmuganathan"
+        ],
+        "accno":"CS0174"
+    },
+    {
+        "title":"Mobile Computing",
+        "author":[
+            "B.S.Charulatha"
+        ],
+        "accno":"CS0175"
+    },
+    {
+        "title":"Data Structure And\nObject Oriented Programming",
+        "author":[
+            "K.Brindha"
+        ],
+        "accno":"CS0176"
+    },
+    {
+        "title":"Operating Systems",
+        "author":[
+            "Rohit Khurana"
+        ],
+        "accno":"CS0177"
+    },
+    {
+        "title":"User Interface Design",
+        "author":[
+            "K.Brindha"
+        ],
+        "accno":"CS0178"
+    },
+    {
+        "title":"Object Oriented Programming",
+        "author":[
+            "A.A.Puntambekar"
+        ],
+        "accno":"CS0179"
+    },
+    {
+        "title":"Cryptography And Network Security",
+        "author":[
+            "Sams"
+        ],
+        "accno":"CS0180"
+    },
+    {
+        "title":"C# And .Net Frame Work",
+        "author":[
+            "V.R. Kavitha"
+        ],
+        "accno":"CS0181"
+    },
+    {
+        "title":"Data Structure And Oops In C++",
+        "author":[
+            "S.Kavitha Bharathiashok"
+        ],
+        "accno":"CS0182"
+    },
+    {
+        "title":"Data Structure And Algorithms",
+        "author":[
+            "M.Shymala Devi"
+        ],
+        "accno":"CS0183"
+    },
+    {
+        "title":"Object Oriented Programming",
+        "author":[
+            "Bharati Ashok"
+        ],
+        "accno":"CS0184"
+    },
+    {
+        "title":"Data Structure And Algorithms",
+        "author":[
+            "Kavitha Bharathiashok"
+        ],
+        "accno":"CS0185"
+    },
+    {
+        "title":"Internet Programming",
+        "author":[
+            "J.Suresh"
+        ],
+        "accno":"CS0186"
+    },
+    {
+        "title":"Data Structure",
+        "author":[
+            "S.Kavitha Bharathiashok"
+        ],
+        "accno":"CS0187"
+    },
+    {
+        "title":"Fundamental Of Computing And Programming",
+        "author":[
+            "E. Balagurusamy"
+        ],
+        "accno":"CS0188"
+    },
+    {
+        "title":"User Interface Design",
+        "author":[
+            "Arulmozhi"
+        ],
+        "accno":"CS0189"
+    },
+    {
+        "title":"Computer Architecture And Organization",
+        "author":[
+            "J.S Leena Jasmine S.Lakshmi Kantham"
+        ],
+        "accno":"CS0190"
+    },
+    {
+        "title":"Microprocessors And Microcontrollers",
+        "author":[
+            "R.Theagarajan"
+        ],
+        "accno":"CS0191"
+    },
+    {
+        "title":"Design And Analysis Of Algorithms",
+        "author":[
+            "K.Brindha"
+        ],
+        "accno":"CS0192"
+    },
+    {
+        "title":"Computer Organization & Architecture",
+        "author":[
+            "M.Auxiliya"
+        ],
+        "accno":"CS0193"
+    },
+    {
+        "title":"Programming Paradigms",
+        "author":[
+            "Vimal",
+            "S. Sunil Kumar",
+            "P.S. Smitha"
+        ],
+        "accno":"CS0194"
+    },
+    {
+        "title":"Total Quality Management",
+        "author":[
+            "V.Jayakumar Dr. R. Raju"
+        ],
+        "accno":"CS0195"
+    },
+    {
+        "title":"Design&Analaysis Of Algoritham",
+        "author":[
+            "A.A Puntambekar"
+        ],
+        "accno":"CS0196"
+    },
+    {
+        "title":"Advanced Computer Architecture",
+        "author":[
+            "G.Elangovan"
+        ],
+        "accno":"CS0197"
+    },
+    {
+        "title":"Artificial Intelligence",
+        "author":[
+            "S.Kavitha",
+            "V.Balasubramanian"
+        ],
+        "accno":"CS0198"
+    },
+    {
+        "title":"Distributed Systems",
+        "author":[
+            "Dr.S.Padmapriya"
+        ],
+        "accno":"CS0199"
+    },
+    {
+        "title":"Object Oriented Analysis And Design",
+        "author":[
+            "V.Vimala"
+        ],
+        "accno":"CS0200"
+    },
+    {
+        "title":"Microprocessors And Microcontrollers",
+        "author":[
+            "D.Venkata Vara Prasad",
+            "K.R.Sarath Chandran",
+            "J.S.Leena Jasmine"
+        ],
+        "accno":"CS0201"
+    },
+    {
+        "title":"Advanced Computer Architecture",
+        "author":[
+            "R.Manjula Devi",
+            "K.Devendran",
+            "K.Sangeetha"
+        ],
+        "accno":"CS0202"
+    },
+    {
+        "title":"Computer Organization And Architecture",
+        "author":[
+            "R.Shankar",
+            "V.Deepalakshmi"
+        ],
+        "accno":"CS0203"
+    },
+    {
+        "title":"Java Server Pages",
+        "author":[
+            "Ankur Saxena"
+        ],
+        "accno":"CS0204"
+    },
+    {
+        "title":"Operating Systems",
+        "author":[
+            "Bharathi Ashok"
+        ],
+        "accno":"CS0205"
+    },
+    {
+        "title":"Data Base Management Systems",
+        "author":[
+            "Bharathi Ashok"
+        ],
+        "accno":"CS0206"
+    },
+    {
+        "title":"Computer Organization And Architecture",
+        "author":[
+            "J.S.Leena Iasmine"
+        ],
+        "accno":"CS0207"
+    },
+    {
+        "title":"Design And Analysis Of Algorithams",
+        "author":[
+            "S.Kavitha",
+            "V.Balasubramanian"
+        ],
+        "accno":"CS0208"
+    },
+    {
+        "title":"Principles Of Compiler Design",
+        "author":[
+            "D.Tthenmozhi",
+            "Bharathi Ashok"
+        ],
+        "accno":"CS0209"
+    },
+    {
+        "title":"Operating Systems",
+        "author":[
+            "Dr.L.Jaba Sheela"
+        ],
+        "accno":"CS0210"
+    },
+    {
+        "title":"Artificial Intelligence",
+        "author":[
+            "K.Senthilnathan",
+            "K.Mahalakshmi"
+        ],
+        "accno":"CS0211"
+    },
+    {
+        "title":"Data Base Management Systems",
+        "author":[
+            "P.Kalaiselvi"
+        ],
+        "accno":"CS0212"
+    },
+    {
+        "title":"Principles Of Compiler Design",
+        "author":[
+            "K.Krishnakumari"
+        ],
+        "accno":"CS0213"
+    },
+    {
+        "title":"Web Technology",
+        "author":[
+            "J.Maria Shanthi"
+        ],
+        "accno":"CS0214"
+    },
+    {
+        "title":"Operating Systems",
+        "author":[
+            "E.Arulmozhi",
+            "A.Rajesh",
+            "M.Priya"
+        ],
+        "accno":"CS0215"
+    },
+    {
+        "title":"Professional Ethics And Human Values",
+        "author":[
+            "Dr.V.Jayakumar"
+        ],
+        "accno":"CS0216"
+    },
+    {
+        "title":"Computer Organization And Architecture",
+        "author":[
+            "M.Auxiliya"
+        ],
+        "accno":"CS0217"
+    },
+    {
+        "title":"Cryptography And Network Security",
+        "author":[
+            "K.Senthilnathan",
+            "K.Mahalakshmi"
+        ],
+        "accno":"CS0218"
+    },
+    {
+        "title":"Advanced Computer Architecture",
+        "author":[
+            "K.Senthilnathan",
+            "K.Mahalakshmi"
+        ],
+        "accno":"CS0219"
+    },
+    {
+        "title":"Design And Analysis Of Algorithams",
+        "author":[
+            "K.Brindha"
+        ],
+        "accno":"CS0220"
+    },
+    {
+        "title":"Microprocessors And Microcontrollers",
+        "author":[
+            "R.L.Reka",
+            "C.Ravikumar"
+        ],
+        "accno":"CS0221"
+    },
+    {
+        "title":"Data Warehousing And Data Mining",
+        "author":[
+            "S. Nancy Lima Christy"
+        ],
+        "accno":"CS0222"
+    },
+    {
+        "title":"Datastructures",
+        "author":[
+            "Dr. N . Jayaprakash"
+        ],
+        "accno":"CS0223"
+    },
+    {
+        "title":"Data Structures Object Orienetd Progaramming With C++",
+        "author":[
+            "Rohit Khurana Itl Esl"
+        ],
+        "accno":"CS0224"
+    },
+    {
+        "title":"Microporcessor And Microcontroller",
+        "author":[
+            "A.P. Godse",
+            "D. Agodse"
+        ],
+        "accno":"CS0225"
+    },
+    {
+        "title":"Principles Of Mangement",
+        "author":[
+            "V.S. Bagad"
+        ],
+        "accno":"CS0226"
+    },
+    {
+        "title":"Anlog And Digital Communication",
+        "author":[
+            "K. Muralibabu",
+            "L. Agilandeeswari"
+        ],
+        "accno":"CS0227"
+    },
+    {
+        "title":"Object Oriended Programming",
+        "author":[
+            "Dr. T. Ravi",
+            "Sankar Shamuganathan"
+        ],
+        "accno":"CS0228"
+    },
+    {
+        "title":"Computer Graphics",
+        "author":[
+            "K. Ezhil Arasi",
+            "D. Anuradha"
+        ],
+        "accno":"CS0229"
+    },
+    {
+        "title":"Cryptography And Network Security",
+        "author":[
+            "K. Senthilnathan",
+            "K. Mahalakshmi"
+        ],
+        "accno":"CS0230"
+    },
+    {
+        "title":"Digital Priciples And System Design",
+        "author":[
+            "R. Shylaja"
+        ],
+        "accno":"CS0231"
+    },
+    {
+        "title":"Software Engineering And Quality Assurance",
+        "author":[
+            "Rohit Khurana Itl Esl"
+        ],
+        "accno":"CS0232"
+    },
+    {
+        "title":"Design And Analysis Of Algorithms",
+        "author":[
+            "A.A. Punt Ambekar"
+        ],
+        "accno":"CS0233"
+    },
+    {
+        "title":"Emdedded Imcrocontrollers And Processor Design",
+        "author":[
+            "Greg Osborn"
+        ],
+        "accno":"CS0234"
+    },
+    {
+        "title":"Computer Science : A Structured Programming  Approach Using C",
+        "author":[
+            "Behrouz A. Forouzan & Richard F. Gilberg"
+        ],
+        "accno":"CS0235"
+    },
+    {
+        "title":"Database Management Systems",
+        "author":[
+            "Dr. R. Alageswaran",
+            "Dr. S. Miruna"
+        ],
+        "accno":"CS0236"
+    },
+    {
+        "title":"Computer Organization And Architecture",
+        "author":[
+            "P.N. Basu"
+        ],
+        "accno":"CS0237"
+    },
+    {
+        "title":"Operating System",
+        "author":[
+            "Rohit Khurana Itl Esl"
+        ],
+        "accno":"CS0238"
+    },
+    {
+        "title":"Data Base Management Systems",
+        "author":[
+            "P. Kalaiselvi"
+        ],
+        "accno":"CS0239"
+    },
+    {
+        "title":"Introduction To Data Base Management Systems",
+        "author":[
+            "S. Anandamurugan"
+        ],
+        "accno":"CS0240"
+    },
+    {
+        "title":"Fundamentals Of Computing And Programming",
+        "author":[
+            "Meena Vihayabharathi"
+        ],
+        "accno":"CS0241"
+    },
+    {
+        "title":"Programming Paradigms Java Programming",
+        "author":[
+            "J. Marla Shanthi"
+        ],
+        "accno":"CS0242"
+    },
+    {
+        "title":"Principles Of Compiler Design",
+        "author":[
+            "A. A. Puntambekar"
+        ],
+        "accno":"CS0243"
+    },
+    {
+        "title":"C# And .Net Frame Work",
+        "author":[
+            "N. Rajaganesh"
+        ],
+        "accno":"CS0244"
+    },
+    {
+        "title":"Theory Of Computation",
+        "author":[
+            "K. Krishna Kumari"
+        ],
+        "accno":"CS0245"
+    },
+    {
+        "title":"Computing Techniques",
+        "author":[
+            "V. Rameshbabu R. Samyutha",
+            "M. Munirathnam"
+        ],
+        "accno":"CS0246"
+    },
+    {
+        "title":"Object Oriended Programming",
+        "author":[
+            "Dr. T. Ravi Sankarshamuganathan"
+        ],
+        "accno":"CS0247"
+    },
+    {
+        "title":"Engineering Econimics And Financial Accounts",
+        "author":[
+            "Dr. R. Senapathi"
+        ],
+        "accno":"CS0248"
+    },
+    {
+        "title":"Theory Of Computation",
+        "author":[
+            "A.M Natarajan",
+            "A.Tamilarasu",
+            "P.Balasubramanian"
+        ],
+        "accno":"CS0249"
+    },
+    {
+        "title":"Java Programming \/ Programming Paradigms",
+        "author":[
+            "K. Ezhil Arasi",
+            "D. Anuradha"
+        ],
+        "accno":"CS0250"
+    },
+    {
+        "title":"System Software",
+        "author":[
+            "N. Bala Sundara Ganapathy"
+        ],
+        "accno":"CS0251"
+    },
+    {
+        "title":"Mobile And Pervasive Computing",
+        "author":[
+            "B.S.Charulatha"
+        ],
+        "accno":"CS0252"
+    },
+    {
+        "title":"Data Structures And Object Oriented Programming In C++",
+        "author":[
+            "K. Brindha"
+        ],
+        "accno":"CS0253"
+    },
+    {
+        "title":"Engineering Economics And Financial Accounts",
+        "author":[
+            "Dr.E.Gnansekaran"
+        ],
+        "accno":"CS254"
+    },
+    {
+        "title":"Computer Programing Laboratory-Ii",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Muni Rathanam"
+        ],
+        "accno":"CS255"
+    },
+    {
+        "title":"Engineering Economics And Financial Accounts",
+        "author":[
+            "Dr.E.Gnansekaran"
+        ],
+        "accno":"CS256"
+    },
+    {
+        "title":"Digital Principles&System Design",
+        "author":[
+            "S.Kumaresan T.Joel"
+        ],
+        "accno":"CS257"
+    },
+    {
+        "title":"Multimedia Systems Design",
+        "author":[
+            "Prabhat.K",
+            "Andleigh Kiran Thakrar"
+        ],
+        "accno":"CS258"
+    },
+    {
+        "title":"Object-Oriented Programinig C++",
+        "author":[
+            "R.Subburaj"
+        ],
+        "accno":"CS259"
+    },
+    {
+        "title":"Data Structures And Algorithms Using",
+        "author":[
+            "Amitava Nag",
+            "Jyoti Prakash Singh"
+        ],
+        "accno":"CS260"
+    },
+    {
+        "title":"Computer Organization And Architecture",
+        "author":[
+            "P.N.Basu"
+        ],
+        "accno":"CS261"
+    },
+    {
+        "title":"An Introduction To Gcc",
+        "author":[
+            "Brian Gough"
+        ],
+        "accno":"CS262"
+    },
+    {
+        "title":"An Introduction To Gcc",
+        "author":[
+            "Brian Gough"
+        ],
+        "accno":"CS263"
+    },
+    {
+        "title":"An Introduction To Python",
+        "author":[
+            "Guido Van Rossum.",
+            "Fred L.Drake",
+            "Jr.(Editor)"
+        ],
+        "accno":"CS264"
+    },
+    {
+        "title":"Comparing And Merging Files With Gnu Diff And Patch",
+        "author":[
+            "David Mackenzie",
+            "Paul Eggert",
+            "Richard Stallman"
+        ],
+        "accno":"CS265"
+    },
+    {
+        "title":"Computer Practices Laboratory",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Muni Rathanam"
+        ],
+        "accno":"CS266"
+    },
+    {
+        "title":"Advanced Computer Architecture",
+        "author":[
+            "G.Elangovan"
+        ],
+        "accno":"CS267"
+    },
+    {
+        "title":"Computer Organization And Architecture",
+        "author":[
+            "J.S.Leena Jasmine"
+        ],
+        "accno":"CS268"
+    },
+    {
+        "title":"Programming And Data Structures-I",
+        "author":[
+            "S.Kavitha Bharathiasok"
+        ],
+        "accno":"CS269"
+    },
+    {
+        "title":"The 8085 Microprocessor",
+        "author":[
+            "K.Udaya Kumar B.S.Umashankar"
+        ],
+        "accno":"CS270"
+    },
+    {
+        "title":"Principles Of Compiler Design",
+        "author":[
+            "S.Balakrishnan"
+        ],
+        "accno":"CS271"
+    },
+    {
+        "title":"Operating Systems",
+        "author":[
+            "Bharathi Ashok"
+        ],
+        "accno":"CS272"
+    },
+    {
+        "title":"Principles Of Compiler Design",
+        "author":[
+            "D.Thenmozhi Bharathi Ashok"
+        ],
+        "accno":"CS273"
+    },
+    {
+        "title":"Artificial Intelligence",
+        "author":[
+            "S.Kavitha Balasubramanian"
+        ],
+        "accno":"CS274"
+    },
+    {
+        "title":"Object-Oriented Analysis And Design",
+        "author":[
+            "V.Vimala"
+        ],
+        "accno":"CS275"
+    },
+    {
+        "title":"Design And Analysis Of Algorithams",
+        "author":[
+            "S.Kavitha V.Balasubramanian"
+        ],
+        "accno":"CS276"
+    },
+    {
+        "title":"Design And Analysis Of Algorithams",
+        "author":[
+            "Dr.V.D. Ambeth Kumar",
+            "M. Maheshwari",
+            "V.D. Ashok Kumar"
+        ],
+        "accno":"CS277"
+    },
+    {
+        "title":"Advanced Computer Architecture",
+        "author":[
+            "Dr.V.D. Ambeth Kumar",
+            "M. Maheshwari"
+        ],
+        "accno":"CS278"
+    },
+    {
+        "title":"Software Engineering Second Edition",
+        "author":[
+            "S.Aruna",
+            "S.Paudline Beena"
+        ],
+        "accno":"CS279"
+    },
+    {
+        "title":"Digital Image Processing, Third Edition",
+        "author":[
+            "Rafael C.Gonzalez And Richard E.Woods"
+        ],
+        "accno":"CS280"
+    },
+    {
+        "title":"Advanced Computer Architecture,Third Edition",
+        "author":[
+            "K.A.Parthasarathi"
+        ],
+        "accno":"CS281"
+    },
+    {
+        "title":"Object Oriented Programing And Data Structures First Edition",
+        "author":[
+            "S.Kavitha",
+            "Bharathiashok"
+        ],
+        "accno":"CS282"
+    },
+    {
+        "title":"Database Management System",
+        "author":[
+            "Bharathiashok"
+        ],
+        "accno":"CS283"
+    },
+    {
+        "title":"Computer Programing First Edition",
+        "author":[
+            "E.Balagurusamy"
+        ],
+        "accno":"CS284"
+    },
+    {
+        "title":"Engineering Mathematics-Ii",
+        "author":[
+            "G.Balaji"
+        ],
+        "accno":"CS285"
+    },
+    {
+        "title":"Object Oriented Programing And Data Structures",
+        "author":[
+            "E.Balagurusamy"
+        ],
+        "accno":"CS286"
+    },
+    {
+        "title":"The 8088 And 8086 Microprocessors Fourth Edition",
+        "author":[
+            "Walter A.Triebel",
+            "Avtar Singh"
+        ],
+        "accno":"CS287"
+    },
+    {
+        "title":"Object Oriented Programing And Programing Second Edition",
+        "author":[
+            "Sourav Sahay"
+        ],
+        "accno":"CS288"
+    },
+    {
+        "title":"Programing Data And Structures -I",
+        "author":[
+            "P.Revathy",
+            "Dr.S.Poonkuzhali"
+        ],
+        "accno":"CS289"
+    },
+    {
+        "title":"Computer Programing First Edition",
+        "author":[
+            "E.Balagurusamy"
+        ],
+        "accno":"CS290"
+    },
+    {
+        "title":"Computer Networks Fith Edition",
+        "author":[
+            "Andrew S.Tanenbaum",
+            "David J.Wetherall"
+        ],
+        "accno":"CS291"
+    },
+    {
+        "title":"Fundamental Of Computing And Programing In C",
+        "author":[
+            "Pradip Dey",
+            "Manas Ghosh"
+        ],
+        "accno":"CS292"
+    },
+    {
+        "title":"Computer Programing First Edition",
+        "author":[
+            "Dr.P.Kannan",
+            "Dr.J.Bhuvana"
+        ],
+        "accno":"CS293"
+    },
+    {
+        "title":"Advanced Computer Architecture,Second  Edition",
+        "author":[
+            "K.Senthilnathan",
+            "K.Mhalakshmi"
+        ],
+        "accno":"CS294"
+    },
+    {
+        "title":"Cloud Infrastructure And Services",
+        "author":[
+            "Emc2"
+        ],
+        "accno":"CS295"
+    },
+    {
+        "title":"Analog And Digital Communication",
+        "author":[
+            "G.Elumalai",
+            "S.Velmurugan",
+            "L.Manoharan"
+        ],
+        "accno":"CS296"
+    },
+    {
+        "title":"Theory Of Computation",
+        "author":[
+            "Drv.D.Ambeth Kumar",
+            "V.D Ashok Kumar"
+        ],
+        "accno":"CS297"
+    },
+    {
+        "title":"Environmental Science And Engineering Thired Editon",
+        "author":[
+            "Anubah Kaushik.C.P.Kaushik"
+        ],
+        "accno":"CS298"
+    },
+    {
+        "title":"Computer Graphics",
+        "author":[
+            "Dr.V.Seenivasagam",
+            "K.Ajeetha  P.Prittopaul"
+        ],
+        "accno":"CS299"
+    },
+    {
+        "title":"Programing Paradigms",
+        "author":[
+            "V.Vimala",
+            "S.Sunil Kumar",
+            "P.S.Smitha"
+        ],
+        "accno":"CS300"
+    },
+    {
+        "title":"Object Oriented Analysis & Design",
+        "author":[
+            "A.A.Puntambekar"
+        ],
+        "accno":"CS301"
+    },
+    {
+        "title":"Principles Of Compiler Design",
+        "author":[
+            "S.Balakrishnan",
+            "J.P.Ananth"
+        ],
+        "accno":"CS302"
+    },
+    {
+        "title":"Data Communications And Networking",
+        "author":[
+            "D.P.Nagpal"
+        ],
+        "accno":"CS303"
+    },
+    {
+        "title":"Advanched Computer Architecture",
+        "author":[
+            "Er.Rajiv Chopra"
+        ],
+        "accno":"CS304"
+    },
+    {
+        "title":"Introduction To Environmental Science & Engineering",
+        "author":[
+            "Raman Sivakumar"
+        ],
+        "accno":"CS305"
+    },
+    {
+        "title":"Environmental Science And Engineering",
+        "author":[
+            "Dr.Ravikant Pagnis"
+        ],
+        "accno":"CS306"
+    },
+    {
+        "title":"Mobile And Pervasive Computing",
+        "author":[
+            "Dr.H.Ranganathan",
+            "G.Malathi"
+        ],
+        "accno":"CS307"
+    },
+    {
+        "title":"Software Engineering",
+        "author":[
+            "Dr.V.Seenivasagam",
+            "V.Vimala",
+            "J.Saranya"
+        ],
+        "accno":"CS308"
+    },
+    {
+        "title":"Artificial Intelligence",
+        "author":[
+            "Anamitra Deshmukh-Nimbalkar"
+        ],
+        "accno":"CS309"
+    },
+    {
+        "title":"System Software",
+        "author":[
+            "D.Thenmozhi",
+            "V.Deepalakshmi"
+        ],
+        "accno":"CS310"
+    },
+    {
+        "title":"Principles Of Compiler Design",
+        "author":null,
+        "accno":"CS311"
+    },
+    {
+        "title":"Environmental Science & Engineering",
+        "author":[
+            "Dr.A.Ravikrishnan"
+        ],
+        "accno":"CS312"
+    },
+    {
+        "title":"Computer Organisation And Architecture",
+        "author":[
+            "J.S.Leena Jasmine"
+        ],
+        "accno":"CS313"
+    },
+    {
+        "title":"Microprocessors And Microcontrollers",
+        "author":[
+            "D.Venkata Vara Prasad",
+            "K.R.Sarath Chandran",
+            "J.S.Leena Jasmine"
+        ],
+        "accno":"CS314"
+    },
+    {
+        "title":"Embedded Microcontrollers And Processors Design",
+        "author":[
+            "Greg Osborn"
+        ],
+        "accno":"CS315"
+    },
+    {
+        "title":"Embedded Microcontrollers And Processors Design",
+        "author":[
+            "Greg Osborn"
+        ],
+        "accno":"CS316"
+    },
+    {
+        "title":"Fundamental Of Computing And Programing Second Edition",
+        "author":[
+            "E.Balagurusamy"
+        ],
+        "accno":"CS317"
+    },
+    {
+        "title":"Data Structures And Algorithms",
+        "author":[
+            "S.Kavitha",
+            "Bharathiashok"
+        ],
+        "accno":"CS318"
+    },
+    {
+        "title":"Data Structures And Oops In C++ New Edition",
+        "author":[
+            "S.Kavitha",
+            "Bharathiashok"
+        ],
+        "accno":"CS319"
+    },
+    {
+        "title":"Design And Analysis Of Algorithms",
+        "author":[
+            "S.Kavitha",
+            "V.Balasubramanian"
+        ],
+        "accno":"CS320"
+    },
+    {
+        "title":"Database Management Systems",
+        "author":[
+            "Bharathi Ashok"
+        ],
+        "accno":"CS321"
+    },
+    {
+        "title":"Artificial Intelligence",
+        "author":[
+            "S.Kavitha",
+            "V.Balasubramanian"
+        ],
+        "accno":"CS322"
+    },
+    {
+        "title":"Advanced Computer Architecture",
+        "author":[
+            "G.Elangovan"
+        ],
+        "accno":"CS323"
+    },
+    {
+        "title":"Advanced Computer Architecture",
+        "author":[
+            "K.A.Parthasarathy"
+        ],
+        "accno":"CS324"
+    },
+    {
+        "title":"Pervasive Computing",
+        "author":[
+            "Jochen Burkhardt",
+            "Horst Henn",
+            "Stefan Hepper",
+            "Klaus Rindtorff",
+            "Thomas Schaeck"
+        ],
+        "accno":"CS325"
+    },
+    {
+        "title":"Programing In C",
+        "author":[
+            "R.Subburaj"
+        ],
+        "accno":"CS326"
+    },
+    {
+        "title":"Object-Oriented Programing",
+        "author":[
+            "Rohit Khurana"
+        ],
+        "accno":"CS327"
+    },
+    {
+        "title":"Object Oriented Analysis And Design",
+        "author":[
+            "V.Vimala"
+        ],
+        "accno":"CS328"
+    },
+    {
+        "title":"Object-Oriented Programing With C++",
+        "author":[
+            "R.Subburaj"
+        ],
+        "accno":"CS329"
+    },
+    {
+        "title":"Operating Systems",
+        "author":[
+            "V.Sridhar"
+        ],
+        "accno":"CS330"
+    },
+    {
+        "title":"Programing And Data Structures I",
+        "author":[
+            "R.Punithavathy",
+            "S.Sakthi",
+            "P.Vasanthkumari"
+        ],
+        "accno":"CS331"
+    },
+    {
+        "title":"Advanced Computer Architecture",
+        "author":[
+            "K.A.Parthasarathy"
+        ],
+        "accno":"CS332"
+    },
+    {
+        "title":"Programing And Data Structures I",
+        "author":[
+            "R.Punithavathy",
+            "S.Sakthi",
+            "P.Vasanthkumari"
+        ],
+        "accno":"CS333"
+    },
+    {
+        "title":"Advanced Computer Architecture",
+        "author":[
+            "K.A.Parthasarathy"
+        ],
+        "accno":"CS334"
+    },
+    {
+        "title":"Computer Programing Laboratory-Ii",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Munirathnam"
+        ],
+        "accno":"CS335"
+    },
+    {
+        "title":"Programing And Data Structures I",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Munirathnam"
+        ],
+        "accno":"CS336"
+    },
+    {
+        "title":"Computer Practice Laboratory-Ii",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Munirathnam"
+        ],
+        "accno":"CS337"
+    },
+    {
+        "title":"Operating Systems",
+        "author":[
+            "Bharathi Ashok"
+        ],
+        "accno":"CS338"
+    },
+    {
+        "title":"Operating Systems",
+        "author":[
+            "V.Sridhar"
+        ],
+        "accno":"CS339"
+    },
+    {
+        "title":"Computer Architecture And Organization",
+        "author":[
+            "J.S.Leena Jasmine",
+            "S.Lakshmi Kantham"
+        ],
+        "accno":"CS340"
+    },
+    {
+        "title":"Operating System Second Edition",
+        "author":[
+            "Rohit Khurana"
+        ],
+        "accno":"CS341"
+    },
+    {
+        "title":"Principles Of  Operating Systems",
+        "author":[
+            "Naresh Chauhan"
+        ],
+        "accno":"CS342"
+    },
+    {
+        "title":"Data Structures Using C",
+        "author":[
+            "Reema Thareja"
+        ],
+        "accno":"CS343"
+    },
+    {
+        "title":"Web Technologies",
+        "author":[
+            "Uttam K.Roy"
+        ],
+        "accno":"CS344"
+    },
+    {
+        "title":"Fundamentals Of Database Management Systems",
+        "author":[
+            "Alexis Leon",
+            "Mathews Leon"
+        ],
+        "accno":"CS345"
+    },
+    {
+        "title":"High Speed Networks And Internets",
+        "author":[
+            "William Stallings"
+        ],
+        "accno":"CS346"
+    },
+    {
+        "title":"Object-Oriented Programing",
+        "author":[
+            "Rohit Khurana"
+        ],
+        "accno":"CS347"
+    },
+    {
+        "title":"Software Engineering",
+        "author":[
+            "Rohit Khurana"
+        ],
+        "accno":"CS348"
+    },
+    {
+        "title":"Data Structures",
+        "author":[
+            "S.Kavitha",
+            "Bharathiashok"
+        ],
+        "accno":"CS349"
+    },
+    {
+        "title":"Theory Of Computation",
+        "author":[
+            "S.Kavitha",
+            "V.Balasubramanian"
+        ],
+        "accno":"CS350"
+    },
+    {
+        "title":"Fundamentals Of Computing And Programming",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Munirathnam"
+        ],
+        "accno":"CS351"
+    },
+    {
+        "title":"Quantitative Aptitude",
+        "author":[
+            "Dr.R.S.Aggarwal"
+        ],
+        "accno":"CS352"
+    },
+    {
+        "title":"Computer Practice Laboratory-Ii",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Munirathnam"
+        ],
+        "accno":"CS353"
+    },
+    {
+        "title":"Computer Practice Laboratory-I",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Munirathnam"
+        ],
+        "accno":"CS354"
+    },
+    {
+        "title":"Fundamentals Of Computing And Programming",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Munirathnam"
+        ],
+        "accno":"CS355"
+    },
+    {
+        "title":"Principles And Practices Of Information Security",
+        "author":[
+            "Michael E.Whitman",
+            "Herbert J.Mattord"
+        ],
+        "accno":"CS356"
+    },
+    {
+        "title":"Computer Science A Structured Programming\nApproach Using In C",
+        "author":[
+            "Behrouz A",
+            "Forouzan",
+            "Richard F",
+            "Gilberg",
+            "B.G.Geetha",
+            "G.Singarvel"
+        ],
+        "accno":"CS357"
+    },
+    {
+        "title":"Environmental Studies",
+        "author":[
+            "Dr.B.S.Chauhan"
+        ],
+        "accno":"CS358"
+    },
+    {
+        "title":"Computer Science A Structured Programming\nApproach Using In C",
+        "author":[
+            "Behrouz A",
+            "Forouzan",
+            "Richard F",
+            "Gilberg"
+        ],
+        "accno":"CS359"
+    },
+    {
+        "title":"Computer Networks",
+        "author":[
+            "D.Kokila",
+            "R.Rega",
+            "Beulash Sam"
+        ],
+        "accno":"CS360"
+    },
+    {
+        "title":"Object Oriented Programing",
+        "author":[
+            "Bharathi Ashok"
+        ],
+        "accno":"CS361"
+    },
+    {
+        "title":"Computer Practice Laboratory-Ii",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Munirathnam"
+        ],
+        "accno":"CS362"
+    },
+    {
+        "title":"Computer Practices Laboratory",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Munirathnam"
+        ],
+        "accno":"CS363"
+    },
+    {
+        "title":"Computer Programing",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Munirathnam"
+        ],
+        "accno":"CS364"
+    },
+    {
+        "title":"Computer Practices Laboratory",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Munirathnam"
+        ],
+        "accno":"CS365"
+    },
+    {
+        "title":"Computer Practices Laboratory",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Munirathnam"
+        ],
+        "accno":"CS366"
+    },
+    {
+        "title":"Fundamentals Of Computing And Programming",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Munirathnam"
+        ],
+        "accno":"CS367"
+    },
+    {
+        "title":"Fundamentals Of Computing And Programming",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Munirathnam"
+        ],
+        "accno":"CS368"
+    },
+    {
+        "title":"Computer Practice Laboratory-Ii",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Munirathnam"
+        ],
+        "accno":"CS369"
+    },
+    {
+        "title":"Computer Practice Laboratory-I",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Munirathnam"
+        ],
+        "accno":"CS370"
+    },
+    {
+        "title":"Data Structures And Object-Oriented Programming With C++",
+        "author":[
+            "Rohit Khurana"
+        ],
+        "accno":"CS371"
+    },
+    {
+        "title":"Object-Oriented Programming",
+        "author":[
+            "Rohit Khurana"
+        ],
+        "accno":"CS372"
+    },
+    {
+        "title":"System Software",
+        "author":[
+            "A.C.Shalini"
+        ],
+        "accno":"CS373"
+    },
+    {
+        "title":"Digital Signal Processing",
+        "author":[
+            "C.Ramesh Babu Durai"
+        ],
+        "accno":"CS374"
+    },
+    {
+        "title":"Fundamentals Of Computing And Programming",
+        "author":[
+            "J.B.Dixit"
+        ],
+        "accno":"CS375"
+    },
+    {
+        "title":"Analog And Digital Communication",
+        "author":[
+            "Mr.S.Prabu"
+        ],
+        "accno":"CS376"
+    },
+    {
+        "title":"Computer Practice",
+        "author":[
+            "T.Jeyapoovan"
+        ],
+        "accno":"CS377"
+    },
+    {
+        "title":"Microprocessors And Microcontrollers",
+        "author":[
+            "P.S.Manoharan"
+        ],
+        "accno":"CS378"
+    },
+    {
+        "title":"Data Structures And Algorithms Using C",
+        "author":[
+            "Amitava Nag",
+            "Jyoti Prakash Singh"
+        ],
+        "accno":"CS379"
+    },
+    {
+        "title":"Graphics And Multimedia",
+        "author":[
+            "Rosaline Godson",
+            "Lakshminarayanan",
+            "L.Jebasheela"
+        ],
+        "accno":"CS380"
+    },
+    {
+        "title":"Core Java",
+        "author":[
+            "Rashmi Kanta Das"
+        ],
+        "accno":"CS381"
+    },
+    {
+        "title":"Algorithms Design And Analysis",
+        "author":[
+            "Udit Agarwal"
+        ],
+        "accno":"CS382"
+    },
+    {
+        "title":"Compiler Construction",
+        "author":[
+            "Manish Kumar Jha"
+        ],
+        "accno":"CS383"
+    },
+    {
+        "title":"Fundamentals Of Computing And Computer Programming",
+        "author":[
+            "P.Ramasubramanian",
+            "M.Ramakrishnan"
+        ],
+        "accno":"CS384"
+    },
+    {
+        "title":"Essential Managers Manual",
+        "author":[
+            "Robert Heller &Tim Hindle"
+        ],
+        "accno":"CS385"
+    },
+    {
+        "title":"Programming&Data Structures Ii",
+        "author":[
+            "A.A.Puntambekar"
+        ],
+        "accno":"CS386"
+    },
+    {
+        "title":"Theoretical Foundations Of Computer Science",
+        "author":[
+            "J.Sakthivel"
+        ],
+        "accno":"CS387"
+    },
+    {
+        "title":"Technical English-1",
+        "author":[
+            "Prof.N.Lakshmana Perumal"
+        ],
+        "accno":"CS388"
+    },
+    {
+        "title":"Advanched Databases",
+        "author":[
+            "Dr.K.Dinakaran",
+            "P.Suresh",
+            "R.H.Aswathy"
+        ],
+        "accno":"CS389"
+    },
+    {
+        "title":"Computer Practices Laboratory",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Muni Rathinam"
+        ],
+        "accno":"CS390"
+    },
+    {
+        "title":"Computer Networks",
+        "author":[
+            "Dr.N.Jayaprakash"
+        ],
+        "accno":"CS391"
+    },
+    {
+        "title":"Computer Programing",
+        "author":[
+            "Dr.A.Kannan"
+        ],
+        "accno":"CS392"
+    },
+    {
+        "title":"Computer Programming",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Muni Rathinam"
+        ],
+        "accno":"CS393"
+    },
+    {
+        "title":"Computer Programming",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Muni Rathinam"
+        ],
+        "accno":"CS394"
+    },
+    {
+        "title":"Professional Ethics",
+        "author":[
+            "R.Subramanian"
+        ],
+        "accno":"CS395"
+    },
+    {
+        "title":"Internet Programming",
+        "author":[
+            "Dr.S.Padmapriya"
+        ],
+        "accno":"CS396"
+    },
+    {
+        "title":"Database Management Systems",
+        "author":[
+            "Bharathi Ashok"
+        ],
+        "accno":"CS397"
+    },
+    {
+        "title":"Computer Architecture",
+        "author":[
+            "J.S.Leena Jasmine",
+            "S.Lakshmi Kantham"
+        ],
+        "accno":"CS398"
+    },
+    {
+        "title":"Programming&Data Structures Ii",
+        "author":[
+            "S.Kavitha",
+            "Bharathiashok"
+        ],
+        "accno":"CS399"
+    },
+    {
+        "title":"Object Oriented Programming And Data Structures",
+        "author":[
+            "S.Kavitha",
+            "Bharathiashok"
+        ],
+        "accno":"CS400"
+    },
+    {
+        "title":"Object Oriented Analysis And Design",
+        "author":[
+            "V.R.Kavitha"
+        ],
+        "accno":"CS401"
+    },
+    {
+        "title":"Digital Principles And System Design",
+        "author":[
+            "P.Raja"
+        ],
+        "accno":"CS402"
+    },
+    {
+        "title":"Design And Analysisof Algorithms",
+        "author":[
+            "Dr.V.D.Ambeth Kumar",
+            "Dr.C.R.R.Rene Robin",
+            "V.D.Ashk Kumar"
+        ],
+        "accno":"CS403"
+    },
+    {
+        "title":"Technical English-Ii",
+        "author":[
+            "Prof.N.Lakshmana Perumal"
+        ],
+        "accno":"CS404"
+    },
+    {
+        "title":"The Unified Modeling  Language User Guide",
+        "author":[
+            "Booch",
+            "Rumbaugh",
+            "Jacobson"
+        ],
+        "accno":"CS405"
+    },
+    {
+        "title":"Database Management Systems",
+        "author":[
+            "S",
+            "Balakrishnan"
+        ],
+        "accno":"CS406"
+    },
+    {
+        "title":"Computer Networks",
+        "author":[
+            "S.Umamaheshwari"
+        ],
+        "accno":"CS407"
+    },
+    {
+        "title":"Programming&Data Structures Ii",
+        "author":[
+            "S.Balakrishnan"
+        ],
+        "accno":"CS408"
+    },
+    {
+        "title":"Programming&Data Structures Ii",
+        "author":[
+            "E.Balagurusamy"
+        ],
+        "accno":"CS409"
+    },
+    {
+        "title":"Artificial Intelligence",
+        "author":[
+            "Neeta Deshpande",
+            "Nanda Yadav"
+        ],
+        "accno":"CS410"
+    },
+    {
+        "title":"Fundamentals Of Logic Design",
+        "author":[
+            "Charles H.Roth",
+            "Jr"
+        ],
+        "accno":"CS411"
+    },
+    {
+        "title":"Programming Paradigms",
+        "author":[
+            "V.Vimala",
+            "Sunil Kumar",
+            "P.S Smitha"
+        ],
+        "accno":"CS412"
+    },
+    {
+        "title":"Microprocessors And Microcontrollers",
+        "author":[
+            "Muhammad Ali Mazidi",
+            "Janice Gillispie Mazidi",
+            "Rolin D.Mckinlay",
+            "Lyla B.Das"
+        ],
+        "accno":"CS413"
+    },
+    {
+        "title":"Computer Practices Laboratory-Ii",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Muni Rathinam"
+        ],
+        "accno":"CS414"
+    },
+    {
+        "title":"Computer Practices Laboratory-I",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Muni Rathinam"
+        ],
+        "accno":"CS415"
+    },
+    {
+        "title":"Computer Practices Laboratory-I",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Muni Rathinam"
+        ],
+        "accno":"CS416"
+    },
+    {
+        "title":"Java Programming,Programming Paradigms",
+        "author":[
+            "K.Ezhilarasi",
+            "D.Anuradha"
+        ],
+        "accno":"CS417"
+    },
+    {
+        "title":"System Software(An Introduction To Systems Programing)",
+        "author":[
+            "Leland L.Beck",
+            "D.Manjula"
+        ],
+        "accno":"CS418"
+    },
+    {
+        "title":"Theory Of Computation",
+        "author":[
+            "K.Krishnakumari"
+        ],
+        "accno":"CS419"
+    },
+    {
+        "title":"Data Communications And Networking",
+        "author":[
+            "Behrouz A Forouzan"
+        ],
+        "accno":"CS420"
+    },
+    {
+        "title":"Software Engineering",
+        "author":[
+            "A.A.Puntambekar"
+        ],
+        "accno":"CS421"
+    },
+    {
+        "title":"Computer Programming With C An Integrated Approach",
+        "author":[
+            "R.Ravichandran",
+            "T.Jeyapoovan"
+        ],
+        "accno":"CS422"
+    },
+    {
+        "title":"Object Oriented Analysis And Design",
+        "author":[
+            "B.Thenkalvi"
+        ],
+        "accno":"CS423"
+    },
+    {
+        "title":"Database Management Systems",
+        "author":[
+            "B.Gunasundari"
+        ],
+        "accno":"CS424"
+    },
+    {
+        "title":"Computer Programming",
+        "author":[
+            "E.Balagurusamy"
+        ],
+        "accno":"CS425"
+    },
+    {
+        "title":"Computer Architecture",
+        "author":[
+            "S.Kanimozhi"
+        ],
+        "accno":"CS426"
+    },
+    {
+        "title":"Computer Programming",
+        "author":[
+            "E.Balagurusamy"
+        ],
+        "accno":"CS427"
+    },
+    {
+        "title":"Computer Programming",
+        "author":[
+            "E.Balagurusamy"
+        ],
+        "accno":"CS428"
+    },
+    {
+        "title":"Digital Signal Processing",
+        "author":[
+            "L.Gopinath",
+            "S.Kanimozhi"
+        ],
+        "accno":"CS429"
+    },
+    {
+        "title":"Computer Architecture",
+        "author":[
+            "Dr.M.Venkatesan Dr.P.Meenakshi Devi"
+        ],
+        "accno":"CS430"
+    },
+    {
+        "title":"Computer Programming",
+        "author":[
+            "E.Balagurusamy"
+        ],
+        "accno":"CS431"
+    },
+    {
+        "title":"Computer Graphics",
+        "author":[
+            "S.Sharanya"
+        ],
+        "accno":"CS432"
+    },
+    {
+        "title":"Computer Networks",
+        "author":[
+            "K.Muralibabu",
+            "L.Agilandeeswari"
+        ],
+        "accno":"CS433"
+    },
+    {
+        "title":"Total Quality Management",
+        "author":[
+            "Dr.V.Jayakumar Dr.R.Raju"
+        ],
+        "accno":"CS434"
+    },
+    {
+        "title":"Crytography And Security",
+        "author":[
+            "J.Sathya Priya"
+        ],
+        "accno":"CS435"
+    },
+    {
+        "title":"Fundamentals Of Computing And Programming",
+        "author":[
+            "Pradip Dey",
+            "Manas Ghosh"
+        ],
+        "accno":"CS436"
+    },
+    {
+        "title":"Internet Programming",
+        "author":[
+            "Dr.S.Padmapriya"
+        ],
+        "accno":"CS437"
+    },
+    {
+        "title":"Technical English Ii",
+        "author":[
+            "Prof.N.Lakshmana Perumal"
+        ],
+        "accno":"CS438"
+    },
+    {
+        "title":"Csi Jouranal Computing",
+        "author":[
+            "Sanjit A.Seshia"
+        ],
+        "accno":"CS439"
+    },
+    {
+        "title":"Digital Principles And System Design",
+        "author":[
+            "P.Raja"
+        ],
+        "accno":"CS440"
+    },
+    {
+        "title":"Advanced Databases",
+        "author":[
+            "Dr.K.Dinakaran",
+            "P.Suresh",
+            "R.H.Aswathy"
+        ],
+        "accno":"CS441"
+    },
+    {
+        "title":"Flexible Ac Transmission Systems(Facts)",
+        "author":[
+            "C.Ravichandran",
+            "T.A.Raghavendiran",
+            "L.Premalatha"
+        ],
+        "accno":"CS442"
+    },
+    {
+        "title":"Programming And Data Structures-I",
+        "author":[
+            "S.Saranya"
+        ],
+        "accno":"CS443"
+    },
+    {
+        "title":"Programming And Data Structures-I",
+        "author":[
+            "S.Saranya"
+        ],
+        "accno":"CS444"
+    },
+    {
+        "title":"Mobile  Computing",
+        "author":[
+            "Dr.H.Ranganathan",
+            "G.Malathi"
+        ],
+        "accno":"CS445"
+    },
+    {
+        "title":"Software Project Management",
+        "author":[
+            "I.Sakthidevi",
+            "V.Balakumar"
+        ],
+        "accno":"CS446"
+    },
+    {
+        "title":"Professional Ethics In Engineering",
+        "author":[
+            "Dr V.Jayakumar"
+        ],
+        "accno":"CS447"
+    },
+    {
+        "title":"Computer Progeamming Laboratory-Ii",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Muni Rathanam"
+        ],
+        "accno":"CS448"
+    },
+    {
+        "title":"Programming And Data Sruuctures-I",
+        "author":[
+            "V.Ramesh Babu",
+            "R.Samyuktha",
+            "M.Muni Rathanam"
+        ],
+        "accno":"CS449"
+    },
+    {
+        "title":"Technical English Ii",
+        "author":[
+            "Prof.N.Lakshmana Perumal"
+        ],
+        "accno":"CS450"
+    },
+    {
+        "title":"Software Engineering",
+        "author":[
+            "N.K.Prema"
+        ],
+        "accno":"CS451"
+    },
+    {
+        "title":"C# And .Net Programming",
+        "author":[
+            "N.Rajganesh"
+        ],
+        "accno":"CS452"
+    },
+    {
+        "title":"Programming And Data Sruuctures-I",
+        "author":[
+            "Dr N.Jayaprakash"
+        ],
+        "accno":"CS453"
+    },
+    {
+        "title":"Principles Of Compiler Design",
+        "author":[
+            "Dr.Bharathi Ashok",
+            "D.Thenmozhi"
+        ],
+        "accno":"CS454"
+    },
+    {
+        "title":"Design And Analysis Of Algorithams",
+        "author":[
+            "S.Kavitha",
+            "V.Balasubramanian"
+        ],
+        "accno":"CS455"
+    },
+    {
+        "title":"Digital Signal Processing",
+        "author":[
+            "L.Gopinath",
+            "S.Kanimozhi"
+        ],
+        "accno":"CS456"
+    },
+    {
+        "title":"Data Warehousing And Data Mining",
+        "author":[
+            "R.Ruhin Kouser",
+            "B.Gunasundari"
+        ],
+        "accno":"CS457"
+    },
+    {
+        "title":"Fundamentals Of Computing And Programming",
+        "author":[
+            "Pradip Dey",
+            "Manas Ghosh"
+        ],
+        "accno":"CS458"
+    },
+    {
+        "title":"Software Engineeing",
+        "author":[
+            "J.Daphney Joann"
+        ],
+        "accno":"CS459"
+    },
+    {
+        "title":"Journal Chiron",
+        "author":null,
+        "accno":"CS460"
+    },
+    {
+        "title":"Programming And Data Sruuctures-Ii",
+        "author":[
+            "S.Kavitha",
+            "Bharathiashok"
+        ],
+        "accno":"CS461"
+    },
+    {
+        "title":"Theoretical Foundations Of Computer Science",
+        "author":[
+            "J.Sakthivel"
+        ],
+        "accno":"CS462"
+    },
+    {
+        "title":"Computer Networks",
+        "author":[
+            "Dr N.Jayaprakash"
+        ],
+        "accno":"CS463"
+    },
+    {
+        "title":"Ennalum Engal Nenchil",
+        "author":[
+            "Honarble A.B.J.Abdul Lalam"
+        ],
+        "accno":"CS464"
+    },
+    {
+        "title":"Analog And Digital Communication",
+        "author":[
+            "K.Muralibabu",
+            "L.Agilandeeswari"
+        ],
+        "accno":"CS465"
+    },
+    {
+        "title":"Distributed  Systems",
+        "author":[
+            "Dr.S.Padmapriya"
+        ],
+        "accno":"CS466"
+    },
+    {
+        "title":"Computer Programming",
+        "author":[
+            "S.Sharanya"
+        ],
+        "accno":"CS467"
+    },
+    {
+        "title":"Digital Image Processing",
+        "author":[
+            "L.Gopinath"
+        ],
+        "accno":"CS468"
+    },
+    {
+        "title":"Object Oriented Analysis And Design",
+        "author":[
+            "B.Thenkalvi"
+        ],
+        "accno":"CS469"
+    },
+    {
+        "title":"Internet Programming",
+        "author":[
+            "R.Ruhin Kouser"
+        ],
+        "accno":"CS470"
+    },
+    {
+        "title":"Pervasive Computing",
+        "author":[
+            "Jochen Burkhardt",
+            "Horst Henn",
+            "Stefan Hepper",
+            "Klaus Rindtorff",
+            "Thomas Schaeck"
+        ],
+        "accno":"CS471"
+    },
+    {
+        "title":"Programming And Data Structures-Ii",
+        "author":[
+            "K.Ezhilarasi",
+            "D.Anuradha"
+        ],
+        "accno":"CS472"
+    },
+    {
+        "title":"Embedded And Real Time Systems",
+        "author":[
+            "Lgopinath",
+            "S.Kanimozhi"
+        ],
+        "accno":"CS473"
+    },
+    {
+        "title":"Computer Graphics",
+        "author":[
+            "P.S.Smitha.Prittopaul",
+            "S.L.Jayalakshmi"
+        ],
+        "accno":"CS474"
+    },
+    {
+        "title":"Computer Networks",
+        "author":[
+            "K.Muralibabu",
+            "L.Agilandeeswari"
+        ],
+        "accno":"CS475"
+    },
+    {
+        "title":"Software Testing",
+        "author":[
+            "R.Ruhin Kouser",
+            "B.Gunasundari"
+        ],
+        "accno":"CS476"
+    },
+    {
+        "title":"Computer Graphics",
+        "author":[
+            "S.Sharanya"
+        ],
+        "accno":"CS477"
+    },
+    {
+        "title":"Programming And Data Structures-Ii",
+        "author":[
+            "S.Sharanya"
+        ],
+        "accno":"CS478"
+    },
+    {
+        "title":"Problem Solving And Python Programming Laboratory Manual",
+        "author":[
+            "Dr.S.Malathi",
+            "Dr.M.Helda Mercy",
+            "Dr.G.Geetha",
+            "Mr.M.Dilli Babu"
+        ],
+        "accno":"CS479"
+    },
+    {
+        "title":"Problem Solving And Python Programming",
+        "author":[
+            "S.A.Kulkarni"
+        ],
+        "accno":"CS480"
+    },
+    {
+        "title":"Theory Of Computation",
+        "author":[
+            "Vivek Kulkarni"
+        ],
+        "accno":"CS481"
+    },
+    {
+        "title":"Software Engineering Concepts And Applications",
+        "author":[
+            "Subhajit Datta"
+        ],
+        "accno":"CS482"
+    },
+    {
+        "title":"Problem Solving And Python Programming",
+        "author":[
+            "Dr.S.Malathi",
+            "Dr.M.Helda Mercy",
+            "Dr.G.Geetha",
+            "Mr.M.Dilli Babu"
+        ],
+        "accno":"CS483"
+    },
+    {
+        "title":"Programming & Data Structures Ii",
+        "author":[
+            "Dr.M.Venkatesan Dr.P.Meenakshi Devi"
+        ],
+        "accno":"CS484"
+    },
+    {
+        "title":"Problem Solving And  Programming Using Python",
+        "author":[
+            "R.Ravichandran",
+            "R.Saravanan"
+        ],
+        "accno":"CS485"
+    },
+    {
+        "title":"Analog And Digital Communication",
+        "author":[
+            "B.S.Sathish Kumar",
+            "P.Arul"
+        ],
+        "accno":"CS486"
+    },
+    {
+        "title":"Computer Graphics",
+        "author":[
+            "M.Selvakumar"
+        ],
+        "accno":"CS487"
+    },
+    {
+        "title":"Service Orinted Architecture",
+        "author":[
+            "Dr.G.Pradeep",
+            "J.Santhiya"
+        ],
+        "accno":"CS488"
+    },
+    {
+        "title":"Computer Networks",
+        "author":[
+            "M.Ananda Kumar"
+        ],
+        "accno":"CS489"
+    },
+    {
+        "title":"Computer Architecture",
+        "author":[
+            "Dr.M.Venkatesan Dr.P.Meenakshi Devi"
+        ],
+        "accno":"CS490"
+    },
+    {
+        "title":"Crytography And Security",
+        "author":[
+            "R.Sudha"
+        ],
+        "accno":"CS491"
+    },
+    {
+        "title":"Object Oriented Analysis And Design",
+        "author":[
+            "P.Krishna Sankar",
+            "N.P.Shangarnaranee"
+        ],
+        "accno":"CS492"
+    },
+    {
+        "title":"Data  Warehousing And Data Minig",
+        "author":[
+            "N.Selvarani"
+        ],
+        "accno":"CS493"
+    },
+    {
+        "title":"Digital Signal Processing",
+        "author":[
+            "B.S.Sathish Kumar",
+            "T.Karthikeyan"
+        ],
+        "accno":"CS494"
+    },
+    {
+        "title":"Compiler Design",
+        "author":[
+            "K.Krishnakumari"
+        ],
+        "accno":"CS495"
+    },
+    {
+        "title":"Multi-Core Architectures And Programminig",
+        "author":[
+            "P.Krishna Sankar",
+            "N.P.Shangarnaranee"
+        ],
+        "accno":"CS496"
+    },
+    {
+        "title":"Software Project Management",
+        "author":[
+            "A.Vivekanandhan",
+            "R.Sudha",
+            "P.Sirenjeevi"
+        ],
+        "accno":"CS497"
+    },
+    {
+        "title":"Cyber Forensics",
+        "author":[
+            "K.Aruna",
+            "V.Padmavathi"
+        ],
+        "accno":"CS498"
+    },
+    {
+        "title":"Software Engineering",
+        "author":[
+            "M.S.Vinayagamoorthi",
+            "R.Sudha"
+        ],
+        "accno":"CS499"
+    },
+    {
+        "title":"Knowledge Management",
+        "author":[
+            "P.Krishna Sankar",
+            "P.Nithyanantham"
+        ],
+        "accno":"CS500"
+    },
+    {
+        "title":"Professional Ethics In Engineering",
+        "author":[
+            "Dr.C.Senthil Kumar"
+        ],
+        "accno":"CS501"
+    },
+    {
+        "title":"Mobile  Computing",
+        "author":[
+            "H.Prabavathi"
+        ],
+        "accno":"CS502"
+    },
+    {
+        "title":"Total Quality Management",
+        "author":[
+            "Dr.M.S.Gayathri"
+        ],
+        "accno":"CS503"
+    },
+    {
+        "title":"Computer Networks",
+        "author":[
+            "M.Ananda Kumar"
+        ],
+        "accno":"CS504"
+    },
+    {
+        "title":"Artificial Intelligence",
+        "author":[
+            "Dr.B.Kalaavathi.P.Krishna Sankar",
+            "N.P.Shangarnaranee"
+        ],
+        "accno":"CS505"
+    },
+    {
+        "title":"Social Netwoeks Analysis",
+        "author":[
+            "P.Krishna Sankar",
+            "N.P.Shangarnaranee"
+        ],
+        "accno":"CS506"
+    },
+    {
+        "title":"Principles Of Compiler Design",
+        "author":[
+            "Dr.Bharathi Ashok",
+            "D.Thenmozhi"
+        ],
+        "accno":"CS507"
+    },
+    {
+        "title":"Distributed Systems",
+        "author":[
+            "Dr.P.Meenakshdevi",
+            "M.Dhurgadavi"
+        ],
+        "accno":"CS508"
+    },
+    {
+        "title":"Software Project Management",
+        "author":[
+            "J.Sathya Priya"
+        ],
+        "accno":"CS509"
+    },
+    {
+        "title":"Design And Analysis Of Algorithms",
+        "author":[
+            "S.Kavitha",
+            "V.Balasubramanian"
+        ],
+        "accno":"CS510"
+    },
+    {
+        "title":"Mobile  Computing",
+        "author":[
+            "Dr.H.Ranganathan",
+            "G.Malathi"
+        ],
+        "accno":"CS511"
+    },
+    {
+        "title":"Artificial Intelligence",
+        "author":[
+            "S.Kavitha",
+            "V.Balasubramanian"
+        ],
+        "accno":"CS512"
+    },
+    {
+        "title":"Software Engineering",
+        "author":[
+            "V.R.Kavitha"
+        ],
+        "accno":"CS513"
+    },
+    {
+        "title":"Distributed Systems",
+        "author":[
+            "Dr.S.Padmapriya"
+        ],
+        "accno":"CS514"
+    },
+    {
+        "title":"Data Warehousing And Data Mining",
+        "author":[
+            "N.Selvarani"
+        ],
+        "accno":"CS515"
+    },
+    {
+        "title":"Soft Computing",
+        "author":[
+            "Anitha Devi.N"
+        ],
+        "accno":"CS516"
+    },
+    {
+        "title":"Programming In C",
+        "author":[
+            "Reema Thareja"
+        ],
+        "accno":"CS517"
+    },
+    {
+        "title":"Microprocessors And Microcontrollers",
+        "author":[
+            "Ars Publication"
+        ],
+        "accno":"CS518"
+    },
+    {
+        "title":"Human Computer Interaction",
+        "author":[
+            "P.Krishna Sankar",
+            "N.P.Shangarnaranee"
+        ],
+        "accno":"CS519"
+    },
+    {
+        "title":"Operating System",
+        "author":[
+            "Dr.R.C.Suganthe",
+            "Pcd.Kalaivani"
+        ],
+        "accno":"CS520"
+    },
+    {
+        "title":"Programming  In C",
+        "author":[
+            "Reema Thareja"
+        ],
+        "accno":"CS521"
+    },
+    {
+        "title":"Programming  In C",
+        "author":[
+            "Reema Thareja"
+        ],
+        "accno":"CS522"
+    },
+    {
+        "title":"Computer Network",
+        "author":[
+            "K.Muralibabu",
+            "L.Agilandeeswari"
+        ],
+        "accno":"CS523"
+    },
+    {
+        "title":"Software Testing",
+        "author":[
+            "R.Ruhin Kouser",
+            "B.Gunasundari"
+        ],
+        "accno":"CS524"
+    },
+    {
+        "title":"Programming Laboratory",
+        "author":[
+            "Dr.V.Ramesh Babu",
+            "Prof",
+            "M.Muni Rathnam"
+        ],
+        "accno":"CS525"
+    },
+    {
+        "title":"Digital Signal Processing",
+        "author":[
+            "L.Gopinath",
+            "S.Kanimozhi"
+        ],
+        "accno":"CS526"
+    },
+    {
+        "title":"Programming  In C",
+        "author":[
+            "Dr.V.Ramesh Babu",
+            "Prof",
+            "M.Muni Rathnam"
+        ],
+        "accno":"CS527"
+    },
+    {
+        "title":"Service Orinted Architecture",
+        "author":[
+            "Sakthidevi",
+            "Balakumar"
+        ],
+        "accno":"CS528"
+    },
+    {
+        "title":"Total Quality Management",
+        "author":[
+            "Dr.V.Jayakumar.Dr.R.Raju"
+        ],
+        "accno":"CS529"
+    },
+    {
+        "title":"Technology Manual",
+        "author":null,
+        "accno":"CS530"
+    },
+    {
+        "title":"Service Orinted Architecture",
+        "author":[
+            "Dr.S.Padmapriya"
+        ],
+        "accno":"CS531"
+    },
+    {
+        "title":"Graph Theory&Applications",
+        "author":[
+            "M.Hemalatha"
+        ],
+        "accno":"CS532"
+    },
+    {
+        "title":"Programming  In C",
+        "author":[
+            "Dr.R.Jemila Rose",
+            "Dr.R.P.Anto Kumar",
+            "C.M.Varun",
+            "M.Geetha Jenifel"
+        ],
+        "accno":"CS533"
+    },
+    {
+        "title":"Programming  In C",
+        "author":[
+            "Reema Thareja"
+        ],
+        "accno":"CS534"
+    },
+    {
+        "title":"Probelam Solving And Python Programming",
+        "author":[
+            "Dr.A.Kannan",
+            "Dr.L.Sai Ramesh"
+        ],
+        "accno":"CS535"
+    },
+    {
+        "title":"Computer Practices Laboratory",
+        "author":[
+            "Dr.V.Ramesh Babu",
+            "Prof",
+            "M.Muni Rathnam"
+        ],
+        "accno":"CS536"
+    },
+    {
+        "title":"Programming  In C",
+        "author":[
+            "Reema Thareja"
+        ],
+        "accno":"CS537"
+    },
+    {
+        "title":"Data Warehousing And Data Mining",
+        "author":[
+            "R.Ruhin Kouser",
+            "B.Gunasundari"
+        ],
+        "accno":"CS538"
+    },
+    {
+        "title":"Operating Systems",
+        "author":[
+            "P.Latha"
+        ],
+        "accno":"CS539"
+    },
+    {
+        "title":"Probelam Solving And Python Programming",
+        "author":[
+            "Dr.A.Kannan",
+            "Dr.L.Sai Ramesh"
+        ],
+        "accno":"CS540"
+    },
+    {
+        "title":"Probelam Solving And Python Programming",
+        "author":[
+            "Dr.A.Kannan",
+            "Dr.L.Sai Ramesh"
+        ],
+        "accno":"CS541"
+    },
+    {
+        "title":"Design And Analysis Of Algorithms",
+        "author":[
+            "G.Rajeswari",
+            "B.Nitha",
+            "K.Subha",
+            "M.Sreemaa"
+        ],
+        "accno":"CS542"
+    },
+    {
+        "title":"Mobile  Computing",
+        "author":[
+            "H.Prabavathi"
+        ],
+        "accno":"CS543"
+    },
+    {
+        "title":"Operating Systems",
+        "author":[
+            "R.Sudha"
+        ],
+        "accno":"CS544"
+    },
+    {
+        "title":"Python Programming",
+        "author":[
+            "Reema Thareja"
+        ],
+        "accno":"CS545"
+    },
+    {
+        "title":"Probelam Solving And Python Programming",
+        "author":[
+            "Dr.A.Kannan",
+            "Dr.L.Sai Ramesh"
+        ],
+        "accno":"CS546"
+    },
+    {
+        "title":"Exploring Python",
+        "author":[
+            "Timothy A Budd"
+        ],
+        "accno":"CS547"
+    },
+    {
+        "title":"Computing Fundamentals & C Programming",
+        "author":[
+            "E.Balagurusamy"
+        ],
+        "accno":"CS548"
+    },
+    {
+        "title":"Artificial Intelligence And Intelligent Systems",
+        "author":[
+            "N.P.Padhy"
+        ],
+        "accno":"CS549"
+    },
+    {
+        "title":"Programming And Problem Solving With Python",
+        "author":[
+            "Ashok Namdev Kamthane Amit Ashok Kamthane"
+        ],
+        "accno":"CS550"
+    },
+    {
+        "title":"Programming In Python",
+        "author":[
+            "Robert Sedgewick Kevin Wayne Robert Dondero"
+        ],
+        "accno":"CS551"
+    },
+    {
+        "title":"Programming  With  C",
+        "author":[
+            "Jitender Kumar Chhabra"
+        ],
+        "accno":"CS552"
+    },
+    {
+        "title":"Python Programming (A Modular Approach)",
+        "author":[
+            "Sheetal Taneja Naveen Kumar"
+        ],
+        "accno":"CS553"
+    },
+    {
+        "title":"Python Programming (A Modular Approach)",
+        "author":[
+            "Sheetal Taneja Naveen Kumar"
+        ],
+        "accno":"CS554"
+    },
+    {
+        "title":"Computer Programming",
+        "author":null,
+        "accno":"CS555"
+    },
+    {
+        "title":"Computer Programming",
+        "author":null,
+        "accno":"CS556"
+    },
+    {
+        "title":"Programming And Data Structures -Ii",
+        "author":[
+            "S.Kavitha Bharathiashok"
+        ],
+        "accno":"CS557"
+    },
+    {
+        "title":"Python Programming (A Modular Approach)",
+        "author":[
+            "Sheetal Taneja Naveen Kumar"
+        ],
+        "accno":"CS558"
+    },
+    {
+        "title":"Computer Programming",
+        "author":[
+            "Dr.A.Kannan"
+        ],
+        "accno":"CS559"
+    },
+    {
+        "title":"Programming And Data Structures -Ii",
+        "author":[
+            "Dr.N.Jayaprakash"
+        ],
+        "accno":"CS560"
+    },
+    {
+        "title":"Process Control",
+        "author":[
+            "K.Krishnaswamy"
+        ],
+        "accno":"CS561"
+    },
+    {
+        "title":"Computer Programming",
+        "author":[
+            "Dr.V.Ramesh Babu",
+            "Prof",
+            "M.Muni Rathnam"
+        ],
+        "accno":"CS562"
+    },
+    {
+        "title":"Graph Theory&Applications",
+        "author":[
+            "N.Subramaniam"
+        ],
+        "accno":"CS563"
+    },
+    {
+        "title":"Artificial Intelligence",
+        "author":[
+            "Dr.B.Kalaavathi.P.Krishna Sankar",
+            "N.P.Shangarnaranee"
+        ],
+        "accno":"CS564"
+    },
+    {
+        "title":"Computer Programming",
+        "author":[
+            "Dr.V.Ramesh Babu",
+            "Prof",
+            "M.Muni Rathnam"
+        ],
+        "accno":"CS565"
+    },
+    {
+        "title":"Programming & Data Structures I",
+        "author":[
+            "C.U.Om Kumar"
+        ],
+        "accno":"CS566"
+    },
+    {
+        "title":"Computer Networks",
+        "author":[
+            "V.Sathya",
+            "N.Preethi",
+            "N.Selvarani"
+        ],
+        "accno":"CS567"
+    },
+    {
+        "title":"Resource Management Techniques",
+        "author":[
+            "Prof.V.Sundharam",
+            "Prof.K.S.Ganapathy Subramanian",
+            "Prof.K.Ganesan"
+        ],
+        "accno":"CS568"
+    },
+    {
+        "title":"Graph Theory&Applications",
+        "author":[
+            "S.Sathya",
+            "M.Umamaheswari"
+        ],
+        "accno":"CS569"
+    },
+    {
+        "title":"Embedded And Real Time Systems",
+        "author":[
+            "Dr.G.Ramprabu",
+            "D.Gowri Shankar"
+        ],
+        "accno":"CS570"
+    },
+    {
+        "title":"Cyber Forensics",
+        "author":[
+            "K.Aruna",
+            "V.Padmavathi"
+        ],
+        "accno":"CS571"
+    },
+    {
+        "title":"Object Oriented Analysis And Design",
+        "author":[
+            "P.Krishna Sankar",
+            "N.P.Shangarnarayanee"
+        ],
+        "accno":"CS572"
+    },
+    {
+        "title":"Information Retrieval",
+        "author":[
+            "M.Selvakumar",
+            "Dr.T.Marimuthu",
+            "B.Vinothkumar"
+        ],
+        "accno":"CS573"
+    },
+    {
+        "title":"Computer Graphics",
+        "author":[
+            "M.Sevakumar"
+        ],
+        "accno":"CS574"
+    },
+    {
+        "title":"Theory Of Computation",
+        "author":[
+            "K.Krishnakumari"
+        ],
+        "accno":"CS575"
+    },
+    {
+        "title":"Cryptography Network Security",
+        "author":[
+            "R.Sudha"
+        ],
+        "accno":"CS576"
+    },
+    {
+        "title":"Grid And Coud Computing",
+        "author":[
+            "Dr.B.Kalavathi",
+            "P.Krishna Sankar"
+        ],
+        "accno":"CS577"
+    },
+    {
+        "title":"Problem Solving And Python Programming",
+        "author":[
+            "Dr.V.Ramesh Babu",
+            "Prof",
+            "M.Muni Rathnam"
+        ],
+        "accno":"CS578"
+    },
+    {
+        "title":"Problem Solving And Python Programming",
+        "author":[
+            "Ashok Nmdev Kamthane",
+            "Amit Ashok  Kamthane"
+        ],
+        "accno":"CS579"
+    },
+    {
+        "title":"Total Quality Management",
+        "author":[
+            "Dr.M.S.Gayathri"
+        ],
+        "accno":"CS580"
+    },
+    {
+        "title":"Digital Principles  And  System Design",
+        "author":[
+            "Dr.S.Sudhkar"
+        ],
+        "accno":"CS581"
+    },
+    {
+        "title":"Object Oriented Programming",
+        "author":[
+            "Prof.E.Vijayakumr"
+        ],
+        "accno":"CS582"
+    },
+    {
+        "title":"Data Structures",
+        "author":[
+            "Dr.R.Reka",
+            "M.Ananthi"
+        ],
+        "accno":"CS583"
+    },
+    {
+        "title":"Computer Architecture",
+        "author":[
+            "Dr.M.Venkatesan Dr.P.Meenakshi Devi"
+        ],
+        "accno":"CS584"
+    },
+    {
+        "title":"Design And Analysis Of Algorithms",
+        "author":[
+            "P.Krishna Sankar",
+            "N.P.Shangarnarayanee"
+        ],
+        "accno":"CS585"
+    },
+    {
+        "title":"Artificial  Intelligence",
+        "author":[
+            "Dr.B.Kalavathi",
+            "P.Krishna Sankar",
+            "N.P.Shangarnarayanee"
+        ],
+        "accno":"CS586"
+    },
+    {
+        "title":"Programming In C",
+        "author":[
+            "S.Suganya",
+            "V."
+        ],
+        "accno":"CS587"
+    },
+    {
+        "title":"Data  Warehousing And Data Minig",
+        "author":[
+            "N .Selvarani"
+        ],
+        "accno":"CS588"
+    },
+    {
+        "title":"Distributed Systems",
+        "author":[
+            "Dr.P.Meenakshdevi",
+            "M.Dhurgadavi"
+        ],
+        "accno":"CS589"
+    },
+    {
+        "title":"Multi-Core Architectures And Programminig",
+        "author":[
+            "P.Krishna Sankar"
+        ],
+        "accno":"CS590"
+    },
+    {
+        "title":"Professional Ethics In Engineering",
+        "author":[
+            "Dr.C.Senthil Kumar"
+        ],
+        "accno":"CS591"
+    },
+    {
+        "title":"Software Project Management",
+        "author":[
+            "A.Vivekanandhan",
+            "R.Sudha",
+            "P.Sirenjeevi"
+        ],
+        "accno":"CS592"
+    },
+    {
+        "title":"Compiler Design",
+        "author":[
+            "K.Krishnakumari"
+        ],
+        "accno":"CS593"
+    },
+    {
+        "title":"Mobile  Computing",
+        "author":[
+            "H.Prabavathi"
+        ],
+        "accno":"CS594"
+    },
+    {
+        "title":"Computer Networks",
+        "author":[
+            "M.Ananda Kumar"
+        ],
+        "accno":"CS595"
+    },
+    {
+        "title":"Problem Solving And Python Programming",
+        "author":[
+            "Dr.J.Jayapriya"
+        ],
+        "accno":"CS596"
+    },
+    {
+        "title":"Data Structures",
+        "author":[
+            "K.Krishnakumari",
+            "N.Rajganesh"
+        ],
+        "accno":"CS597"
+    },
+    {
+        "title":"Cryptography & Network Security",
+        "author":[
+            "R.Sudha"
+        ],
+        "accno":"CS598"
+    },
+    {
+        "title":"Ad Hoc And Sensors Networks",
+        "author":[
+            "M.Dhurgadevi",
+            "K.G.Lavanya"
+        ],
+        "accno":"CS599"
+    },
+    {
+        "title":"Object Oriented Programming",
+        "author":[
+            "K.Sriram Kumar",
+            "P.Krishna Sankar"
+        ],
+        "accno":"CS600"
+    },
+    {
+        "title":"Grid And Coud Computing",
+        "author":[
+            "Dr.B.Kalavathi",
+            "P.Krishna Sankar"
+        ],
+        "accno":"CS601"
+    },
+    {
+        "title":"Computer Architecture",
+        "author":[
+            "S.Jancy Sickory Daisy"
+        ],
+        "accno":"CS602"
+    },
+    {
+        "title":"Design And Analysis Of Algorithams",
+        "author":[
+            "M.Manikandan",
+            "Jinitha"
+        ],
+        "accno":"CS603"
+    },
+    {
+        "title":"Operating Systems",
+        "author":[
+            "Dr.S.Sudhkar",
+            "Dr.P.Umarani"
+        ],
+        "accno":"CS604"
+    },
+    {
+        "title":"Software Engineering",
+        "author":[
+            "R.Bhuvaneswari",
+            "A.Kalamani"
+        ],
+        "accno":"CS605"
+    },
+    {
+        "title":"Probability And Queueing Theory",
+        "author":[
+            "Parvesh Kumar Singh",
+            "Dileep Singh"
+        ],
+        "accno":"CS606"
+    },
+    {
+        "title":"Microprocessors And Microcontrollers",
+        "author":[
+            "R.L.Reka",
+            "C.Ravikumar"
+        ],
+        "accno":"CS607"
+    },
+    {
+        "title":"Java Programming\/Programming Paradigms",
+        "author":[
+            "K.Ezhilarasi",
+            "D.Anuradha"
+        ],
+        "accno":"CS608"
+    },
+    {
+        "title":"Theory Of Computation",
+        "author":[
+            "S.Kavitha",
+            "V.Balasubramanian"
+        ],
+        "accno":"CS609"
+    },
+    {
+        "title":"Computer Graphics",
+        "author":[
+            "Zhigang Xiang",
+            "Roy Plastock"
+        ],
+        "accno":"CS610"
+    },
+    {
+        "title":"Theory Of Computation",
+        "author":[
+            "S.Kavitha",
+            "V.Balasubramanian"
+        ],
+        "accno":"CS611"
+    },
+    {
+        "title":"Digital Circuits And Systems",
+        "author":[
+            "K.R.Venugopal",
+            "K.Shaila"
+        ],
+        "accno":"CS612"
+    }
+]
