@@ -1,32 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>SRMVEC - CSE Department</title>
-    <meta name="description"
-        content="Computer Science & Engineering — academics, labs, faculty, events, placements, alumni and more." />
-    <link rel="icon" href="image.png" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap"
-        rel="stylesheet">
+    <title>CSE Department – Achievements</title>
 
-    <!-- Set theme BEFORE CSS loads (system preference or saved choice) -->
+    <!-- Theme bootstrap -->
     <script>
         (function () {
             try {
                 const saved = localStorage.getItem('theme');
-                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const prefersDark = window.matchMedia &&
+                    window.matchMedia('(prefers-color-scheme: dark)').matches;
+
                 const theme = saved || (prefersDark ? 'dark' : 'light');
                 document.documentElement.setAttribute('data-theme', theme);
             } catch (e) {
                 document.documentElement.setAttribute('data-theme', 'light');
             }
         })();
-    </script>
-
-    <link href="styles.css" rel="stylesheet">
-
     </script>
 
     <link rel="stylesheet" href="styles.css" />
@@ -189,11 +182,33 @@
             cursor: pointer;
         }
 
-        .footer {
-            text-align: center;
-            margin-top: 22px;
-            color: var(--muted);
-            font-size: 13px;
+        .lazy-img {
+            background: #333;
+            min-height: 160px;
+            display: block;
+            border-radius: 12px;
+        }
+
+        /* Center Loader */
+        .loader {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 55px;
+            height: 55px;
+            margin-top: -27.5px;
+            margin-left: -27.5px;
+            border: 5px solid #ddd;
+            border-top-color: #7D2AE8;
+            border-radius: 50%;
+            animation: spin 0.9s linear infinite;
+            z-index: 5000;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
@@ -216,8 +231,8 @@
                 <a href="index.html">Home</a>
                 <a href="index.html#about">About us</a>
                 <a href="index.html#faculty">Faculty</a>
-                <a href="index.html#labs">Labs</a>
-                <a href="index.html#events">Events</a>
+                <a href="index.html#coderizz">Coderizz</a>
+                <a href="index.html#achievements">Events</a>
                 <a href="index.html#placements">Placements</a>
                 <a href="index.html#alumni">Alumni</a>
                 <a href="index.html#blog">Blog</a>
@@ -238,8 +253,9 @@
             <a href="index.html">Home</a>
             <a href="index.html#about">About us</a>
             <a href="index.html#faculty">Faculty</a>
+            <a href="index.html#coderizz">Coderizz</a>
             <a href="index.html#labs">Labs</a>
-            <a href="index.html#events">Events</a>
+            <a href="index.html#achievements">Events</a>
             <a href="index.html#placements">Placements</a>
             <a href="index.html#alumni">Alumni</a>
             <a href="index.html#blog">Blog</a>
@@ -265,10 +281,6 @@
 
         <div class="achieve-grid" id="achieveGrid">
             <!-- achievement.json data loads here -->
-        </div>
-        <div class="footer">
-            <div>Designed by Karthick S & Shakthi K, Dept. of CSE</div>
-            <div>&copy; 2022 - 2026 Dept of CSE - SRM VEC</div>
         </div>
     </main>
 
@@ -348,13 +360,14 @@
         }, { threshold: 0.15 });
 
         // ===== LOAD ACHIEVEMENTS JSON =====
-        fetch("achievement.json")
+        fetch("https://script.google.com/macros/s/AKfycbwcntlchkgKLlO4wtxxTQTwy6zDSTpweLwk4ANhuV82V6txTRcb-ddHSA-A18EcePiU/exec")
             .then(res => res.json())
             .then(originalData => {
 
                 let data = [...originalData];
                 const grid = document.getElementById("achieveGrid");
                 const sortSelect = document.getElementById("sortSelect");
+                document.getElementById("loader").style.display = "none";
 
                 // Render function
                 function renderCards(list) {
@@ -365,10 +378,10 @@
                         card.className = "achieve-card reveal";
 
                         card.innerHTML = `
-                        <img src="${item.img}" alt="achievement">
+                        <img class="lazy-img" data-src="${item.img}" alt="achievement">
                         <h4>${item.title}</h4>
                         <p>${item.desc}</p>
-                    `;
+                        `;
 
                         // popup
                         card.addEventListener("click", () => {
@@ -379,6 +392,9 @@
                         });
 
                         grid.appendChild(card);
+                        const img = card.querySelector("img");
+                        img.src = img.getAttribute("data-src");
+
                     });
 
                     // 🚀 IMPORTANT: apply reveal animation to new cards also
@@ -386,13 +402,13 @@
                 }
 
                 // Initial load
-                renderCards(data);
+                renderCards([...originalData].reverse());
 
                 // Sorting logic
                 sortSelect.addEventListener("change", () => {
                     const mode = sortSelect.value;
 
-                    if (mode === "new") {
+                    if (mode === "old") {
                         renderCards([...originalData]);       // newest → oldest
                     } else {
                         renderCards([...originalData].reverse()); // oldest → newest
@@ -425,6 +441,7 @@
             <p id="modalDesc"></p>
         </div>
     </div>
+    <div id="loader" class="loader"></div>
 
 </body>
 
