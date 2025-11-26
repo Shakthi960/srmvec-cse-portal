@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Staff Login – CSE Dept</title>
+  <link rel="icon" href="image.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    (function () {
+      try {
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <!-- reuse your nav -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <img src="image.png" alt="CSE logo">
+        <div>
+          <h1>CSE Department</h1>
+          <div class="brand-sub">SRM Valliammai Engineering College</div>
+        </div>
+      </a>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="login.html">Staff Login</a>
+      </div>
+      <button class="hamb" id="hamb" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="login.html">Staff Login</a>
+    </div>
+  </nav>
+
+  <main style="max-width:400px;margin:140px auto 40px;padding:0 20px;">
+    <h2>Staff Login</h2>
+    <p class="muted-sm">Login using your registered email & phone number.</p>
+    <div class="card">
+      <label>Email</label>
+      <input type="email" id="email" />
+      <label style="margin-top:10px;">Phone Number</label>
+      <input type="text" id="phone" />
+      <button class="btn-primary" style="margin-top:14px;" id="loginBtn">Login</button>
+      <p id="loginError" class="muted-sm" style="color:red;margin-top:8px;display:none;"></p>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('loginBtn').addEventListener('click', async () => {
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, phone })
+      });
+
+      if (res.ok) {
+        // mark as logged in in front-end (optional)
+        localStorage.setItem('loggedIn', 'true');
+        window.location.href = 'dashboard.html';
+      } else {
+        document.getElementById('loginError').style.display = 'block';
+        document.getElementById('loginError').textContent = 'Invalid credentials';
+      }
+    });
+  </script>
+</body>
+</html>
