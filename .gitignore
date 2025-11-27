@@ -1,0 +1,36 @@
+# =========================
+# Node.js
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# Environment files (SECRETS)
+# =========================
+.env
+
+# =========================
+# OS & Editor junk
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+
+# =========================
+# DO NOT ignore website assets
+# =========================
+!public/
+!public/**/*.html
+!public/**/*.css
+!public/**/*.js
+!public/**/*.png
+!public/**/*.jpg
+!public/**/*.jpeg
+!public/**/*.svg
