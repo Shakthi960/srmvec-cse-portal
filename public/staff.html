@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CSE Department – Faculty</title>
+    <link rel="icon" href="image.png" />
+
+    <!-- Theme bootstrap -->
+    <script>
+        (function () {
+            try {
+                const saved = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const theme = saved || (prefersDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+        .staff-container {
+            max-width: 1200px;
+            margin: 120px auto 40px;
+            padding: 0 20px 40px;
+        }
+
+        .staff-header {
+            margin-bottom: 18px;
+        }
+
+        .staff-header h2 {
+            margin: 0 0 6px;
+            font-size: 24px;
+            color: #7D2AE8;
+        }
+
+        .staff-header p {
+            margin: 0;
+        }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .staff-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+            text-align: center;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            border: 1px solid rgba(15, 23, 42, 0.04);
+        }
+
+        .staff-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+            border-color: rgba(125, 42, 232, 0.4);
+        }
+
+        .staff-card img {
+            width: 110px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .staff-card h4 {
+            margin: 4px 0;
+            font-size: 16px;
+        }
+
+        .staff-card p {
+            margin: 4px 0;
+            font-size: 14px;
+        }
+
+        .staff-card a {
+            color: #7D2AE8;
+            text-decoration: none;
+        }
+
+        .staff-card a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 22px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* Custom text selection color */
+        ::selection {
+            background: #7D2AE8;
+            color: #ffffff;
+        }
+
+        ::-moz-selection {
+            background: #7D2AE8;
+            color: #ffffff;
+        }
+
+        @media (max-width: 600px) {
+            .staff-container {
+                margin-top: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR (same structure as index) -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="brand">
+                <img src="image.png" alt="CSE logo">
+                <div>
+                    <h1>CSE Department</h1>
+                    <div class="brand-sub">SRM Valliammai Engineering College</div>
+                </div>
+            </a>
+
+            <!-- Desktop menu -->
+            <div class="menu">
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About us</a>
+                <a href="index.html#faculty">Faculty</a>
+                <a href="index.html#coderizz">Coderizz</a>
+                <a href="index.html#achievements">Events</a>
+                <a href="index.html#placements">Placements</a>
+                <a href="index.html#alumni">Alumni</a>
+                <a href="index.html#blog">Blog</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="cgpa.html">GPA-Calculator</a>
+            </div>
+
+            <!-- Hamburger -->
+            <button class="hamb" id="hamb" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- Mobile full-screen menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About us</a>
+            <a href="index.html#faculty">Faculty</a>
+            <a href="index.html#coderizz">Coderizz</a>
+            <a href="index.html#labs">Labs</a>
+            <a href="index.html#achievements">Events</a>
+            <a href="index.html#placements">Placements</a>
+            <a href="index.html#alumni">Alumni</a>
+            <a href="index.html#blog">Blog</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="cgpa.html">GPA-Calculator</a>
+        </div>
+    </nav>
+
+    <!-- STAFF PAGE CONTENT -->
+    <main class="staff-container">
+        <div class="staff-header">
+            <h2>Faculty Members</h2>
+            <p class="muted">Meet all our teaching and research faculty.</p>
+        </div>
+
+        <div class="staff-grid" id="staffGrid">
+            <!-- staff.json items will be loaded here -->
+        </div>
+
+        <div class="aaa">
+                <div class="admin">
+                    <a href="admin.html">Admin</a>
+                </div>
+        </div>
+
+        <div class="footer">
+            <div>Designed by Karthick S & Shakthi K, Dept. of CSE</div>
+            <div>&copy; 2022 - 2026 Dept of CSE - SRM VEC</div>
+        </div>
+    </main>
+
+    <!-- Floating theme + back-to-top controls -->
+    <div class="floating-controls">
+        <button id="themeToggle" class="fab" aria-label="Toggle light/dark theme">🌙</button>
+        <button id="backToTop" class="fab" aria-label="Back to top">↑</button>
+    </div>
+
+    <script>
+        // ===== MOBILE NAV =====
+        const hamb = document.getElementById('hamb');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamb.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('open');
+            hamb.classList.toggle('open', isOpen);
+            hamb.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                hamb.classList.remove('open');
+                hamb.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // ===== THEME TOGGLE =====
+        const themeToggle = document.getElementById('themeToggle');
+        const root = document.documentElement;
+
+        function updateThemeIcon() {
+            const theme = root.getAttribute('data-theme') || 'light';
+            themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const current = root.getAttribute('data-theme') || 'light';
+            const next = current === 'light' ? 'dark' : 'light';
+            root.setAttribute('data-theme', next);
+            try {
+                localStorage.setItem('theme', next);
+            } catch (e) { }
+            updateThemeIcon();
+        });
+
+        updateThemeIcon();
+
+        // ===== BACK TO TOP =====
+        const backToTop = document.getElementById('backToTop');
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        function toggleBackToTop() {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }
+
+        window.addEventListener('scroll', toggleBackToTop);
+        toggleBackToTop();
+
+        // ===== LOAD STAFF JSON =====
+        fetch("staff.json")
+            .then(res => res.json())
+            .then(data => {
+                const grid = document.getElementById("staffGrid");
+                data.forEach(staff => {
+                    const card = document.createElement('div');
+                    card.className = 'staff-card reveal';
+                    card.innerHTML = `
+                        <img src="${staff.img}" alt="${staff.name}">
+                        <h4>${staff.name}</h4>
+                        <p class="muted-sm">${staff.designation}</p>
+                        <p>📞 <a href="tel:${staff.phone}">${staff.phone}</a></p>
+                        <p>✉️ <a href="mailto:${staff.email}">${staff.email}</a></p>
+                    `;
+                    grid.appendChild(card);
+                });
+
+                // simple reveal animation
+                const obs = new IntersectionObserver((entries) => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            e.target.classList.add('revealed');
+                            obs.unobserve(e.target);
+                        }
+                    });
+                }, { threshold: 0.15 });
+
+                document.querySelectorAll('.staff-card').forEach(el => obs.observe(el));
+            })
+            .catch(err => console.error("Failed to load staff.json", err));
+    </script>
+</body>
+
+</html>

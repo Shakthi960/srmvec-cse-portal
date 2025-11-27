@@ -1,0 +1,184 @@
+[
+    {
+        "name": "Dr. B. Vanathi B.E., M.E., Ph.D.",
+        "designation": "Professor & HOD",
+        "img": "staff/vanathi.png",
+        "phone": "9879879877",
+        "email": "vanathib.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Dr. V. Dhanakoti M.E., Ph.D.",
+        "designation": "Professor",
+        "img": "staff/dhanakodi.png",
+        "phone": "9879879876",
+        "email": "dhanakotiv.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Dr. A. Samydurai B.E., M.E., Ph.D.",
+        "designation": "Professor",
+        "img": "staff/samy.png",
+        "phone": "9879879875",
+        "email": "samyduraia.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Dr. B. Muthu Senthil  B.E., M.E., Ph.D.",
+        "designation": "Professor",
+        "img": "staff/muthusenthil.png",
+        "phone": "9879879873",
+        "email": "muthusenthilb.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Dr. M. Mayuranathan B.E., M.Tech., Ph.D.",
+        "designation": "Associate Professor",
+        "img": "staff/mayuranathan.png",
+        "phone": "9879879872",
+        "email": "mayuranathanm.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Dr. G. Kumaresan B.E., M.E., Ph.D.",
+        "designation": "Associate Professor",
+        "img": "staff/kumaresan.png",
+        "phone": "9879879871",
+        "email": "kumaresang.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Dr. C. Pabitha B.E., M.E., Ph.D.",
+        "designation": "Associate Professor",
+        "img": "staff/pabitha.png",
+        "phone": "9879879870",
+        "email": "pabithac.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Dr. G. Sangeetha B.E, M.E., Ph.D.",
+        "designation": "Assistant Professor (Selection Grade)",
+        "img": "staff/sangeetha-1.png",
+        "phone": "9879879869",
+        "email": "sangeethag.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Mrs. A. Lalitha B.E., M.E., (Ph.D.)",
+        "designation": "Assistant Professor (Selection Grade)",
+        "img": "staff/lalitha.jpg",
+        "phone": "9879879868",
+        "email": "lalithaa.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Mrs. S. Shanthi B.E., M.E., (Ph.D.)",
+        "designation": "Assistant Professor (Selection Grade)",
+        "img": "staff/shanthi.png",
+        "phone": "9879879867",
+        "email": "shanthis.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Mrs. S. Suma B.E., M.S., (Ph.D.)",
+        "designation": "Assistant Professor (Selection Grade)",
+        "img": "staff/suma.png",
+        "phone": "9879879866",
+        "email": "sumas.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Dr. A. Vidhya B.E., M.E., Ph.D.,",
+        "designation": "Associate Professor (Senior Grade)",
+        "img": "staff/vidhya.png",
+        "phone": "9879879865",
+        "email": "vidhyaa.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Mr. N. Leo Bright Tennisson M.Tech., (Ph.D.)",
+        "designation": "Associate Professor (Senior Grade)",
+        "img": "staff/leo.png",
+        "phone": "9879879864",
+        "email": "leobrighttennisonn.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Mrs. V. Prema B.E., M.E.,",
+        "designation": "Associate Professor (Senior Grade)",
+        "img": "staff/prema.png",
+        "phone": "9879879863",
+        "email": "premav.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Dr. S. Venkatesh M.E., Ph.D.",
+        "designation": "Associate Professor (Senior Grade)",
+        "img": "staff/venkatesh.png",
+        "phone": "9879879862",
+        "email": "venkateshs.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Mr. T. Rajasekaran B.E., M.Tech., (Ph.D.)",
+        "designation": "Associate Professor (Senior Grade)",
+        "img": "staff/rajasekaran.png",
+        "phone": "9879879861",
+        "email": "rajasekarant.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Mrs. R. Anitha B.E., M.E., (Ph.D.)",
+        "designation": "Associate Professor (Senior Grade)",
+        "img": "staff/anitha.png",
+        "phone": "9879879860",
+        "email": "anithar.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Mrs. M. Priyadharshini B.E., M.E., (Ph.D.)",
+        "designation": "Assistant Professor (Ordinary Grade)",
+        "img": "staff/priyadharshini.png",
+        "phone": "8939902677",
+        "email": "priyadharshinim.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Ms. S. Anslam Sibi B.E., M.E., (Ph.D.)",
+        "designation": "Assistant Professor (Senior Grade)",
+        "img": "staff/sibi.jpeg",
+        "phone": "9879879858",
+        "email": "anslams.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Ms. G. Sathya B.E., M.Tech.,",
+        "designation": "Assistant Professor (Ordinary Grade)",
+        "img": "staff/sathya.jpeg",
+        "phone": "9879879857",
+        "email": "sathyag.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Ms. V. Vijaypriya B.E., M.E.,",
+        "designation": "Assistant Professor (Ordinary Grade)",
+        "img": "staff/vijaypriya.jpeg",
+        "phone": "9879879856",
+        "email": "vijaypriyav.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Ms. M. Sophiya Sugantha Grace B.E., M.Tech.,",
+        "designation": "Assistant Professor (Ordinary Grade)",
+        "img": "staff/sophiya-sugantha-grace.jpg",
+        "phone": "9879879855",
+        "email": "sophiyasuganthag.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Ms. R. Anbuvizhi B.E., M.E.,",
+        "designation": "Assistant Professor (Ordinary Grade)",
+        "img": "staff/anbuvizhi.jpeg",
+        "phone": "9879879854",
+        "email": "anbuvizhir.it@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Ms. M. Mohanapriya B.E., M.E.,",
+        "designation": "Assistant Professor (Ordinary Grade)",
+        "img": "staff/mohanapriya.jpg",
+        "phone": "9879879853",
+        "email": "mohanapriyam.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Ms. R. Gayathri B.E., M.E.,",
+        "designation": "Assistant Professor (Ordinary Grade)",
+        "img": "staff/gayathri.jpg",
+        "phone": "9879879852",
+        "email": "gayathrir.cse@srmvalliammai.ac.in"
+    },
+    {
+        "name": "Ms. S. Balaswathy B.E., M.E.,",
+        "designation": "Assistant Professor (Ordinary Grade)",
+        "img": "staff/balaswathy.jpg",
+        "phone": "9879879851",
+        "email": "balaswathys.cse@srmvalliammai.ac.in"
+    }
+]

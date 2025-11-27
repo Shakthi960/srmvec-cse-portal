@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Library Records - CSE Department</title>
+    <link rel="icon" href="image.png" />
+    <script>
+        (function () {
+            try {
+                const saved = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia &&
+                    window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const theme = saved || (prefersDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+
+    <link href="styles.css" rel="stylesheet">
+
+    <style>
+        .place-container {
+            max-width: 1200px;
+            margin: 120px auto 40px;
+            padding: 0 20px 40px;
+        }
+
+        .place-header h2 {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .filter-bar input {
+            width: 260px;
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid var(--border-subtle);
+            background: var(--card-bg);
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        .placement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 22px;
+        }
+
+        .place-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 18px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-soft);
+            transition: .25s ease;
+        }
+
+        .place-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(125, 42, 232, 0.4);
+            box-shadow: 0 14px 36px rgba(0, 0, 0, .18);
+        }
+
+        .place-card h3 {
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .place-card p {
+            font-size: 14px;
+            margin: 4px 0;
+        }
+
+        .pagination {
+            margin-top: 26px;
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        .pagination button {
+            padding: 10px 18px;
+            border-radius: 999px;
+            border: none;
+            background: var(--primary);
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity .5s ease, transform .5s ease;
+        }
+
+        .revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR SAME AS PLACEMENT -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="brand">
+                <img src="image.png" />
+                <div>
+                    <h1>CSE Department</h1>
+                    <div class="brand-sub">SRM Valliammai Engineering College</div>
+                </div>
+            </a>
+
+            <div class="menu">
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About us</a>
+                <a href="index.html#faculty">Faculty</a>
+                <a href="index.html#labs">Labs</a>
+                <a href="index.html#events">Events</a>
+                <a href="index.html#placements">Placements</a>
+                <a href="library.html" class="active">Library</a>
+                <a href="index.html#alumni">Alumni</a>
+                <a href="index.html#blog">Blog</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="cgpa.html">GPA-Calculator</a>
+            </div>
+
+            <button class="hamb" id="hamb"><span></span><span></span><span></span></button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="library.html" class="active">Library</a>
+        </div>
+    </nav>
+
+    <!-- MAIN UI -->
+    <main class="place-container">
+        <div class="place-header">
+            <h2>Library Records</h2>
+            <p class="muted">Search and explore our CSE Department library books.</p>
+        </div>
+
+        <div class="filter-bar">
+            <input id="titleFilter" placeholder="Search by Title...">
+            <input id="authorFilter" placeholder="Search by Author...">
+        </div>
+
+        <div class="placement-grid" id="libraryGrid"></div>
+
+        <div class="pagination">
+            <button id="prevBtn">Previous</button>
+            <button id="nextBtn">Next</button>
+        </div>
+    </main>
+
+    <!-- FLOATING THEME + BACK TO TOP -->
+    <div class="floating-controls">
+        <button id="themeToggle" class="fab">🌙</button>
+        <button id="backToTop" class="fab">↑</button>
+    </div>
+
+    <!-- JS -->
+    <script>
+        const hamb = document.getElementById("hamb");
+        const mobileMenu = document.getElementById("mobileMenu");
+        hamb.onclick = () => mobileMenu.classList.toggle("open");
+
+        const themeToggle = document.getElementById("themeToggle");
+        const root = document.documentElement;
+
+        function updateThemeIcon() {
+            const t = root.getAttribute("data-theme");
+            themeToggle.textContent = t === "dark" ? "☀️" : "🌙";
+        }
+        updateThemeIcon(); // Run once
+
+        themeToggle.onclick = () => {
+            const theme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+            root.setAttribute("data-theme", theme);
+            localStorage.setItem("theme", theme);
+            updateThemeIcon();
+        };
+
+
+        let allBooks = [];
+        let filteredBooks = [];
+        let perPage = 12;
+        let currentPage = 1;
+
+        const titleInput = document.getElementById("titleFilter");
+        const authorInput = document.getElementById("authorFilter");
+        const grid = document.getElementById("libraryGrid");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+
+        fetch("books.json")
+            .then(r => r.json())
+            .then(data => {
+                allBooks = data;
+                filteredBooks = data;
+                render();
+            });
+
+        function cleanText(str) {
+            return (str || "")
+                .toString()
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/[^a-z0-9]+/g, "");
+        }
+
+        function applyFilters() {
+            const titleQuery = cleanText(titleInput.value);
+            const authorQuery = cleanText(authorInput.value);
+
+            filteredBooks = allBooks.filter(b => {
+                const bookTitle = cleanText(b.title);
+                const bookAuthors = cleanText(
+                    Array.isArray(b.author)
+                        ? b.author.join(" ")
+                        : b.author
+                );
+
+                const matchTitle = !titleQuery || bookTitle.includes(titleQuery);
+                const matchAuthor = !authorQuery || bookAuthors.includes(authorQuery);
+
+                return matchTitle && matchAuthor;
+            });
+
+            currentPage = 1;
+            render();
+        }
+
+        function render() {
+            grid.innerHTML = "";
+            const start = (currentPage - 1) * perPage;
+            const booksToShow = filteredBooks.slice(start, start + perPage);
+
+            if (booksToShow.length === 0) {
+                grid.innerHTML = `<p>No matching books found 📕</p>`;
+                prevBtn.style.display = "none";
+                nextBtn.style.display = "none";
+                return;
+            }
+
+            booksToShow.forEach(b => {
+                const auth = Array.isArray(b.author) ? b.author.join(", ") : b.author;
+                const acc = b.accno || "Unknown";
+                grid.insertAdjacentHTML("beforeend", `
+                <div class="place-card reveal">
+                    <h3>📚 ${b.title}</h3>
+                    <p>✍️ ${auth}</p>
+                    <p>🏷️ Acc./Book No: ${acc}</p>
+                </div>
+            `);
+            });
+
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage * perPage >= filteredBooks.length;
+
+            prevBtn.style.display = filteredBooks.length > perPage ? "inline-block" : "none";
+            nextBtn.style.display = filteredBooks.length > perPage ? "inline-block" : "none";
+
+            revealInit();
+        }
+
+        titleInput.addEventListener("input", applyFilters);
+        authorInput.addEventListener("input", applyFilters);
+
+        prevBtn.onclick = () => { currentPage--; render(); };
+        nextBtn.onclick = () => { currentPage++; render(); };
+
+        function revealInit() {
+            const items = document.querySelectorAll(".reveal");
+            items.forEach(el => {
+                const obs = new IntersectionObserver(entries => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            el.classList.add("revealed");
+                            obs.unobserve(el);
+                        }
+                    });
+                });
+                obs.observe(el);
+            });
+        }
+
+        const backToTop = document.getElementById("backToTop");
+        window.addEventListener("scroll", () => {
+            if (scrollY > 200) backToTop.classList.add("visible");
+            else backToTop.classList.remove("visible");
+        });
+        backToTop.onclick = () => scrollTo({ top: 0, behavior: "smooth" });
+    </script>
+
+
+</body>
+
+</html>

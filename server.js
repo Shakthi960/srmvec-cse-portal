@@ -8,16 +8,22 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// ===== CONFIG: fixed staff credentials =====
-const STAFF_EMAIL = process.env.STAFF_EMAIL || 'staff@example.com';
-const STAFF_PHONE = process.env.STAFF_PHONE || '9999999999';
+const STAFF_EMAIL = process.env.STAFF_EMAIL;
+const STAFF_PHONE = process.env.STAFF_PHONE;
+
+if (!STAFF_EMAIL || !STAFF_PHONE) {
+  console.warn('⚠️ STAFF_EMAIL / STAFF_PHONE not set in environment variables!');
+}
+
 
 // simple JSON file for notes (per email)
 const NOTES_FILE = path.join(__dirname, 'notes.json');
 
 // middlewares
 app.use(bodyParser.json());
-app.use(cookieParser('super-secret-key')); // change in production
+const COOKIE_SECRET = process.env.COOKIE_SECRET || 'dev-secret-change';
+app.use(cookieParser(COOKIE_SECRET));
+
 
 // serve static files
 app.use(express.static(path.join(__dirname, 'public')));
@@ -99,3 +105,10 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log('Server running on port', PORT);
 });
+
+// POST /api/logout – clear auth cookie
+app.post('/api/logout', (req, res) => {
+  res.clearCookie('auth');
+  return res.json({ success: true });
+});
+
