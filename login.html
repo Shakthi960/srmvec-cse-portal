@@ -80,9 +80,15 @@
     // 🔐 Fixed credentials
     const STAFF_EMAIL = "cse@srmvalliammai.ac.in";
     const STAFF_PHONE = "6383149466";
+    const LOGIN_KEY = "staffLoggedIn";
 
     const form = document.getElementById("loginForm");
     const errorEl = document.getElementById("error");
+
+    // If already logged in, skip login page
+    if (localStorage.getItem(LOGIN_KEY) === "true") {
+      window.location.href = "dashboard.html";
+    }
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -92,7 +98,7 @@
 
       if (email === STAFF_EMAIL && phone === STAFF_PHONE) {
         // Mark as logged in for this browser
-        localStorage.setItem("staffLoggedIn", "true");
+        localStorage.setItem(LOGIN_KEY, "true");
         // Go to dashboard
         window.location.href = "dashboard.html";
       } else {
@@ -100,6 +106,7 @@
       }
     });
   </script>
+
 
 </body>
 </html>

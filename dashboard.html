@@ -72,49 +72,53 @@
         <button class="btn-primary" style="margin-top:10px;" id="saveNotesBtn">Save Notes</button>
         <p id="notesStatus" class="muted-sm" style="margin-top:8px;"></p>
       </div>
+      <button class="btn-primary" id="logoutBtn" style="margin-top:10px;">Logout</button>
     </div>
   </main>
 
   <script>
-    async function loadStaff() {
-      const res = await fetch('/api/me');
-      if (!res.ok) {
-        // not logged in
-        window.location.href = 'login.html';
-        return;
-      }
-      const staff = await res.json();
-      document.getElementById('staffName').textContent = staff.name;
-      document.getElementById('name').textContent = staff.name;
-      document.getElementById('email').textContent = staff.email;
-      document.getElementById('phone').textContent = staff.phone;
-      document.getElementById('designation').textContent = staff.designation;
+    const LOGIN_KEY = "staffLoggedIn";
+    const NOTES_KEY = "staffNotes";
+
+    // 🚫 If not logged in, send back to login
+    if (localStorage.getItem(LOGIN_KEY) !== "true") {
+      window.location.href = "login.html";
     }
 
-    async function loadNotes() {
-      const res = await fetch('/api/notes');
-      if (!res.ok) return;
-      const data = await res.json();
-      document.getElementById('notes').value = data.notes || '';
-    }
+    // 🔐 Same staff details as login
+    const STAFF = {
+      name: "CSE Staff",
+      email: "cse@srmvalliammai.ac.in",
+      phone: "6383149466",
+      designation: "Faculty"
+    };
 
-    document.getElementById('saveNotesBtn').addEventListener('click', async () => {
-      const notes = document.getElementById('notes').value;
-      const res = await fetch('/api/notes', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ notes })
-      });
-      if (res.ok) {
-        document.getElementById('notesStatus').textContent = 'Saved!';
-        setTimeout(() => document.getElementById('notesStatus').textContent = '', 2000);
-      } else {
-        document.getElementById('notesStatus').textContent = 'Failed to save';
-      }
+    // Fill profile info
+    document.getElementById('staffName').textContent = STAFF.name;
+    document.getElementById('name').textContent = STAFF.name;
+    document.getElementById('email').textContent = STAFF.email;
+    document.getElementById('phone').textContent = STAFF.phone;
+    document.getElementById('designation').textContent = STAFF.designation;
+
+    // Notes: load from localStorage
+    const notesEl = document.getElementById('notes');
+    const statusEl = document.getElementById('notesStatus');
+
+    notesEl.value = localStorage.getItem(NOTES_KEY) || "";
+
+    document.getElementById('saveNotesBtn').addEventListener('click', () => {
+      localStorage.setItem(NOTES_KEY, notesEl.value);
+      statusEl.textContent = "Saved!";
+      setTimeout(() => statusEl.textContent = "", 2000);
     });
 
-    loadStaff();
-    loadNotes();
+      document.getElementById('logoutBtn').addEventListener('click', () => {
+        localStorage.removeItem(LOGIN_KEY);
+        window.location.href = "login.html";
+      });
+
   </script>
+  
+
 </body>
 </html>
