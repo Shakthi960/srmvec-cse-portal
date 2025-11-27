@@ -46,14 +46,13 @@
   <main style="max-width:400px;margin:140px auto 40px;padding:0 20px;">
     <h2>Staff Login</h2>
     <p class="muted-sm">Login using your registered email & phone number.</p>
-    <div class="card">
-      <label>Email</label>
-      <input type="email" id="email" />
-      <label style="margin-top:10px;">Phone Number</label>
-      <input type="text" id="phone" />
-      <button class="btn-primary" style="margin-top:14px;" id="loginBtn">Login</button>
-      <p id="loginError" class="muted-sm" style="color:red;margin-top:8px;display:none;"></p>
-    </div>
+    <form id="loginForm">
+      <input type="email" id="email" required>
+      <input type="tel" id="phone" required>
+      <button type="submit">Login</button>
+    </form>
+    <p id="error" style="color:red;"></p>
+
   </main>
 
   <script>
@@ -77,5 +76,30 @@
       }
     });
   </script>
+  <script>
+    // 🔐 Fixed credentials
+    const STAFF_EMAIL = "cse@srmvalliammai.ac.in";
+    const STAFF_PHONE = "6383149466";
+
+    const form = document.getElementById("loginForm");
+    const errorEl = document.getElementById("error");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      if (email === STAFF_EMAIL && phone === STAFF_PHONE) {
+        // Mark as logged in for this browser
+        localStorage.setItem("staffLoggedIn", "true");
+        // Go to dashboard
+        window.location.href = "dashboard.html";
+      } else {
+        errorEl.textContent = "Invalid email or phone number.";
+      }
+    });
+  </script>
+
 </body>
 </html>
