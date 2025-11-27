@@ -1,0 +1,142 @@
+[
+    {
+        "name": "Abarna M",
+        "company": "Prodapt",
+        "package": 4,
+        "phone": "7200436081",
+        "batch": 2026
+    },
+    {
+        "name": "Abdul Basith A",
+        "company": "Hexaware",
+        "package": 4,
+        "phone": "8124053524",
+        "batch": 2026
+    },
+    {
+        "name": "Aishwariya P S",
+        "company": "Prodapt",
+        "package": 4,
+        "phone": "8825943722",
+        "batch": 2026
+    },
+    {
+        "name": "Ajay B S",
+        "company": "EPAM",
+        "package": 8.48,
+        "phone": "9080918203",
+        "batch": 2026
+    },
+    {
+        "name": "Akshaya M",
+        "company": "Hexaware",
+        "package": 4,
+        "phone": "9361356868",
+        "batch": 2026
+    },
+    {
+        "name": "Devipriya N",
+        "company": "Mu Sigma",
+        "package": 6.5,
+        "phone": "xxxxxxxxx",
+        "batch": 2026
+    },
+    {
+        "name": "Dharshini Priya S",
+        "company": "Hexaware",
+        "package": 4,
+        "phone": "9043623722",
+        "batch": 2026
+    },
+    {
+        "name": "Durga Devi T",
+        "company": "Hexaware",
+        "package": 4,
+        "phone": "9445326155",
+        "batch": 2026
+    },
+    {
+        "name": "Geetha Lekshmi P S",
+        "company": "Hexaware",
+        "package": 4,
+        "phone": "9944929480",
+        "batch": 2026
+    },
+    {
+        "name": "Karthick S",
+        "company": "Propel",
+        "package": 4.5,
+        "phone": "9514192195",
+        "batch": 2026
+    },
+    {
+        "name": "Lingeeshwar T S",
+        "company": "Hexaware",
+        "package": 4,
+        "phone": "6379272731",
+        "batch": 2026
+    },
+    {
+        "name": "Mukesh Kumar B",
+        "company": "Prodapt",
+        "package": 6,
+        "phone": "8680834741",
+        "batch": 2026
+    },
+    {
+        "name": "Sanjay M",
+        "company": "Hexaware",
+        "package": 4,
+        "phone": "9500498576",
+        "batch": 2026
+    },
+    {
+        "name": "Shamyuktha S",
+        "company": "Hexaware",
+        "package": 4,
+        "phone": "9003948299",
+        "batch": 2026
+    },
+    {
+        "name": "Shravya G",
+        "company": "Kaar Technologies",
+        "package": 8,
+        "phone": "7358097528",
+        "batch": 2026
+    },
+    {
+        "name": "Sudharrshan S",
+        "company": "Kaar Technologies",
+        "package": 6.5,
+        "phone": "9585244783",
+        "batch": 2026
+    },
+    {
+        "name": "Syed Shifana S",
+        "company": "Hexaware",
+        "package": 4,
+        "phone": "9629224187",
+        "batch": 2026
+    },
+    {
+        "name": "Tamizharasan M",
+        "company": "Hexaware",
+        "package": 4,
+        "phone": "8681996776",
+        "batch": 2026
+    },
+    {
+        "name": "Vijaya Shankaran K",
+        "company": "Hexaware",
+        "package": 4,
+        "phone": "7397505227",
+        "batch": 2026
+    },
+    {
+        "name": "Oviya Prabha B",
+        "company": "Hexaware",
+        "package": 4,
+        "phone": "9363145348",
+        "batch": 2026
+    }
+]

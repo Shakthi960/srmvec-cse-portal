@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CSE Department – Achievements</title>
+
+    <!-- Theme bootstrap -->
+    <script>
+        (function () {
+            try {
+                const saved = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia &&
+                    window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+                const theme = saved || (prefersDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+        .achieve-container {
+            max-width: 1200px;
+            margin: 120px auto 40px;
+            padding: 0 20px 40px;
+        }
+
+        .achieve-header {
+            margin-bottom: 18px;
+        }
+
+        .achieve-header h2 {
+            margin: 0 0 6px;
+            font-size: 24px;
+            color: #7D2AE8;
+        }
+
+        .achieve-header p {
+            margin: 0;
+        }
+
+        .achieve-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 20px;
+        }
+
+        .achieve-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            border: 1px solid rgba(15, 23, 42, 0.04);
+        }
+
+        .achieve-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+            border-color: rgba(125, 42, 232, 0.4);
+        }
+
+        .achieve-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        .achieve-card h4 {
+            margin: 4px 0;
+            font-size: 16px;
+            color: var(--text);
+        }
+
+        .achieve-card p {
+            margin: 6px 0 0;
+            font-size: 14px;
+            color: var(--muted);
+            text-align: justify;
+        }
+
+        @media (max-width: 600px) {
+            .achieve-container {
+                margin-top: 100px;
+            }
+        }
+
+        /* MODAL POPUP */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .modal.open {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 16px;
+            max-width: 550px;
+            width: 95%;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+            animation: pop 0.25s ease-out;
+            position: relative;
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-content img {
+            width: 100%;
+            border-radius: 14px;
+            margin-bottom: 12px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--text);
+            font-weight: bold;
+            background: var(--card-bg);
+            border-radius: 45%;
+            padding: 2px 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-btn:hover {
+            color: #7D2AE8;
+        }
+
+        .filter-box {
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .filter-box label {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .filter-box select {
+            padding: 6px 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: var(--card-bg);
+            color: var(--text);
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .lazy-img {
+            background: #333;
+            min-height: 160px;
+            display: block;
+            border-radius: 12px;
+        }
+
+        /* Center Loader */
+        .loader {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 55px;
+            height: 55px;
+            margin-top: -27.5px;
+            margin-left: -27.5px;
+            border: 5px solid #ddd;
+            border-top-color: #7D2AE8;
+            border-radius: 50%;
+            animation: spin 0.9s linear infinite;
+            z-index: 5000;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="brand">
+                <img src="image.png" alt="CSE logo">
+                <div>
+                    <h1>CSE Department</h1>
+                    <div class="brand-sub">SRM Valliammai Engineering College</div>
+                </div>
+            </a>
+
+            <!-- Desktop menu -->
+            <div class="menu">
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About us</a>
+                <a href="index.html#faculty">Faculty</a>
+                <a href="index.html#coderizz">Coderizz</a>
+                <a href="index.html#achievements">Events</a>
+                <a href="index.html#placements">Placements</a>
+                <a href="index.html#alumni">Alumni</a>
+                <a href="index.html#blog">Blog</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="cgpa.html">GPA-Calculator</a>
+            </div>
+
+            <!-- Hamburger -->
+            <button class="hamb" id="hamb" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- Mobile full-screen menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About us</a>
+            <a href="index.html#faculty">Faculty</a>
+            <a href="index.html#coderizz">Coderizz</a>
+            <a href="index.html#labs">Labs</a>
+            <a href="index.html#achievements">Events</a>
+            <a href="index.html#placements">Placements</a>
+            <a href="index.html#alumni">Alumni</a>
+            <a href="index.html#blog">Blog</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="cgpa.html">GPA-Calculator</a>
+        </div>
+    </nav>
+
+    <!-- ACHIEVEMENTS CONTENT -->
+    <main class="achieve-container">
+
+        <div class="achieve-header">
+            <h2>Events Conducted & Archievements</h2>
+
+            <div class="filter-box">
+                <label for="sortSelect">Filter by:</label>
+                <select id="sortSelect">
+                    <option value="new">Newest to Oldest</option>
+                    <option value="old">Oldest to Newest</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="achieve-grid" id="achieveGrid">
+            <!-- achievement.json data loads here -->
+        </div>
+    </main>
+
+    <!-- Floating theme + back-to-top controls -->
+    <div class="floating-controls">
+        <button id="themeToggle" class="fab" aria-label="Toggle Theme">🌙</button>
+        <button id="backToTop" class="fab" aria-label="Back To Top">↑</button>
+    </div>
+
+    <script>
+        // ===== MOBILE MENU =====
+        const hamb = document.getElementById('hamb');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamb.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('open');
+            hamb.classList.toggle('open', isOpen);
+            hamb.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        mobileMenu.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.remove("open");
+                hamb.classList.remove("open");
+                hamb.setAttribute("aria-expanded", "false");
+            });
+        });
+
+        // ===== THEME TOGGLE =====
+        const themeToggle = document.getElementById("themeToggle");
+        const root = document.documentElement;
+
+        function updateThemeIcon() {
+            const theme = root.getAttribute("data-theme") || "light";
+            themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+        }
+
+        themeToggle.addEventListener("click", () => {
+            const current = root.getAttribute("data-theme") || "light";
+            const next = current === "light" ? "dark" : "light";
+            root.setAttribute("data-theme", next);
+
+            try {
+                localStorage.setItem("theme", next);
+            } catch { }
+
+            updateThemeIcon();
+        });
+
+        updateThemeIcon();
+
+        // ===== BACK TO TOP =====
+        const backToTop = document.getElementById("backToTop");
+
+        backToTop.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        function toggleBackBtn() {
+            backToTop.classList.toggle("visible", window.scrollY > 300);
+        }
+
+        window.addEventListener("scroll", toggleBackBtn);
+        toggleBackBtn();
+
+        // ===== REVEAL ANIMATION OBSERVER =====
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add("revealed");
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        // ===== LOAD ACHIEVEMENTS JSON =====
+        fetch("https://script.google.com/macros/s/AKfycbwcntlchkgKLlO4wtxxTQTwy6zDSTpweLwk4ANhuV82V6txTRcb-ddHSA-A18EcePiU/exec")
+            .then(res => res.json())
+            .then(originalData => {
+
+                let data = [...originalData];
+                const grid = document.getElementById("achieveGrid");
+                const sortSelect = document.getElementById("sortSelect");
+                document.getElementById("loader").style.display = "none";
+
+                // Render function
+                function renderCards(list) {
+                    grid.innerHTML = "";  // clear old cards
+
+                    list.forEach(item => {
+                        const card = document.createElement("div");
+                        card.className = "achieve-card reveal";
+
+                        card.innerHTML = `
+                        <img class="lazy-img" data-src="${item.img}" alt="achievement">
+                        <h4>${item.title}</h4>
+                        <p>${item.desc}</p>
+                        `;
+
+                        // popup
+                        card.addEventListener("click", () => {
+                            document.getElementById("modalImg").src = item.img;
+                            document.getElementById("modalTitle").textContent = item.title;
+                            document.getElementById("modalDesc").textContent = item.desc;
+                            document.getElementById("popupModal").classList.add("open");
+                        });
+
+                        grid.appendChild(card);
+                        const img = card.querySelector("img");
+                        img.src = img.getAttribute("data-src");
+
+                    });
+
+                    // 🚀 IMPORTANT: apply reveal animation to new cards also
+                    document.querySelectorAll('.achieve-card').forEach(el => obs.observe(el));
+                }
+
+                // Initial load
+                renderCards([...originalData].reverse());
+
+                // Sorting logic
+                sortSelect.addEventListener("change", () => {
+                    const mode = sortSelect.value;
+
+                    if (mode === "old") {
+                        renderCards([...originalData]);       // newest → oldest
+                    } else {
+                        renderCards([...originalData].reverse()); // oldest → newest
+                    }
+                });
+
+                // CLOSE POPUP
+                document.querySelector(".close-btn").addEventListener("click", () => {
+                    document.getElementById("popupModal").classList.remove("open");
+                });
+
+                // CLOSE POPUP ON OUTSIDE CLICK
+                document.getElementById("popupModal").addEventListener("click", (e) => {
+                    if (e.target === e.currentTarget) {
+                        e.currentTarget.classList.remove("open");
+                    }
+                });
+
+            })
+            .catch(err => console.error("Failed to load achievement.json", err));
+    </script>
+
+
+    <!-- POPUP MODAL -->
+    <div id="popupModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <img id="modalImg" src="" alt="Achievement">
+            <h3 id="modalTitle"></h3>
+            <p id="modalDesc"></p>
+        </div>
+    </div>
+    <div id="loader" class="loader"></div>
+
+</body>
+
+</html>

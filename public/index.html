@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SRMVEC - CSE Department</title>
+    <meta name="description"
+        content="Computer Science & Engineering — academics, labs, faculty, events, placements, alumni and more." />
+    <link rel="icon" href="image.png" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Set theme BEFORE CSS loads (system preference or saved choice) -->
+    <script>
+        (function () {
+            try {
+                const saved = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const theme = saved || (prefersDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="brand">
+                <img src="image.png" alt="CSE logo">
+                <div>
+                    <h1>CSE Department</h1>
+                    <div class="brand-sub">SRM Valliammai Engineering College</div>
+                </div>
+            </a>
+
+            <!-- Desktop menu -->
+            <div class="menu">
+                <a href="index.html">Home</a>
+                <a href="#about">About us</a>
+                <a href="#faculty">Faculty</a>
+                <a href="#coderizz">Coderizz</a>
+                <a href="#achievements">Events</a>
+                <a href="#placements">Placements</a>
+                <a href="#alumni">Alumni</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
+                <a href="cgpa.html">GPA-Calculator</a>
+            </div>
+
+            <!-- Hamburger -->
+            <button class="hamb" id="hamb" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- Mobile full-screen menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="#about">About us</a>
+            <a href="#faculty">Faculty</a>
+            <a href="#coderizz">Coderizz</a>
+            <a href="#labs">Labs</a>
+            <a href="#achivements">Events</a>
+            <a href="#placements">Placements</a>
+            <a href="#alumni">Alumni</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Contact</a>
+            <a href="cgpa.html">GPA-Calculator</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <div>
+                    <span class="eyebrow">Department of CSE</span>
+                    <h2>Computer Science and Engineering</h2>
+                    <h4>Department of Computer Science and Engineering</h4>
+                    <p class="muted">
+                        SRM Valliammai Engineering College, a member of SRM Group of Institutions, was established in
+                        the year
+                        1999. The Department of Computer Science and Engineering came into existence from the very
+                        inception
+                        of the college. Initially, the annual intake was 60. National Board of Accreditation (NBA) has
+                        accredited the B.E. CSE programme for a period of 3 years. In tune with the growing global
+                        demand
+                        for CSE, the intake level was enhanced to 180 in the year 2019–20.
+                    </p>
+                    <p class="muted">
+                        In addition, the department started the P.G. course <strong>M.E. Computer Science and
+                            Engineering</strong>
+                        with an intake of 18 from the academic year 2012–13.
+                    </p>
+                    <p class="muted">
+                        Right from its inception in the year 1999, the Department has steadily grown in all spheres and
+                        continues to focus on academic excellence, research, and industry relevance.
+                    </p>
+                </div>
+                <div class="hero-actions">
+                    <a class="cta-primary" href="#about">Explore Department</a>
+                </div>
+                <div class="hero-cards">
+                    <div class="card-hero">
+                        <strong>Established</strong>
+                        <div class="muted-sm">1999</div>
+                    </div>
+                    <div class="card-hero">
+                        <strong>UG & PG Programs</strong>
+                        <div class="muted-sm">B.E. CSE, M.E. CSE</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </header>
+
+    <!-- ABOUT + VISION + OTHERS -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h3>About the Department</h3>
+                <p class="muted">Vision, mission and programme outcomes.</p>
+            </div>
+
+            <div class="about-slider">
+                <div class="slider">
+                    <!-- Slide 1: Vision -->
+                    <div class="slide active">
+                        <h2>Vision</h2>
+                        <p class="muted">
+                            To adopt innovative, engaging, and impactful teaching practices that uncover the inherent
+                            talents and competencies of young minds, enabling them to evolve into skilled, ethical, and
+                            humane Computer Science Engineering professionals.
+                        </p>
+                    </div>
+
+                    <!-- Slide 2: Mission -->
+                    <div class="slide">
+                        <h2>Mission</h2>
+                        <p class="muted">
+                            • To provide students with challenging learning opportunities<br>
+                            • To foster practical knowledge & research excellence<br>
+                            • To enhance societal well-being through industry-institute collaboration
+                        </p>
+                    </div>
+
+                    <!-- Slide 3: Objective -->
+                    <div class="slide">
+                        <h2>Objective</h2>
+                        <p class="muted">
+                            To uphold excellence in the teaching-learning process and help students acquire deep
+                            knowledge and strong professional skills in Computer Science and Engineering.
+                        </p>
+                    </div>
+
+                    <!-- Slide 4: Long-Term Goals -->
+                    <div class="slide">
+                        <h2>Long-Term Goals</h2>
+                        <ul class="muted">
+                            <li>Conduct international conferences</li>
+                            <li>Obtain government/multinational funded projects</li>
+                            <li>Establish MoUs with global companies</li>
+                            <li>Start an approved Research Centre</li>
+                        </ul>
+                    </div>
+
+                    <!-- Slide 5: Short-Term Goals -->
+                    <div class="slide">
+                        <h2>Short-Term Goals</h2>
+                        <ul class="muted">
+                            <li>Promote R&D activities</li>
+                            <li>Improve academics to 100% result</li>
+                            <li>Publish papers in reputed journals</li>
+                            <li>Train using latest technologies</li>
+                            <li>Motivate students to do internships</li>
+                        </ul>
+                    </div>
+
+                    <!-- Slide 6: PEOs -->
+                    <div class="slide">
+                        <h2>Programme Educational Objectives (PEOs)</h2>
+                        <p class="muted">
+                            PEO1: Excel in higher education & research<br>
+                            PEO2: Strong foundation in science & engineering<br>
+                            PEO3: Innovate solutions for society<br>
+                            PEO4: Become ethical entrepreneurs<br>
+                            PEO5: Grow in a professional environment
+                        </p>
+                    </div>
+
+                    <!-- Slide 7: POs -->
+                    <div class="slide">
+                        <h2>Programme Outcomes (POs)</h2>
+                        <p class="muted">
+                            Engineering knowledge, Problem analysis, Design, Research, Tool usage, Ethics,
+                            Sustainability, Communication, Teamwork, Project management, Lifelong learning.
+                        </p>
+                    </div>
+
+                    <!-- Slide 8: PSOs -->
+                    <div class="slide">
+                        <h2>Programme Specific Outcomes (PSOs)</h2>
+                        <p class="muted">
+                            PSO1: Software solutions<br>
+                            PSO2: Programming skills<br>
+                            PSO3: Real-world problem solving<br>
+                            PSO4: Team-based technology application
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Arrows -->
+                <button class="arrow prev" aria-label="Previous item">❮</button>
+                <button class="arrow next" aria-label="Next item">❯</button>
+
+                <!-- Dots -->
+                <div class="dots"></div>
+            </div>
+            <div class="faculty-more">
+                <a href="about.html" class="view-more-btn">Know more →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FACULTY -->
+    <section id="faculty">
+        <div class="container">
+            <div class="section-title">
+                <h3>Faculty</h3>
+                <p class="muted">Experienced faculty with strong academic and industry background.</p>
+            </div>
+            <div class="faculty-grid">
+                <div class="faculty-card">
+                    <img src="https://srmvalliammai.ac.in/wp-content/uploads/2022/04/vanathi.png" alt="Dr. B. Vanathi">
+                    <div class="faculty-meta">
+                        <h4>Dr.B.Vanathi B.E.,M.E.,Ph.D.</h4>
+                        <p class="muted-sm">Professor & HOD</p>
+                    </div>
+                </div>
+                <div class="faculty-card">
+                    <img src="https://srmvalliammai.ac.in/wp-content/uploads/2022/04/dhanakodi.png"
+                        alt="Dr. V. Dhanakoti">
+                    <div class="faculty-meta">
+                        <h4>Dr.V.Dhanakoti M.E.,Ph.D.</h4>
+                        <p class="muted-sm">Professor</p>
+                    </div>
+                </div>
+                <div class="faculty-card">
+                    <img src="https://srmvalliammai.ac.in/wp-content/uploads/2022/04/samy.png" alt="Dr. A. Samydurai">
+                    <div class="faculty-meta">
+                        <h4>Dr.A.Samydurai B.E.,M.E.,Ph.D.</h4>
+                        <p class="muted-sm">Professor</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faculty-more">
+                <a href="staff.html" class="view-more-btn">View All Faculty →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements">
+        <div class="container">
+            <div class="section-title">
+                <h3>Event Conducted & Achievements</h3>
+                <p class="muted">Recent awards, funded projects and top student accomplishments.</p>
+            </div>
+            <div class="achievements">
+                <div class="achieve">
+                    <strong>District-Level Speech Competition - II Prize</strong>
+                    <p class="muted-sm">Ms. S. Kaviya, III Year CSE (2022-26 Batch), won Second Prize and a cash award of ₹7,000 in the District-Level Speech Competition organized by the Tamil Nadu Government Tamil Development Department.</div>
+                <div class="achieve">
+                    <strong>Participation in Startup Bootcamp</strong>
+                    <p class="muted-sm">Ms. S. Shanthi along with III Year CSE2 students participated in a Bootcamp organized by the Tamil Nadu Startup and Innovation Mission, gaining hands-on exposure to entrepreneurial and innovation practices.</p>
+                </div>
+                <div class="achieve">
+                    <strong>Project Selection - Naan Mudhalvan Niral Thiruvizha 2.0</strong>
+                    <p class="muted-sm">A project guided by Dr. G. Sangeetha was selected for Naan Mudhalvan - Niral Thiruvizha 2.0, recognizing the innovation and societal impact of the work.</p>
+                </div>
+            </div>
+            <div class="faculty-more">
+                <a href="achievement.html" class="view-more-btn">View more →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLACEMENTS -->
+    <section id="placements">
+        <div class="container">
+            <div class="section-title">
+                <h3>Placements</h3>
+                <p class="muted">Recent recruiters and placement statistics.</p>
+            </div>
+            <div class="placements">
+                <div class="placement-stat">
+                    <h2>18%+</h2>
+                    <p class="muted-sm">Overall placement rate for the last graduating batch.</p>
+                </div>
+                <div class="placement-stat">
+                    <h2>Top Recruiters</h2>
+                    <p class="muted-sm">Prodapt, Hexaware, EPAM, Mu Sigma, Kaar Technologies, Propel</p>
+                </div>
+                <div class="placement-stat">
+                    <h2>Avg CTC</h2>
+                    <p class="muted-sm">4.85 LPA (median)</p>
+                </div>
+            </div>
+            <div class="faculty-more">
+                <a href="placement.html" class="view-more-btn">View All →</a>
+            </div>
+        </div>
+    </section>
+              
+    <!-- CODERIZZ -->
+    <section id="coderizz">
+        <div class="container">
+            <div class="section-title">
+                <h3>CODERIZZ</h3>
+                <p class="muted">The Coding & Innovation Club</p>
+            </div>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>Coding Contests & Hackathons</h4>
+                    <p class="muted">CODERIZZ is the official technical club of the Department of Computer Science and Engineering, SRM Valliammai Engineering College. 
+                    It serves as a dynamic platform for students to enhance their programming skills, explore emerging technologies, and cultivate innovative thinking.</p>
+                </div>
+                <div class="card">
+                    <h4>Technical Events</h4>
+                    <p class="muted">The club focuses on hands-on learning through coding challenges, hackathons, workshops, technical seminars, project showcases, and collaborative problem-solving sessions. 
+                    CODERIZZ encourages students to think beyond the curriculum and develop real-world solutions using cutting-edge tools and technologies.</p>
+                </div>
+            </div>
+            <div class="faculty-more">
+                <a href="coderizz.html" class="view-more-btn">View more →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALUMNI -->
+    <section id="alumni">
+        <div class="container">
+            <div class="section-title">
+                <h3>Alumni</h3>
+            </div>
+            <div class="testimonials">
+                <div class="testi">
+                    <strong>R. Karthik — Software Engineer</strong>
+                    <p class="muted-sm">
+                        "The faculty mentorship prepared me well for interviews and real-world challenges."
+                    </p>
+                </div>
+                <div class="testi">
+                    <strong>S. Meena — Data Scientist</strong>
+                    <p class="muted-sm">
+                        "Research opportunities helped me publish and land a role in analytics."
+                    </p>
+                </div>
+            </div>
+            <div class="faculty-more">
+                <a href="alumni.html" class="view-more-btn">View more →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog">
+        <div class="container">
+            <div class="section-title">
+                <h3>Blog & News</h3>
+                <p class="muted">Updates from the department.</p>
+            </div>
+            <div class="cards">
+                <div class="event-card">
+                    <img src="image/blog1.jpg" alt="Interview preparation">
+                    <h4>How to prepare for technical interviews</h4>
+                    <p class="muted-sm">Top tips from our placement cell and alumni.</p>
+                </div>
+                <div class="event-card">
+                    <img src="image/blog2.jpg" alt="AI Lab showcase">
+                    <h4>AI Lab — Project Showcase</h4>
+                    <p class="muted-sm">Student projects from the semester.</p>
+                </div>
+                <div class="event-card">
+                    <img src="image/blog3.jpg" alt="Student achievements">
+                    <h4>Student Achievements</h4>
+                    <p class="muted-sm">Awards, competitions and hackathon wins.</p>
+                </div>
+            </div>
+            <div class="faculty-more">
+                <a href="blog.html" class="view-more-btn">View more →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIBRARY -->
+    <section id="library">
+        <div class="container">
+            <div class="section-title">
+                <h3>Library & Resources</h3>
+                <p class="muted">Books, journals, e-resources and licensed software.</p>
+            </div>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>Physical Book Collection</h4>
+                    <p class="muted">A comprehensive collection of Computer Science textbooks, reference books, programming manuals, academic guides, and final year project reports. Covers core subjects such as Data Structures, Operating Systems, Computer Networks, DBMS, Software Engineering, AI, and Python programming to support academic and practical learning.</p>
+                </div>
+                <div class="card">
+                    <h4>Academic & Reference Books</h4>
+                    <p class="muted">Includes syllabus-oriented materials, competitive exam preparation books, coding interview guides, research reference volumes, and technical handbooks to help students strengthen concepts, improve problem-solving skills, and enhance subject mastery.</p>
+                </div>
+            </div>
+            <div class="faculty-more">
+                <a href="library.html" class="view-more-btn">View more →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- LABS -->
+    <section id="labs">
+        <div class="container">
+            <div class="section-title">
+                <h3>Laboratories</h3>
+                <p class="muted">Well-equipped labs named after pioneers in computing.</p>
+            </div>
+
+            <div class="labs-slider">
+                <div class="labs-track">
+                    <div class="lab-slide active">
+                        <img src="lab/1.jpg" alt="James Gosling Lab">
+                        <p class="lab-name">James Gosling Lab</p>
+                    </div>
+
+                    <div class="lab-slide">
+                        <img src="lab/2.jpg" alt="Dennis Ritchie Lab">
+                        <p class="lab-name">Dennis Ritchie Lab</p>
+                    </div>
+
+                    <div class="lab-slide">
+                        <img src="lab/3.jpg" alt="John Backus Lab">
+                        <p class="lab-name">John Backus Lab</p>
+                    </div>
+
+                    <div class="lab-slide">
+                        <img src="lab/4.jpg" alt="Larry Ellison Lab">
+                        <p class="lab-name">Larry Ellison Lab</p>
+                    </div>
+
+                    <div class="lab-slide">
+                        <img src="lab/5.jpg" alt="Charles Babbage Lab">
+                        <p class="lab-name">Charles Babbage Lab</p>
+                    </div>
+
+                    <div class="lab-slide">
+                        <img src="lab/6.jpg" alt="Ken Thompson Lab">
+                        <p class="lab-name">Ken Thompson Lab</p>
+                    </div>
+
+                    <div class="lab-slide">
+                        <img src="lab/7.jpg" alt="Donald D. Chamberlin Lab (PG)">
+                        <p class="lab-name">Donald D. Chamberlin (PG Lab)</p>
+                    </div>
+                </div>
+
+                <!-- Arrows -->
+                <button class="lab-arrow lab-prev" aria-label="Previous lab">❮</button>
+                <button class="lab-arrow lab-next" aria-label="Next lab">❯</button>
+
+                <!-- Dots -->
+                <div class="lab-dots"></div>
+            </div>
+            <div class="aaa">
+                <div class="admin">
+                    <a href="admin.html">Admin</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- FOOTER -->
+<footer id="contact">
+    <div class="container footer-main">
+
+        <!-- ROW 1 : Address + Map -->
+        <div class="footer-top">
+            <div class="footer-address">
+                <h3>Contact Us</h3>
+                <p class="muted-sm">
+                    Department of Computer Science & Engineering<br>
+                    SRM Valliammai Engineering College<br>
+                    Kattankulathur, Tamil Nadu - 603203<br><br>
+                    📞 +91 6383149466<br>
+                    ✉️ cse@srmvalliammai.ac.in
+                </p>
+            </div>
+
+            <div class="footer-map">
+                <iframe 
+                    src="https://www.google.com/maps?q=SRM+Valliammai+Engineering+College&z=17&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- ROW 2 : Quick Links + Social Icons -->
+        <div class="footer-bottom-row">
+
+            <!-- Quick Links -->
+            <div class="footer-quicklinks">
+                <h3>Quick Links</h3>
+                <div class="quick-links-grid">
+                    <a href="index.html">Home</a>
+                    <a href="#about">About us</a>
+                    <a href="#faculty">Faculty</a>
+                    <a href="#labs">Labs</a>
+                    <a href="#achievements">Events</a>
+                    <a href="#placements">Placements</a>
+                    <a href="#alumni">Alumni</a>
+                    <a href="#blog">Blog</a>
+                    <a href="#contact">Contact</a>
+                    <a href="cgpa.html">GPA-Calculator</a>
+                    <a href="admin.html">Admin</a>
+                </div>
+            </div>
+
+            <!-- Social Media Icons (logo only) -->
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://wa.me/916383149466" target="_blank" aria-label="WhatsApp">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+                    </a>
+                    <a href="#" target="_blank" aria-label="Instagram">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <div>Designed by Karthick S & Shakthi K, Dept. of CSE</div>
+        <div>&copy; 2022 - 2026 Dept of CSE - SRM Valliammai Engineering College</div>
+    </div>
+</footer>
+
+
+
+    <!-- Floating theme + back-to-top controls -->
+    <div class="floating-controls">
+        <button id="themeToggle" class="fab" aria-label="Toggle light/dark theme">🌙</button>
+        <button id="backToTop" class="fab" aria-label="Back to top">↑</button>
+    </div>
+
+    <script>
+        // ===== MOBILE NAV =====
+        const hamb = document.getElementById('hamb');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamb.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('open');
+            hamb.classList.toggle('open', isOpen);
+            hamb.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                hamb.classList.remove('open');
+                hamb.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // ===== THEME TOGGLE =====
+        const themeToggle = document.getElementById('themeToggle');
+        const root = document.documentElement;
+
+        function updateThemeIcon() {
+            const theme = root.getAttribute('data-theme') || 'light';
+            themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const current = root.getAttribute('data-theme') || 'light';
+            const next = current === 'light' ? 'dark' : 'light';
+            root.setAttribute('data-theme', next);
+            try {
+                localStorage.setItem('theme', next);
+            } catch (e) { }
+            updateThemeIcon();
+        });
+
+        updateThemeIcon();
+
+        // ===== BACK TO TOP =====
+        const backToTop = document.getElementById('backToTop');
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        function toggleBackToTop() {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }
+
+        window.addEventListener('scroll', toggleBackToTop);
+        toggleBackToTop();
+
+        // ===== REVEAL ON SCROLL =====
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('revealed');
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('section, .faculty-card, .event-card, .achieve, .placement-stat, .testi')
+            .forEach(el => {
+                el.classList.add('reveal');
+                obs.observe(el);
+            });
+
+        // ===== ABOUT SLIDER =====
+        const slider = document.querySelector(".slider");
+        const slides = document.querySelectorAll(".slide");
+        const next = document.querySelector(".next");
+        const prev = document.querySelector(".prev");
+        const dotsContainer = document.querySelector(".dots");
+        let index = 0;
+
+        slides.forEach((_, i) => {
+            const btn = document.createElement("button");
+            btn.setAttribute('type', 'button');
+            if (i === 0) btn.classList.add("active");
+            dotsContainer.appendChild(btn);
+        });
+
+        const dots = dotsContainer.querySelectorAll("button");
+
+        function showSlide(i) {
+            index = (i + slides.length) % slides.length;
+            slides.forEach(s => s.classList.remove("active"));
+            slides[index].classList.add("active");
+            slider.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach(d => d.classList.remove("active"));
+            dots[index].classList.add("active");
+        }
+
+        if (next && prev) {
+            next.onclick = () => showSlide(index + 1);
+            prev.onclick = () => showSlide(index - 1);
+        }
+        dots.forEach((dot, i) => dot.onclick = () => showSlide(i));
+
+        setInterval(() => showSlide(index + 1), 5000);
+
+        // ===== LAB SLIDER =====
+        const labTrack = document.querySelector(".labs-track");
+        const labSlides = document.querySelectorAll(".lab-slide");
+        const labNext = document.querySelector(".lab-next");
+        const labPrev = document.querySelector(".lab-prev");
+        const labDotsContainer = document.querySelector(".lab-dots");
+        let labIndex = 0;
+
+        labSlides.forEach((_, i) => {
+            const b = document.createElement("button");
+            b.setAttribute('type', 'button');
+            if (i === 0) b.classList.add("active");
+            labDotsContainer.appendChild(b);
+        });
+
+        const labDots = labDotsContainer.querySelectorAll("button");
+
+        function showLabSlide(i) {
+            labIndex = (i + labSlides.length) % labSlides.length;
+            labSlides.forEach(s => s.classList.remove("active"));
+            labSlides[labIndex].classList.add("active");
+            labTrack.style.transform = `translateX(-${labIndex * 100}%)`;
+            labDots.forEach(d => d.classList.remove("active"));
+            labDots[labIndex].classList.add("active");
+        }
+
+        if (labNext && labPrev) {
+            labNext.onclick = () => showLabSlide(labIndex + 1);
+            labPrev.onclick = () => showLabSlide(labIndex - 1);
+        }
+        labDots.forEach((dot, i) => dot.onclick = () => showLabSlide(i));
+
+        setInterval(() => showLabSlide(labIndex + 1), 4000);
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const counters = document.querySelectorAll(".count");
+
+            counters.forEach(counter => {
+                const target = +counter.getAttribute("data-target");
+                let current = 0;
+                const speed = 30; // smaller = faster animation
+
+                const updateCount = () => {
+                    const increment = Math.ceil(target / 80);
+
+                    if (current < target) {
+                        current += increment;
+                        if (current > target) current = target;
+                        counter.innerText = current;
+                        setTimeout(updateCount, speed);
+                    } else {
+                        counter.innerText = target + "+";
+                    }
+                };
+
+                updateCount();
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

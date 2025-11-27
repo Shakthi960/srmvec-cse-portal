@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CSE Department – Admin Panel</title>
+    <link rel="icon" href="image.png" />
+
+    <!-- Theme bootstrap -->
+    <script>
+        (function () {
+            try {
+                const saved = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const theme = saved || (prefersDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+        /* Page container */
+        .admin-page {
+            max-width: 1200px;
+            margin: 120px auto 40px;
+            padding: 0 20px 40px;
+        }
+
+        /* LOGIN SCREEN */
+        .login-screen {
+            max-width: 380px;
+            margin: 120px auto;
+            padding: 24px 22px 26px;
+            border-radius: 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .login-screen h2 {
+            margin: 0 0 6px;
+            font-size: 22px;
+            color: var(--primary);
+        }
+
+        .login-screen p {
+            margin: 0 0 16px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .login-field {
+            margin-bottom: 12px;
+        }
+
+        .login-field label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .login-field input {
+            width: 100%;
+            padding: 9px 11px;
+            border-radius: 10px;
+            border: 1px solid #bfbfbf;
+            outline: none;
+            font-size: 14px;
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .login-field input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(125, 42, 232, 0.22);
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 9px 18px;
+            border-radius: 999px;
+            background: var(--primary);
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 10px 24px rgba(125, 42, 232, 0.35);
+            transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: #6922dd;
+            transform: translateY(-1px);
+            box-shadow: 0 14px 32px rgba(125, 42, 232, 0.5);
+        }
+
+        .login-error {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #dc2626;
+            display: none;
+        }
+
+        /* ADMIN HEADER */
+        .admin-header h2 {
+            margin: 0 0 6px;
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        .admin-header p {
+            margin: 0 0 18px;
+            color: var(--muted);
+        }
+
+        /* CARDS ROW */
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .admin-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 18px 18px 16px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .admin-card h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .admin-card p {
+            margin: 0;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .admin-card .card-actions {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .btn-outline:hover {
+            background: rgba(125, 42, 232, 0.08);
+        }
+
+        .form-frame {
+            margin-top: 12px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+            display: none;
+        }
+
+        .form-frame iframe {
+            width: 100%;
+            height: 420px;
+            border: 0;
+            background: #ffffff;
+        }
+
+        /* FOOTER TEXT */
+        .admin-footer-note {
+            margin-top: 26px;
+            font-size: 13px;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        .admin-footer-note strong {
+            color: var(--text);
+        }
+
+        /* Responsive */
+        @media (max-width: 980px) {
+            .admin-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 720px) {
+            .admin-page {
+                margin-top: 100px;
+            }
+
+            .admin-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="brand">
+                <img src="image.png" alt="CSE logo">
+                <div>
+                    <h1>CSE Department</h1>
+                    <div class="brand-sub">SRM Valliammai Engineering College</div>
+                </div>
+            </a>
+
+            <!-- Desktop menu: only Home -->
+            <div class="menu">
+                <a href="index.html">Home</a>
+            </div>
+
+            <!-- Hamburger (you can hide this if admin not needed on mobile) -->
+            <button class="hamb" id="hamb" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- Mobile full-screen menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+        </div>
+    </nav>
+
+    <!-- LOGIN SCREEN -->
+    <div id="adminLogin" class="login-screen">
+    <h2>Admin Login</h2>
+    <p>Enter admin password to access secure panel</p>
+    <input type="password" id="adminPassword" placeholder="Admin password">
+    <button class="btn-primary" id="adminLoginBtn">Login</button>
+    <p id="adminError" class="login-error"></p>
+    </div>
+
+    <!-- ADMIN PANEL -->
+    <main id="adminPanel" class="admin-page" style="display:none;">
+
+    <div class="admin-header">
+        <h2>Admin Content Update Panel</h2>
+        <p>Secure internal access only</p>
+    </div>
+
+    <div class="admin-grid">
+
+        <div class="admin-card">
+        <h3>Placement Updates</h3>
+        <button class="btn-primary" onclick="openForm('placement')">Open Form</button>
+        </div>
+
+        <div class="admin-card">
+        <h3>Achievements Updates</h3>
+        <button class="btn-primary" onclick="openForm('achievements')">Open Form</button>
+        </div>
+
+        <div class="admin-card">
+        <h3>Coderizz Updates</h3>
+        <button class="btn-primary" onclick="openForm('coderizz')">Open Form</button>
+        </div>
+
+    </div>
+
+    <div class="form-frame" style="margin-top:20px;">
+        <iframe id="formFrame" style="width:100%; height:600px; display:none;"></iframe>
+    </div>
+
+    <div class="admin-footer-note">
+        For any queries contact
+        <strong>Karthick S (9514192195)</strong>,
+        <strong>Shakthi K (6383149466)</strong>.
+    </div>
+
+    </main>
+
+
+
+        <div class="admin-footer-note">
+            For any queries contact
+            <strong>Karthick S (9514192195)</strong>,
+            <strong>Shakthi K (6383149466)</strong>.
+        </div>
+
+    <!-- Floating theme + back-to-top controls -->
+    <div class="floating-controls">
+        <button id="themeToggle" class="fab" aria-label="Toggle light/dark theme">🌙</button>
+        <button id="backToTop" class="fab" aria-label="Back to top">↑</button>
+    </div>
+
+    <script>
+        document.getElementById('adminLoginBtn').addEventListener('click', async () => {
+        const password = document.getElementById('adminPassword').value;
+
+        const res = await fetch('/api/admin/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ password })
+        });
+
+        if (res.ok) {
+            document.getElementById('adminLogin').style.display = 'none';
+            document.getElementById('adminPanel').style.display = 'block';
+        } else {
+            document.getElementById('adminError').textContent = "Invalid password";
+        }
+        });
+
+        function openForm(type) {
+        const frame = document.getElementById('formFrame');
+        frame.style.display = 'block';
+        frame.src = `/secure-form/${type}`;
+        }
+    </script>
+
+
+
+</body>
+
+</html>
