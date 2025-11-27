@@ -162,7 +162,7 @@ app.get('/secure-form/:type', requireAdmin, (req, res) => {
   if (req.params.type === 'placement') {
     formUrl = 'https://docs.google.com/forms/d/PLACEMENT_FORM_ID/viewform';
   } else if (req.params.type === 'achievements') {
-    formUrl = 'https://docs.google.com/forms/d/ACHIEVEMENTS_FORM_ID/viewform';
+    formUrl = 'https://forms.gle/TDC4NB3eYB57AoEVA';
   } else if (req.params.type === 'coderizz') {
     formUrl = 'https://docs.google.com/forms/d/CODERIZZ_FORM_ID/viewform';
   }
