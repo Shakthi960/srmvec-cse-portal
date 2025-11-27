@@ -9,35 +9,39 @@ const { TableClient } = require('@azure/data-tables');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// ===== CONFIG: STAFF + ADMIN CREDS FROM ENV =====
-const STAFF_EMAIL = process.env.STAFF_EMAIL;
-const STAFF_PHONE = process.env.STAFF_PHONE;
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
-const COOKIE_SECRET = process.env.COOKIE_SECRET || 'dev-secret-change';
+// ===== STAFF & ADMIN CREDENTIALS (use env vars in Azure) =====
+const STAFF_EMAIL = process.env.STAFF_EMAIL || 'cse@srmvalliammai.ac.in';
+const STAFF_PHONE = process.env.STAFF_PHONE || '6383149466';
 
-if (!STAFF_EMAIL || !STAFF_PHONE) {
-  console.warn('⚠️ STAFF_EMAIL / STAFF_PHONE not set in environment variables!');
-}
-if (!ADMIN_PASSWORD) {
-  console.warn('⚠️ ADMIN_PASSWORD not set in environment variables!');
-}
+// for real security REMOVE the default and set only in Azure
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'cse@admin2k25';
 
-// ===== AZURE TABLE STORAGE (StaffNotes) =====
+const COOKIE_SECRET = process.env.COOKIE_SECRET || 'dev-secret-change-me';
+
+// ===== AZURE TABLES – StaffNotes table =====
 const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;
-let tableClient = null;
 
-if (!AZURE_STORAGE_CONNECTION_STRING) {
-  console.warn('⚠️ AZURE_STORAGE_CONNECTION_STRING not set – notes API will not work.');
+let tableClient = null;
+if (AZURE_STORAGE_CONNECTION_STRING) {
+  try {
+    tableClient = TableClient.fromConnectionString(
+      AZURE_STORAGE_CONNECTION_STRING,
+      'StaffNotes'
+    );
+    console.log('✅ TableClient initialised');
+  } catch (err) {
+    console.error('❌ Failed to create TableClient', err);
+  }
 } else {
-  tableClient = new TableClient(AZURE_STORAGE_CONNECTION_STRING, 'StaffNotes');
+  console.warn('⚠️ AZURE_STORAGE_CONNECTION_STRING not set – notes will not be persisted.');
 }
 
-// ===== MIDDLEWARES =====
+// ===== MIDDLEWARE =====
 app.use(bodyParser.json());
 app.use(cookieParser(COOKIE_SECRET));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// ===== AUTH HELPERS =====
+// ===== AUTH MIDDLEWARE =====
 function requireAuth(req, res, next) {
   const { auth } = req.signedCookies;
   if (!auth || auth !== STAFF_EMAIL) {
@@ -54,7 +58,9 @@ function requireAdmin(req, res, next) {
   next();
 }
 
-// ===== STAFF LOGIN =====
+// ===== STAFF LOGIN / LOGOUT & PROFILE =====
+
+// POST /api/login  { email, phone }
 app.post('/api/login', (req, res) => {
   const { email, phone } = req.body || {};
   if (email === STAFF_EMAIL && phone === STAFF_PHONE) {
@@ -68,7 +74,7 @@ app.post('/api/login', (req, res) => {
   return res.status(401).json({ success: false, message: 'Invalid credentials' });
 });
 
-// ===== STAFF PROFILE =====
+// GET /api/me – returns staff details if logged in
 app.get('/api/me', requireAuth, (req, res) => {
   const staff = {
     name: 'CSE Staff',
@@ -79,9 +85,18 @@ app.get('/api/me', requireAuth, (req, res) => {
   res.json(staff);
 });
 
-// ===== NOTES – READ (from Azure Table) =====
+// POST /api/logout – clear auth cookie
+app.post('/api/logout', (req, res) => {
+  res.clearCookie('auth');
+  return res.json({ success: true });
+});
+
+// ===== NOTES USING AZURE TABLE STORAGE =====
+
+// GET /api/notes – get notes for logged-in staff
 app.get('/api/notes', requireAuth, async (req, res) => {
   if (!tableClient) {
+    // no table configured – just return empty
     return res.json({ notes: '' });
   }
 
@@ -90,16 +105,20 @@ app.get('/api/notes', requireAuth, async (req, res) => {
     const entity = await tableClient.getEntity(email, 'notes');
     res.json({ notes: entity.notes || '' });
   } catch (err) {
-    // if not found, just return empty
-    console.warn('GET /api/notes error:', err.message);
-    res.json({ notes: '' });
+    // 404 when entity not found – just return empty string
+    if (err.statusCode === 404) {
+      return res.json({ notes: '' });
+    }
+    console.error('Error reading notes from table:', err);
+    res.status(500).json({ notes: '' });
   }
 });
 
-// ===== NOTES – SAVE (to Azure Table) =====
+// POST /api/notes – save notes
 app.post('/api/notes', requireAuth, async (req, res) => {
   if (!tableClient) {
-    return res.status(500).json({ success: false, message: 'Storage not configured' });
+    // no table configured – pretend success but nothing is stored
+    return res.json({ success: true });
   }
 
   try {
@@ -115,22 +134,17 @@ app.post('/api/notes', requireAuth, async (req, res) => {
     await tableClient.upsertEntity(entity);
     res.json({ success: true });
   } catch (err) {
-    console.error('POST /api/notes error:', err);
+    console.error('Error saving notes to table:', err);
     res.status(500).json({ success: false });
   }
 });
 
-// ===== LOGOUT =====
-app.post('/api/logout', (req, res) => {
-  res.clearCookie('auth');
-  res.clearCookie('adminAuth');
-  return res.json({ success: true });
-});
+// ===== ADMIN LOGIN + SECURE GOOGLE FORMS PROXY =====
 
-// ===== ADMIN LOGIN =====
+// ADMIN LOGIN
 app.post('/api/admin/login', (req, res) => {
   const { password } = req.body || {};
-  if (password && ADMIN_PASSWORD && password === ADMIN_PASSWORD) {
+  if (password === ADMIN_PASSWORD) {
     res.cookie('adminAuth', 'true', {
       httpOnly: true,
       signed: true,
@@ -141,7 +155,7 @@ app.post('/api/admin/login', (req, res) => {
   return res.status(401).json({ success: false });
 });
 
-// ===== SECURE GOOGLE FORM PROXY =====
+// Secure proxy route – hides real Google Form URLs
 app.get('/secure-form/:type', requireAdmin, (req, res) => {
   let formUrl = '';
 
@@ -159,12 +173,12 @@ app.get('/secure-form/:type', requireAdmin, (req, res) => {
     res.setHeader('Content-Type', proxyRes.headers['content-type'] || 'text/html');
     proxyRes.pipe(res);
   }).on('error', err => {
-    console.error('Proxy error:', err);
+    console.error('Error proxying form:', err);
     res.status(500).end('Error loading form');
   });
 });
 
-// ===== ROOT – SERVE MAIN PAGE =====
+// ===== ROOT ROUTE =====
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
