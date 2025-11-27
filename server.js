@@ -112,3 +112,54 @@ app.post('/api/logout', (req, res) => {
   return res.json({ success: true });
 });
 
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+
+// ADMIN LOGIN
+app.post('/api/admin/login', (req, res) => {
+  const { password } = req.body;
+
+  if (password === ADMIN_PASSWORD) {
+    res.cookie('adminAuth', 'true', {
+      httpOnly: true,
+      signed: true,
+      sameSite: 'lax'
+    });
+    return res.json({ success: true });
+  }
+
+  res.status(401).json({ success: false });
+});
+
+function requireAdmin(req, res, next) {
+  const { adminAuth } = req.signedCookies;
+  if (!adminAuth || adminAuth !== 'true') {
+    return res.status(403).json({ error: 'Forbidden' });
+  }
+  next();
+}
+
+const https = require('https');
+
+// Secure proxy route
+app.get('/secure-form/:type', requireAdmin, (req, res) => {
+  let formUrl = '';
+
+  if (req.params.type === 'placement') {
+    formUrl = 'https://docs.google.com/forms/d/PLACEMENT_FORM_ID/viewform';
+  }
+
+  if (req.params.type === 'achievements') {
+    formUrl = 'https://docs.google.com/forms/d/ACHIEVEMENTS_FORM_ID/viewform';
+  }
+
+  if (req.params.type === 'coderizz') {
+    formUrl = 'https://docs.google.com/forms/d/CODERIZZ_FORM_ID/viewform';
+  }
+
+  if (!formUrl) return res.status(404).end();
+
+  https.get(formUrl, proxyRes => {
+    res.setHeader('Content-Type', proxyRes.headers['content-type'] || 'text/html');
+    proxyRes.pipe(res);
+  });
+});

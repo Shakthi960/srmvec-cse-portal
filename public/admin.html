@@ -256,97 +256,60 @@
     </nav>
 
     <!-- LOGIN SCREEN -->
-    <main id="loginScreen" class="login-screen">
-        <h2>Admin Login</h2>
-        <p>Only authorized staff can update website content from this panel.</p>
+    <div id="adminLogin" class="login-screen">
+    <h2>Admin Login</h2>
+    <p>Enter admin password to access secure panel</p>
+    <input type="password" id="adminPassword" placeholder="Admin password">
+    <button class="btn-primary" id="adminLoginBtn">Login</button>
+    <p id="adminError" class="login-error"></p>
+    </div>
 
-        <div class="login-field">
-            <label for="adminPass">Password</label>
-            <input type="password" id="adminPass" autocomplete="current-password" />
+    <!-- ADMIN PANEL -->
+    <main id="adminPanel" class="admin-page" style="display:none;">
+
+    <div class="admin-header">
+        <h2>Admin Content Update Panel</h2>
+        <p>Secure internal access only</p>
+    </div>
+
+    <div class="admin-grid">
+
+        <div class="admin-card">
+        <h3>Placement Updates</h3>
+        <button class="btn-primary" onclick="openForm('placement')">Open Form</button>
         </div>
 
-        <button class="btn-primary" id="loginBtn">Login</button>
-        <div class="login-error" id="loginError">Invalid username or password.</div>
+        <div class="admin-card">
+        <h3>Achievements Updates</h3>
+        <button class="btn-primary" onclick="openForm('achievements')">Open Form</button>
+        </div>
+
+        <div class="admin-card">
+        <h3>Coderizz Updates</h3>
+        <button class="btn-primary" onclick="openForm('coderizz')">Open Form</button>
+        </div>
+
+    </div>
+
+    <div class="form-frame" style="margin-top:20px;">
+        <iframe id="formFrame" style="width:100%; height:600px; display:none;"></iframe>
+    </div>
+
+    <div class="admin-footer-note">
+        For any queries contact
+        <strong>Karthick S (9514192195)</strong>,
+        <strong>Shakthi K (6383149466)</strong>.
+    </div>
+
     </main>
 
-    <!-- ADMIN PANEL (HIDDEN UNTIL LOGIN) -->
-    <main id="adminPanel" class="admin-page" style="display:none;">
-        <div class="admin-header">
-            <h2>Admin Content Update Panel</h2>
-            <p>Use the forms below to submit updates. Approved responses will reflect on the main website.</p>
-        </div>
 
-        <div class="admin-grid">
-            <!-- Card 1: Placement -->
-            <div class="admin-card">
-                <h3>Placement Update Form</h3>
-                <p>
-                    Click the button below to update placement details on the website.
-                    Your changes will be applied directly, so please fill the form carefully and clearly.
-                </p>
-
-                <div class="card-actions">
-                    <button class="btn-primary" data-target="placementFrame">Open Form</button>
-                    <button class="btn-outline" data-close="placementFrame">Close Form</button>
-                </div>
-
-                <div class="form-frame" id="placementFrame">
-                    <iframe
-                        src="https://docs.google.com/forms/d/PLACEMENT_FORM_ID/viewform?embedded=true"
-                        title="Placement Update Form">
-                    </iframe>
-                </div>
-            </div>
-
-            <!-- Card 2: Achievements & Events -->
-            <div class="admin-card">
-                <h3>Achievements &amp; Events Update Form</h3>
-                <p>
-                    Click the button below to update achievements and events on the website.
-                    Your changes will be applied directly, so please fill the form carefully and clearly.
-                </p>
-
-                <div class="card-actions">
-                    <button class="btn-primary" data-target="achievementsFrame">Open Form</button>
-                    <button class="btn-outline" data-close="achievementsFrame">Close Form</button>
-                </div>
-
-                <div class="form-frame" id="achievementsFrame">
-                    <iframe
-                        src="https://docs.google.com/forms/d/ACHIEVEMENTS_FORM_ID/viewform?embedded=true"
-                        title="Achievements & Events Update Form">
-                    </iframe>
-                </div>
-            </div>
-
-            <!-- Card 3: Coderizz -->
-            <div class="admin-card">
-                <h3>Coderizz Event Updation Form</h3>
-                <p>
-                    Click the button below to update Coderizz club event details on the website.
-                    Your changes will be applied directly, so please fill the form carefully and clearly.
-                </p>
-
-                <div class="card-actions">
-                    <button class="btn-primary" data-target="coderizzFrame">Open Form</button>
-                    <button class="btn-outline" data-close="coderizzFrame">Close Form</button>
-                </div>
-
-                <div class="form-frame" id="coderizzFrame">
-                    <iframe
-                        src="https://docs.google.com/forms/d/CODERIZZ_FORM_ID/viewform?embedded=true"
-                        title="Coderizz Event Update Form">
-                    </iframe>
-                </div>
-            </div>
-        </div>
 
         <div class="admin-footer-note">
             For any queries contact
             <strong>Karthick S (9514192195)</strong>,
             <strong>Shakthi K (6383149466)</strong>.
         </div>
-    </main>
 
     <!-- Floating theme + back-to-top controls -->
     <div class="floating-controls">
@@ -355,70 +318,31 @@
     </div>
 
     <script>
-  const notesEl = document.getElementById('notes');
-  const statusEl = document.getElementById('notesStatus');
-  const logoutBtn = document.getElementById('logoutBtn');
+        document.getElementById('adminLoginBtn').addEventListener('click', async () => {
+        const password = document.getElementById('adminPassword').value;
 
-  async function loadStaff() {
-    try {
-      const res = await fetch('/api/me');
-      if (!res.ok) {
-        window.location.href = 'login.html';
-        return;
-      }
-      const staff = await res.json();
-      document.getElementById('staffName').textContent = staff.name;
-      document.getElementById('name').textContent = staff.name;
-      document.getElementById('email').textContent = staff.email;
-      document.getElementById('phone').textContent = staff.phone;
-      document.getElementById('designation').textContent = staff.designation;
-    } catch (err) {
-      console.error(err);
-      window.location.href = 'login.html';
-    }
-  }
+        const res = await fetch('/api/admin/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ password })
+        });
 
-  async function loadNotes() {
-    try {
-      const res = await fetch('/api/notes');
-      if (!res.ok) return;
-      const data = await res.json();
-      notesEl.value = data.notes || '';
-    } catch (err) {
-      console.error(err);
-    }
-  }
+        if (res.ok) {
+            document.getElementById('adminLogin').style.display = 'none';
+            document.getElementById('adminPanel').style.display = 'block';
+        } else {
+            document.getElementById('adminError').textContent = "Invalid password";
+        }
+        });
 
-  document.getElementById('saveNotesBtn').addEventListener('click', async () => {
-    try {
-      const res = await fetch('/api/notes', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ notes: notesEl.value })
-      });
-      if (res.ok) {
-        statusEl.textContent = "Saved!";
-        setTimeout(() => statusEl.textContent = "", 2000);
-      } else {
-        statusEl.textContent = "Failed to save";
-      }
-    } catch (err) {
-      console.error(err);
-      statusEl.textContent = "Error while saving";
-    }
-  });
+        function openForm(type) {
+        const frame = document.getElementById('formFrame');
+        frame.style.display = 'block';
+        frame.src = `/secure-form/${type}`;
+        }
+    </script>
 
-  logoutBtn.addEventListener('click', async () => {
-    try {
-      await fetch('/api/logout', { method: 'POST' });
-    } catch {}
-    window.location.href = 'login.html';
-  });
 
-  // initial load
-  loadStaff();
-  loadNotes();
-</script>
 
 </body>
 
