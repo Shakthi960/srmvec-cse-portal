@@ -255,10 +255,19 @@ app.get('/secure-form/:type', requireAdmin, (req, res) => {
     achievements: process.env.GFORM_ACHIEVEMENTS || '',
     coderizz: process.env.GFORM_CODERIZZ || ''
   };
-  const url = map[req.params.type];
-  if (!url) return res.status(404).send('Form not configured');
-  // redirect (keeps Google URL hidden from client HTML)
-  res.redirect(url);
+
+  const target = map[req.params.type];
+  if (!target) return res.status(404).send("Form not configured");
+
+  // PROXY GOOGLE FORM WITHOUT REVEALING URL
+  https.get(target, (gRes) => {
+    res.status(gRes.statusCode);
+    res.setHeader("Content-Type", gRes.headers["content-type"] || "text/html");
+    gRes.pipe(res);
+  }).on("error", (err) => {
+    console.error(err);
+    res.status(500).send("Unable to load form");
+  });
 });
 
 // fallback: serve index
