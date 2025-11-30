@@ -236,74 +236,91 @@
                 </div>
             </a>
 
-            <!-- Desktop menu: only Home -->
             <div class="menu">
                 <a href="index.html">Home</a>
             </div>
 
-            <!-- Hamburger (you can hide this if admin not needed on mobile) -->
             <button class="hamb" id="hamb" aria-label="Toggle navigation" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
         </div>
 
-        <!-- Mobile full-screen menu -->
         <div class="mobile-menu" id="mobileMenu">
             <a href="index.html">Home</a>
         </div>
     </nav>
 
-    <!-- LOGIN SCREEN -->
+    <!-- ADMIN LOGIN SCREEN -->
     <div id="adminLogin" class="login-screen">
-    <h2>Admin Login</h2>
-    <p>Enter admin password to access secure panel</p>
-    <input type="password" id="adminPassword" placeholder="Admin password">
-    <button class="btn-primary" id="adminLoginBtn">Login</button>
-    <p id="adminError" class="login-error"></p>
+        <h2>Admin Login</h2>
+        <p>Enter admin password to access secure panel</p>
+        <input type="password" id="adminPassword" placeholder="Admin password">
+        <button class="btn-primary" id="adminLoginBtn">Login</button>
+        <p id="adminError" class="login-error"></p>
     </div>
 
     <!-- ADMIN PANEL -->
     <main id="adminPanel" class="admin-page" style="display:none;">
 
-    <div class="admin-header">
-        <h2>Admin Content Update Panel</h2>
-        <p>Secure internal access only</p>
-    </div>
-
-    <div class="admin-grid">
-
-        <div class="admin-card">
-        <h3>Placement Updates</h3>
-        <button class="btn-primary" onclick="openForm('placement')">Open Form</button>
+        <div class="admin-header">
+            <h2>Admin Dashboard</h2>
+            <p>Internal access only</p>
         </div>
 
-        <div class="admin-card">
-        <h3>Achievements Updates</h3>
-        <button class="btn-primary" onclick="openForm('achievements')">Open Form</button>
+        <div class="admin-grid">
+
+            <!-- Placement -->
+            <div class="admin-card">
+                <h3>Placement Updates</h3>
+                <button class="btn-primary" onclick="openForm('placement')">Open Form</button>
+            </div>
+
+            <!-- Achievements -->
+            <div class="admin-card">
+                <h3>Achievements Updates</h3>
+                <button class="btn-primary" onclick="openForm('achievements')">Open Form</button>
+            </div>
+
+            <!-- Coderizz -->
+            <div class="admin-card">
+                <h3>Coderizz Updates</h3>
+                <button class="btn-primary" onclick="openForm('coderizz')">Open Form</button>
+            </div>
+
+            <!-- NEW: CREATE STAFF USERS -->
+            <div class="admin-card">
+                <h3>Create Staff User</h3>
+
+                <div class="login-field">
+                    <label>Username</label>
+                    <input id="cuUsername" placeholder="ex: john" />
+                </div>
+
+                <div class="login-field">
+                    <label>Name</label>
+                    <input id="cuName" placeholder="John Kumar" />
+                </div>
+
+                <div class="login-field">
+                    <label>Phone</label>
+                    <input id="cuPhone" placeholder="9876543210" />
+                </div>
+
+                <div class="login-field">
+                    <label>Password</label>
+                    <input id="cuPassword" type="password" placeholder="password" />
+                </div>
+
+                <button class="btn-primary" onclick="createUser()">Create User</button>
+
+                <p id="createUserStatus" style="margin-top:10px;font-size:14px;"></p>
+            </div>
+
         </div>
 
-        <div class="admin-card">
-        <h3>Coderizz Updates</h3>
-        <button class="btn-primary" onclick="openForm('coderizz')">Open Form</button>
+        <div class="form-frame" style="margin-top:20px;">
+            <iframe id="formFrame" style="width:100%; height:600px; display:none;"></iframe>
         </div>
-
-    </div>
-
-    <div class="form-frame" style="margin-top:20px;">
-        <iframe id="formFrame" style="width:100%; height:600px; display:none;"></iframe>
-    </div>
-
-    <div class="admin-footer-note">
-        For any queries contact
-        <strong>Karthick S (9514192195)</strong>,
-        <strong>Shakthi K (6383149466)</strong>.
-    </div>
-
-    </main>
-
-
 
         <div class="admin-footer-note">
             For any queries contact
@@ -311,39 +328,82 @@
             <strong>Shakthi K (6383149466)</strong>.
         </div>
 
-    <!-- Floating theme + back-to-top controls -->
-    <div class="floating-controls">
-        <button id="themeToggle" class="fab" aria-label="Toggle light/dark theme">🌙</button>
-        <button id="backToTop" class="fab" aria-label="Back to top">↑</button>
-    </div>
+    </main>
 
     <script>
+        // Admin login
         document.getElementById('adminLoginBtn').addEventListener('click', async () => {
-        const password = document.getElementById('adminPassword').value;
+            const password = document.getElementById('adminPassword').value;
 
-        const res = await fetch('/api/admin/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ password })
+            const res = await fetch('/api/admin/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ password }),
+                credentials: 'same-origin'
+            });
+
+            if (res.ok) {
+                document.getElementById('adminLogin').style.display = 'none';
+                document.getElementById('adminPanel').style.display = 'block';
+            } else {
+                document.getElementById('adminError').textContent = "Invalid password";
+            }
         });
 
-        if (res.ok) {
-            document.getElementById('adminLogin').style.display = 'none';
-            document.getElementById('adminPanel').style.display = 'block';
-        } else {
-            document.getElementById('adminError').textContent = "Invalid password";
-        }
-        });
-
+        // Secure forms
         function openForm(type) {
-        const frame = document.getElementById('formFrame');
-        frame.style.display = 'block';
-        frame.src = `/secure-form/${type}`;
+            const frame = document.getElementById('formFrame');
+            frame.style.display = 'block';
+            frame.src = `/secure-form/${type}`;
+        }
+
+        // CREATE STAFF USER
+        async function createUser() {
+            const username = document.getElementById('cuUsername').value.trim();
+            const name = document.getElementById('cuName').value.trim();
+            const phone = document.getElementById('cuPhone').value.trim();
+            const password = document.getElementById('cuPassword').value;
+
+            const status = document.getElementById('createUserStatus');
+            status.textContent = "Creating user...";
+
+            if (!username || !password) {
+                status.textContent = "Username & Password required";
+                status.style.color = "red";
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/admin/create-user', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'same-origin',
+                    body: JSON.stringify({ username, name, phone, password })
+                });
+
+                if (res.ok) {
+                    status.textContent = "User created successfully!";
+                    status.style.color = "green";
+
+                    // clear fields
+                    document.getElementById('cuUsername').value = "";
+                    document.getElementById('cuName').value = "";
+                    document.getElementById('cuPhone').value = "";
+                    document.getElementById('cuPassword').value = "";
+                } else {
+                    status.textContent = "Failed to create user";
+                    status.style.color = "red";
+                }
+            } catch (err) {
+                console.error(err);
+                status.textContent = "Error creating user";
+                status.style.color = "red";
+            }
         }
     </script>
 
-
-
 </body>
+</html>
+
 
 </html>

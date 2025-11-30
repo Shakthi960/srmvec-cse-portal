@@ -1,185 +1,230 @@
-// server.js (diagnostic-ready)
+// server.js
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const https = require('https');
+const bcrypt = require('bcrypt');
 
-let TableClient;
-try {
-  ({ TableClient } = require('@azure/data-tables'));
-} catch (e) {
-  // will log later if storage is required but package missing
-  TableClient = null;
-}
+const { TableClient } = require('@azure/data-tables');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// config
-const COOKIE_SECRET = process.env.COOKIE_SECRET || 'dev-secret-change-change-in-prod';
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'cse@admin2k25';
+// config from env
+const COOKIE_SECRET = process.env.COOKIE_SECRET || 'dev-secret-change';
 const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING || '';
 const TABLE_NAME = process.env.TABLE_NAME || 'StaffNotes';
-const STAFF_JSON = path.join(__dirname, 'staff.json');
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'cse@admin2k25';
 
-console.log('=== STARTUP ===');
-console.log('PORT=', PORT);
-console.log('TABLE_NAME=', TABLE_NAME);
-console.log('AZURE_STORAGE_CONNECTION_STRING set?', !!AZURE_STORAGE_CONNECTION_STRING);
-console.log('Table SDK loaded?', !!TableClient);
+// If provided, init table client
+let tableClient = null;
+if (AZURE_STORAGE_CONNECTION_STRING) {
+  tableClient = new TableClient(AZURE_STORAGE_CONNECTION_STRING, TABLE_NAME);
+}
 
 // middlewares
 app.use(bodyParser.json());
 app.use(cookieParser(COOKIE_SECRET));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// table client init (if configured)
-let tableClient = null;
-if (AZURE_STORAGE_CONNECTION_STRING) {
-  if (!TableClient) {
-    console.error('ERROR: @azure/data-tables not installed but AZURE_STORAGE_CONNECTION_STRING provided.');
-  } else {
-    try {
-      tableClient = new TableClient(AZURE_STORAGE_CONNECTION_STRING, TABLE_NAME);
-      console.log('TableClient initialized for table', TABLE_NAME);
-    } catch (err) {
-      console.error('Failed to init TableClient:', err && err.message);
-      tableClient = null;
-    }
-  }
-}
-
-// helpers
+// helper: local staff.json fallback for display if needed
+const STAFF_JSON = path.join(__dirname, 'staff.json');
 function loadStaffList() {
   if (!fs.existsSync(STAFF_JSON)) return [];
-  try {
-    return JSON.parse(fs.readFileSync(STAFF_JSON, 'utf8'));
-  } catch (e) {
-    console.error('Failed to load staff.json', e);
-    return [];
-  }
-}
-function findStaffByEmailAndPhone(email, phone) {
-  const list = loadStaffList();
-  return list.find(s => s.email === email && (s.phone === phone || s.phone === (`+91${phone}`) || s.phone.replace(/\D/g,'') === phone.replace(/\D/g,'')));
+  try { return JSON.parse(fs.readFileSync(STAFF_JSON, 'utf8')); }
+  catch (e) { console.error('load staff.json error', e); return []; }
 }
 
-async function getNotesFromTable(email) {
+// ---------- TABLE helpers ----------
+
+// get user entity by username (rowKey)
+async function getUser(username) {
+  if (!tableClient) return null;
+  try {
+    const entity = await tableClient.getEntity('staff', username);
+    return entity;
+  } catch (err) {
+    return null;
+  }
+}
+
+// upsert user (must include partitionKey='staff', rowKey=username)
+async function upsertUserEntity(userEntity) {
+  if (!tableClient) throw new Error('Table storage not configured');
+  await tableClient.upsertEntity(userEntity, 'Merge');
+}
+
+// notes helpers: partitionKey = username, rowKey = 'notes'
+async function getNotesForUser(username) {
   if (!tableClient) return '';
   try {
-    const entity = await tableClient.getEntity(email, 'notes');
-    return entity.notes || '';
+    const e = await tableClient.getEntity(username, 'notes');
+    return e.notes || '';
   } catch (err) {
-    // not found or error -> return empty
     return '';
   }
 }
-async function upsertNotesToTable(email, notes) {
+async function upsertNotesForUser(username, notes) {
   if (!tableClient) throw new Error('Table storage not configured');
-  const entity = { partitionKey: email, rowKey: 'notes', notes: notes || '' };
-  await tableClient.upsertEntity(entity, "Merge");
+  const entity = {
+    partitionKey: username,
+    rowKey: 'notes',
+    notes: notes || ''
+  };
+  await tableClient.upsertEntity(entity, 'Merge');
 }
 
-// auth middlewares
+// ---------- auth middleware ----------
 function requireAuth(req, res, next) {
-  try {
-    const { auth } = req.signedCookies;
-    if (!auth) return res.status(401).json({ message: 'Unauthorized' });
-    const staff = loadStaffList().find(s => s.email === auth);
-    if (!staff) return res.status(401).json({ message: 'Unauthorized' });
-    req.staff = staff;
-    next();
-  } catch (err) {
-    console.error('requireAuth error', err);
-    return res.status(500).json({ message: 'Server error' });
-  }
-}
-function requireAdmin(req, res, next) {
-  const { adminAuth } = req.signedCookies;
-  if (!adminAuth || adminAuth !== 'true') return res.status(403).json({ error: 'Forbidden' });
+  const auth = req.signedCookies && req.signedCookies.auth;
+  if (!auth) return res.status(401).json({ message: 'Unauthorized' });
+  req.username = auth; // username stored in cookie on login
   next();
 }
+function requireAdmin(req, res, next) {
+  const adminAuth = req.signedCookies && req.signedCookies.adminAuth;
+  if (adminAuth === 'true') return next();
+  return res.status(403).json({ error: 'Forbidden' });
+}
 
-// routes (login, me, notes)
-app.post('/api/login', (req, res) => {
+// ---------- API: staff login (username + password) ----------
+app.post('/api/staff/login', async (req, res) => {
   try {
-    const { email, phone } = req.body || {};
-    if (!email || !phone) return res.status(400).json({ success: false, message: 'Missing' });
-    const staff = findStaffByEmailAndPhone(email.trim(), phone.trim());
-    if (!staff) return res.status(401).json({ success: false, message: 'Invalid credentials' });
-    res.cookie('auth', staff.email, { httpOnly: true, signed: true, sameSite: 'lax', secure: !!process.env.WEBSITE_SITE_NAME });
+    const { username, password } = req.body || {};
+    if (!username || !password) return res.status(400).json({ success: false, message: 'Missing' });
+
+    const user = await getUser(username);
+    if (!user || !user.passwordHash) return res.status(401).json({ success: false });
+
+    const ok = await bcrypt.compare(password, user.passwordHash);
+    if (!ok) return res.status(401).json({ success: false });
+
+    // set signed httpOnly cookie with username
+    res.cookie('auth', username, {
+      httpOnly: true,
+      signed: true,
+      sameSite: 'lax',
+      secure: !!process.env.WEBSITE_SITE_NAME
+    });
+
     return res.json({ success: true });
   } catch (err) {
-    console.error('/api/login error', err);
+    console.error('staff login error', err);
     return res.status(500).json({ success: false });
   }
 });
 
-app.get('/api/me', requireAuth, (req, res) => {
-  const s = req.staff;
-  res.json({ name: s.name, email: s.email, phone: s.phone, designation: s.designation || '' });
+// staff logout
+app.post('/api/logout', (req, res) => {
+  res.clearCookie('auth');
+  res.json({ success: true });
 });
 
+// get current user profile
+app.get('/api/me', requireAuth, async (req, res) => {
+  try {
+    const user = await getUser(req.username);
+    if (!user) return res.status(404).json({ message: 'Not found' });
+    res.json({
+      username: user.rowKey,
+      name: user.name || user.rowKey,
+      phone: user.phone || '',
+      designation: user.designation || ''
+    });
+  } catch (err) {
+    console.error('GET /api/me error', err);
+    res.status(500).json({});
+  }
+});
+
+// GET notes
 app.get('/api/notes', requireAuth, async (req, res) => {
   try {
-    const notes = tableClient ? await getNotesFromTable(req.staff.email) : '';
+    const notes = await getNotesForUser(req.username);
     res.json({ notes });
   } catch (err) {
-    console.error('GET /api/notes error', err);
+    console.error('GET notes error', err);
     res.status(500).json({ notes: '' });
   }
 });
 
+// POST notes
 app.post('/api/notes', requireAuth, async (req, res) => {
   try {
-    if (!tableClient) return res.status(500).json({ success: false, message: 'Storage not configured' });
-    await upsertNotesToTable(req.staff.email, req.body.notes || '');
+    const { notes } = req.body || {};
+    await upsertNotesForUser(req.username, notes || '');
     res.json({ success: true });
   } catch (err) {
-    console.error('POST /api/notes error', err);
+    console.error('POST notes error', err);
     res.status(500).json({ success: false });
   }
 });
 
-app.post('/api/logout', (req, res) => { res.clearCookie('auth'); res.json({ success: true }); });
-
+// ---------- Admin password-only login ----------
 app.post('/api/admin/login', (req, res) => {
   const { password } = req.body || {};
   if (!password) return res.status(400).json({ success: false });
   if (password === ADMIN_PASSWORD) {
-    res.cookie('adminAuth', 'true', { httpOnly: true, signed: true, sameSite: 'lax', secure: !!process.env.WEBSITE_SITE_NAME });
+    res.cookie('adminAuth', 'true', {
+      httpOnly: true,
+      signed: true,
+      sameSite: 'lax',
+      secure: !!process.env.WEBSITE_SITE_NAME
+    });
     return res.json({ success: true });
   }
   return res.status(401).json({ success: false });
 });
+app.post('/api/admin/logout', requireAdmin, (req, res) => {
+  res.clearCookie('adminAuth');
+  res.json({ success: true });
+});
 
-app.post('/api/admin/logout', (req, res) => { res.clearCookie('adminAuth'); res.json({ success: true }); });
+// Admin: create or update staff user (admin-only).
+// body: { username, name, phone, password }
+app.post('/api/admin/create-user', requireAdmin, async (req, res) => {
+  try {
+    const { username, name, phone, password } = req.body || {};
+    if (!username || !password) return res.status(400).json({ success: false, message: 'Missing' });
 
+    const passwordHash = await bcrypt.hash(password, 10);
+    const userEntity = {
+      partitionKey: 'staff',
+      rowKey: username,
+      name: name || username,
+      phone: phone || '',
+      passwordHash
+    };
+    await upsertUserEntity(userEntity);
+    res.json({ success: true });
+  } catch (err) {
+    console.error('create-user error', err);
+    res.status(500).json({ success: false });
+  }
+});
+
+// ---------- secure form proxy (admin only)
+// If you want to hide the raw Google Form URL from client-side HTML, set
+// GFORM_PLACEMENT / GFORM_ACHIEVEMENTS / GFORM_CODERIZZ env vars to the real URLs.
+// This route will redirect to the configured URL (or you can change to stream).
 app.get('/secure-form/:type', requireAdmin, (req, res) => {
-  const forms = {
+  const map = {
     placement: process.env.GFORM_PLACEMENT || '',
     achievements: process.env.GFORM_ACHIEVEMENTS || '',
     coderizz: process.env.GFORM_CODERIZZ || ''
   };
-  const url = forms[req.params.type];
+  const url = map[req.params.type];
   if (!url) return res.status(404).send('Form not configured');
-  https.get(url, proxyRes => {
-    if (proxyRes.headers['content-type']) res.setHeader('Content-Type', proxyRes.headers['content-type']);
-    proxyRes.pipe(res);
-  }).on('error', (err) => {
-    console.error('proxy error', err);
-    res.status(502).send('Failed to load form');
-  });
+  // redirect; if you want to fully hide Google URL you'd stream & rewrite resources (more complex)
+  res.redirect(url);
 });
 
-// fallback
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
-
-// global error handlers
-process.on('unhandledRejection', (reason) => { console.error('UNHANDLED REJECTION', reason); });
-process.on('uncaughtException', (err) => { console.error('UNCAUGHT EXCEPTION', err); });
+// fallback: serve index
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // start
-app.listen(PORT, () => console.log(`Server running on ${PORT}`));
+app.listen(PORT, () => console.log(`Server listening on ${PORT}`));

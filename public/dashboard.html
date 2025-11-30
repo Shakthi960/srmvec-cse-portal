@@ -1,80 +1,86 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Staff Portal – CSE Dept</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <title>Staff Dashboard – CSE Dept</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <nav class="nav"> ... </nav>
+  <main style="max-width:900px;margin:100px auto;padding:20px;">
+    <h2 id="staffName">Staff</h2>
+    <div id="profile" style="margin-bottom:18px;">
+      <p><strong>Username:</strong> <span id="username"></span></p>
+      <p><strong>Phone:</strong> <span id="phone"></span></p>
+      <p><strong>Designation:</strong> <span id="designation"></span></p>
+    </div>
 
-  <main style="max-width:900px;margin:130px auto 40px;padding:0 20px;">
-    <h2>Staff Portal</h2>
-    <p class="muted">Welcome back, <span id="staffName">Staff</span></p>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:16px;">
-      <div class="card">
-        <h3>Profile</h3>
-        <p><strong>Name:</strong> <span id="name"></span></p>
-        <p><strong>Email:</strong> <span id="email"></span></p>
-        <p><strong>Phone:</strong> <span id="phone"></span></p>
-        <p><strong>Designation:</strong> <span id="designation"></span></p>
-      </div>
-
-      <div class="card">
-        <h3>Notes</h3>
-        <textarea id="notes" style="width:100%;height:220px"></textarea>
-        <div style="display:flex;gap:8px;margin-top:10px;">
-          <button id="saveNotesBtn" class="btn-primary">Save Notes</button>
-          <button id="logoutBtn" class="btn-outline">Logout</button>
-        </div>
-        <div id="notesStatus" style="margin-top:8px;color:var(--muted)"></div>
-      </div>
+    <div>
+      <h3>Your Notes</h3>
+      <textarea id="notes" style="width:100%;height:220px;"></textarea><br/>
+      <button id="saveBtn" class="btn-primary" style="margin-top:10px;">Save Notes</button>
+      <button id="logoutBtn" style="margin-left:12px;">Logout</button>
+      <div id="status" style="margin-top:8px;color:green;"></div>
     </div>
   </main>
 
-<script>
-async function loadProfile() {
-  const res = await fetch('/api/me');
-  if (!res.ok) return window.location.href = 'login.html';
-  const data = await res.json();
-  document.getElementById('staffName').textContent = data.name;
-  document.getElementById('name').textContent = data.name;
-  document.getElementById('email').textContent = data.email;
-  document.getElementById('phone').textContent = data.phone;
-  document.getElementById('designation').textContent = data.designation;
-}
-async function loadNotes() {
-  const res = await fetch('/api/notes');
-  if (!res.ok) return;
-  const data = await res.json();
-  document.getElementById('notes').value = data.notes || '';
-}
-document.getElementById('saveNotesBtn').addEventListener('click', async () => {
-  const notes = document.getElementById('notes').value;
-  const status = document.getElementById('notesStatus');
-  try {
-    const res = await fetch('/api/notes', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({ notes })
-    });
-    if (res.ok) {
-      status.textContent = 'Saved';
-      setTimeout(()=>status.textContent='',2000);
-    } else {
-      status.textContent = 'Save failed';
+  <script>
+    async function fetchProfile() {
+      try {
+        const res = await fetch('/api/me', { credentials: 'same-origin' });
+        if (!res.ok) { window.location.href = 'login.html'; return; }
+        const data = await res.json();
+        document.getElementById('staffName').textContent = data.name || data.username;
+        document.getElementById('username').textContent = data.username;
+        document.getElementById('phone').textContent = data.phone || '';
+        document.getElementById('designation').textContent = data.designation || '';
+      } catch (err) {
+        console.error(err);
+        window.location.href = 'login.html';
+      }
     }
-  } catch (e) {
-    status.textContent = 'Save error';
-  }
-});
-document.getElementById('logoutBtn').addEventListener('click', async () => {
-  await fetch('/api/logout', { method: 'POST' });
-  window.location.href = 'login.html';
-});
-loadProfile();
-loadNotes();
-</script>
+
+    async function fetchNotes() {
+      try {
+        const res = await fetch('/api/notes', { credentials: 'same-origin' });
+        if (!res.ok) return;
+        const data = await res.json();
+        document.getElementById('notes').value = data.notes || '';
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    document.getElementById('saveBtn').addEventListener('click', async () => {
+      const notes = document.getElementById('notes').value;
+      try {
+        const res = await fetch('/api/notes', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'same-origin',
+          body: JSON.stringify({ notes })
+        });
+        if (res.ok) {
+          document.getElementById('status').textContent = 'Saved!';
+          setTimeout(()=>document.getElementById('status').textContent = '', 2000);
+        } else {
+          document.getElementById('status').textContent = 'Failed to save';
+        }
+      } catch (err) {
+        console.error(err);
+        document.getElementById('status').textContent = 'Error';
+      }
+    });
+
+    document.getElementById('logoutBtn').addEventListener('click', async () => {
+      try {
+        await fetch('/api/logout', { method: 'POST', credentials: 'same-origin' });
+      } catch (e) {}
+      window.location.href = 'login.html';
+    });
+
+    // initial load
+    fetchProfile();
+    fetchNotes();
+  </script>
 </body>
 </html>
