@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Staff Login – CSE Dept</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="nav"> ... </nav>
+
+  <main style="max-width:400px;margin:140px auto 40px;">
+    <h2>Staff Login</h2>
+    <p class="muted-sm">Login using your registered email & phone number.</p>
+    <form id="loginForm">
+      <label class="muted-sm">Email</label>
+      <input type="email" id="email" required>
+      <label class="muted-sm" style="margin-top:10px;display:block;">Phone</label>
+      <input type="tel" id="phone" required>
+      <button type="submit" class="btn-primary" style="margin-top:12px;">Login</button>
+    </form>
+    <p id="error" style="color:red;margin-top:10px;"></p>
+  </main>
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const err = document.getElementById('error');
+  err.textContent = '';
+  try {
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ email, phone })
+    });
+    if (res.ok) {
+      // server sets httpOnly cookie; redirect to staff dashboard
+      window.location.href = 'staff-dashboard.html';
+    } else {
+      err.textContent = 'Invalid credentials';
+    }
+  } catch (e) {
+    console.error(e);
+    err.textContent = 'Server error';
+  }
+});
+</script>
+</body>
+</html>
