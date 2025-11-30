@@ -1,31 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>CSE Department – Admin Panel</title>
-    <link rel="icon" href="image.png" />
-
-    <!-- Theme bootstrap -->
-    <script>
-        (function () {
-            try {
-                const saved = localStorage.getItem('theme');
-                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-                const theme = saved || (prefersDark ? 'dark' : 'light');
-                document.documentElement.setAttribute('data-theme', theme);
-            } catch (e) {
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
-        })();
-    </script>
-
-    <link rel="stylesheet" href="styles.css" />
-
-    <style>
-        /* Page container */
-        .admin-page {
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CSE Department – Admin Panel</title>
+  <link rel="icon" href="image.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* (keep same styling you had; minimal here) */
+    .login-screen { max-width:380px; margin:120px auto; padding:20px; border-radius:12px; }
+    .admin-page { max-width:1200px; margin:120px auto; padding:20px; }
+    .login-error { color:#dc2626; }
+    .status { margin-top:10px; font-size:14px; }
+    .admin-page {
             max-width: 1200px;
             margin: 120px auto 40px;
             padding: 0 20px 40px;
@@ -221,199 +208,146 @@
                 grid-template-columns: minmax(0, 1fr);
             }
         }
-    </style>
+  </style>
 </head>
-
 <body>
-    <!-- NAVBAR -->
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="index.html" class="brand">
-                <img src="image.png" alt="CSE logo">
-                <div>
-                    <h1>CSE Department</h1>
-                    <div class="brand-sub">SRM Valliammai Engineering College</div>
-                </div>
-            </a>
-
-            <div class="menu">
-                <a href="index.html">Home</a>
-            </div>
-
-            <button class="hamb" id="hamb" aria-label="Toggle navigation" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <img src="image.png" alt="CSE logo">
+        <div>
+          <h1>CSE Department</h1>
+          <div class="brand-sub">SRM Valliammai Engineering College</div>
         </div>
+      </a>
+      <div class="menu"><a href="index.html">Home</a></div>
+    </div>
+  </nav>
 
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="index.html">Home</a>
-        </div>
-    </nav>
+  <!-- ADMIN LOGIN -->
+  <div id="adminLogin" class="login-screen">
+    <h2>Admin Login</h2>
+    <p>Enter admin password to access secure panel</p>
+    <input type="password" id="adminPassword" placeholder="Admin password" />
+    <button id="adminLoginBtn">Login</button>
+    <p id="adminError" class="login-error"></p>
+    <p id="adminInfo" class="status"></p>
+  </div>
 
-    <!-- ADMIN LOGIN SCREEN -->
-    <div id="adminLogin" class="login-screen">
-        <h2>Admin Login</h2>
-        <p>Enter admin password to access secure panel</p>
-        <input type="password" id="adminPassword" placeholder="Admin password">
-        <button class="btn-primary" id="adminLoginBtn">Login</button>
-        <p id="adminError" class="login-error"></p>
+  <!-- ADMIN PANEL -->
+  <main id="adminPanel" class="admin-page" style="display:none;">
+    <h2>Admin Dashboard</h2>
+    <div class="admin-grid">
+      <div class="admin-card">
+        <h3>Placement</h3>
+        <button onclick="openForm('placement')">Open Form</button>
+      </div>
+
+      <div class="admin-card">
+        <h3>Achievements</h3>
+        <button onclick="openForm('achievements')">Open Form</button>
+      </div>
+
+      <div class="admin-card">
+        <h3>Coderizz</h3>
+        <button onclick="openForm('coderizz')">Open Form</button>
+      </div>
+
+      <div class="admin-card">
+        <h3>Create Staff User</h3>
+        <div class="login-field"><label>Username</label><input id="cuUsername" /></div>
+        <div class="login-field"><label>Name</label><input id="cuName" /></div>
+        <div class="login-field"><label>Phone</label><input id="cuPhone" /></div>
+        <div class="login-field"><label>Password</label><input id="cuPassword" type="password" /></div>
+        <button id="createUserBtn">Create User</button>
+        <p id="createUserStatus" class="status"></p>
+      </div>
     </div>
 
-    <!-- ADMIN PANEL -->
-    <main id="adminPanel" class="admin-page" style="display:none;">
+    <div class="form-frame" style="margin-top:20px;">
+      <iframe id="formFrame" style="width:100%; height:600px; display:none;"></iframe>
+    </div>
 
-        <div class="admin-header">
-            <h2>Admin Dashboard</h2>
-            <p>Internal access only</p>
-        </div>
+  </main>
 
-        <div class="admin-grid">
+<script>
+  // -------- admin login --------
+  document.getElementById('adminLoginBtn').addEventListener('click', async () => {
+    const password = document.getElementById('adminPassword').value;
+    document.getElementById('adminError').textContent = '';
+    document.getElementById('adminInfo').textContent = 'Logging in...';
 
-            <!-- Placement -->
-            <div class="admin-card">
-                <h3>Placement Updates</h3>
-                <button class="btn-primary" onclick="openForm('placement')">Open Form</button>
-            </div>
-
-            <!-- Achievements -->
-            <div class="admin-card">
-                <h3>Achievements Updates</h3>
-                <button class="btn-primary" onclick="openForm('achievements')">Open Form</button>
-            </div>
-
-            <!-- Coderizz -->
-            <div class="admin-card">
-                <h3>Coderizz Updates</h3>
-                <button class="btn-primary" onclick="openForm('coderizz')">Open Form</button>
-            </div>
-
-            <!-- NEW: CREATE STAFF USERS -->
-            <div class="admin-card">
-                <h3>Create Staff User</h3>
-
-                <div class="login-field">
-                    <label>Username</label>
-                    <input id="cuUsername" placeholder="ex: john" />
-                </div>
-
-                <div class="login-field">
-                    <label>Name</label>
-                    <input id="cuName" placeholder="John Kumar" />
-                </div>
-
-                <div class="login-field">
-                    <label>Phone</label>
-                    <input id="cuPhone" placeholder="9876543210" />
-                </div>
-
-                <div class="login-field">
-                    <label>Password</label>
-                    <input id="cuPassword" type="password" placeholder="password" />
-                </div>
-
-                <button class="btn-primary" onclick="createUser()">Create User</button>
-
-                <p id="createUserStatus" style="margin-top:10px;font-size:14px;"></p>
-            </div>
-
-        </div>
-
-        <div class="form-frame" style="margin-top:20px;">
-            <iframe id="formFrame" style="width:100%; height:600px; display:none;"></iframe>
-        </div>
-
-        <div class="admin-footer-note">
-            For any queries contact
-            <strong>Karthick S (9514192195)</strong>,
-            <strong>Shakthi K (6383149466)</strong>.
-        </div>
-
-    </main>
-
-    <script>
-        // Admin login
-        document.getElementById('adminLoginBtn').addEventListener('click', async () => {
-            const password = document.getElementById('adminPassword').value;
-
-            const res = await fetch('/api/admin/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ password }),
-                credentials: 'same-origin'
-            });
-
-            if (res.ok) {
-                document.getElementById('adminLogin').style.display = 'none';
-                document.getElementById('adminPanel').style.display = 'block';
-            } else {
-                document.getElementById('adminError').textContent = "Invalid password";
-            }
-        });
-
-        // Secure forms
-        // open form in a new tab (server redirects to real GForm)
-        function openForm(type) {
-        window.open(`/secure-form/${type}`, '_blank');
-        }
-
-
-        // CREATE STAFF USER
-        async function createUser() {
-        const username = document.getElementById('cuUsername').value.trim();
-        const name = document.getElementById('cuName').value.trim();
-        const phone = document.getElementById('cuPhone').value.trim();
-        const password = document.getElementById('cuPassword').value;
-
-        const status = document.getElementById('createUserStatus');
-        status.textContent = "Creating user...";
-        status.style.color = "black";
-
-        if (!username || !password) {
-            status.textContent = "Username & Password required";
-            status.style.color = "red";
-            return;
-        }
-
-        try {
-            const res = await fetch('/api/admin/create-user', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            credentials: 'include',
-            body: JSON.stringify({ username, name, phone, password })
-            });
-
-            const body = await res.json().catch(() => ({}));
-
-            if (res.ok) {
-            status.textContent = "User created successfully!";
-            status.style.color = "green";
-            document.getElementById('cuUsername').value = "";
-            document.getElementById('cuName').value = "";
-            document.getElementById('cuPhone').value = "";
-            document.getElementById('cuPassword').value = "";
-            } else {
-            // show server error message (if any)
-            status.textContent = body.message || body.error || 'Failed to create user';
-            status.style.color = "red";
-            console.error('create-user response', res.status, body);
-            }
-        } catch (err) {
-            console.error(err);
-            status.textContent = "Error creating user (network/server)";
-            status.style.color = "red";
-        }
-        }
-
-        const res = await fetch('/api/admin/login', {
+    try {
+      const res = await fetch('/api/admin/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
         body: JSON.stringify({ password })
-        });
-    </script>
+      });
 
+      const body = await res.json().catch(()=>({}));
+      if (res.ok) {
+        document.getElementById('adminLogin').style.display = 'none';
+        document.getElementById('adminPanel').style.display = 'block';
+        document.getElementById('adminInfo').textContent = '';
+        console.log('admin login success');
+      } else {
+        document.getElementById('adminError').textContent = body.message || 'Invalid password';
+        document.getElementById('adminInfo').textContent = '';
+        console.warn('admin login failed', res.status, body);
+      }
+    } catch (err) {
+      console.error('admin login error', err);
+      document.getElementById('adminError').textContent = 'Network/server error';
+      document.getElementById('adminInfo').textContent = '';
+    }
+  });
+
+  // open form: open in new tab (reliable, avoids iframe blocking)
+  function openForm(type) {
+    window.open(`/secure-form/${type}`, '_blank', 'noopener');
+  }
+
+  // -------- create user --------
+  document.getElementById('createUserBtn').addEventListener('click', async () => {
+    const username = document.getElementById('cuUsername').value.trim();
+    const name = document.getElementById('cuName').value.trim();
+    const phone = document.getElementById('cuPhone').value.trim();
+    const password = document.getElementById('cuPassword').value;
+
+    const status = document.getElementById('createUserStatus');
+    status.style.color = 'black';
+    status.textContent = 'Creating user...';
+
+    if (!username || !password) { status.textContent = 'Username & password required'; status.style.color='red'; return; }
+
+    try {
+      const res = await fetch('/api/admin/create-user', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ username, name, phone, password })
+      });
+
+      const body = await res.json().catch(()=>({}));
+      if (res.ok) {
+        status.textContent = 'User created successfully';
+        status.style.color = 'green';
+        document.getElementById('cuUsername').value='';
+        document.getElementById('cuName').value='';
+        document.getElementById('cuPhone').value='';
+        document.getElementById('cuPassword').value='';
+      } else {
+        status.textContent = body.message || body.error || ('Failed to create user - ' + res.status);
+        status.style.color = 'red';
+        console.warn('create-user failed', res.status, body);
+      }
+    } catch (err) {
+      console.error('create-user error', err);
+      status.textContent = 'Network/server error';
+      status.style.color = 'red';
+    }
+  });
+</script>
 </body>
-</html>
-
-
 </html>

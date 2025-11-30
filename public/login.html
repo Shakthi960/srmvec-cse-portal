@@ -1,57 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
-  <title>Staff Login – CSE Dept</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Staff Login – CSE Department</title>
+  <link rel="icon" href="image.png" />
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Theme bootstrap -->
+  <script>
+    (function () {
+      try {
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+
+  <style>
+    .login-box {
+      max-width: 420px;
+      margin: 140px auto 40px;
+      padding: 24px 26px 32px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .login-box h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      color: var(--primary);
+    }
+
+    .login-box p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .login-field {
+      margin-bottom: 14px;
+    }
+
+    .login-field label {
+      font-size: 13px;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .login-field input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid #bfbfbf;
+      background: #fff;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .login-field input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(125, 42, 232, 0.25);
+    }
+
+    #error {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #dc2626;
+      text-align: center;
+    }
+  </style>
 </head>
+
 <body>
-  <main style="max-width:420px;margin:120px auto;padding:20px;">
+
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <img src="image.png" alt="CSE logo">
+        <div>
+          <h1>CSE Department</h1>
+          <div class="brand-sub">SRM Valliammai Engineering College</div>
+        </div>
+      </a>
+
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="login.html" class="active">Staff Login</a>
+      </div>
+
+      <button class="hamb" id="hamb" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="login.html">Staff Login</a>
+    </div>
+  </nav>
+
+  <!-- LOGIN BOX -->
+  <main class="login-box">
     <h2>Staff Login</h2>
-    <p class="muted-sm">Login with your username and password.</p>
+    <p>Login with your assigned username and password.</p>
 
     <form id="loginForm">
-      <label>Username</label>
-      <input id="username" type="text" required placeholder="username or email" />
+      <div class="login-field">
+        <label>Username</label>
+        <input id="username" type="text" placeholder="username" required>
+      </div>
 
-      <label style="margin-top:10px;display:block;">Password</label>
-      <input id="password" type="password" required placeholder="password" />
+      <div class="login-field">
+        <label>Password</label>
+        <input id="password" type="password" placeholder="password" required>
+      </div>
 
-      <button type="submit" class="btn-primary" style="margin-top:14px;">Login</button>
+      <button type="submit" class="btn-primary" style="margin-top:10px;width:100%;">Login</button>
+
+      <div id="error"></div>
     </form>
-
-    <p id="error" style="color:red;margin-top:12px;"></p>
   </main>
 
   <script>
-    const form = document.getElementById('loginForm');
-    const errorEl = document.getElementById('error');
+    const form = document.getElementById("loginForm");
+    const errorEl = document.getElementById("error");
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      errorEl.textContent = '';
+      errorEl.textContent = "";
 
-      const username = document.getElementById('username').value.trim();
-      const password = document.getElementById('password').value;
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value;
 
       try {
-        const res = await fetch('/api/staff/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ username, password }),
-          credentials: 'same-origin' // ensure cookies are accepted
+        const res = await fetch("/api/staff/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "same-origin",
+          body: JSON.stringify({ username, password })
         });
+
         if (res.ok) {
-          // go to dashboard
-          window.location.href = 'dashboard.html';
+          window.location.href = "dashboard.html";
         } else {
-          errorEl.textContent = 'Invalid username or password.';
+          errorEl.textContent = "Invalid username or password.";
         }
+
       } catch (err) {
         console.error(err);
-        errorEl.textContent = 'Server error. Try again.';
+        errorEl.textContent = "Server error. Please try again.";
       }
     });
   </script>
+
 </body>
 </html>
