@@ -351,55 +351,65 @@
         });
 
         // Secure forms
+        // open form in a new tab (server redirects to real GForm)
         function openForm(type) {
-            const frame = document.getElementById('formFrame');
-            frame.style.display = 'block';
-            frame.src = `/secure-form/${type}`;
+        window.open(`/secure-form/${type}`, '_blank');
         }
+
 
         // CREATE STAFF USER
         async function createUser() {
-            const username = document.getElementById('cuUsername').value.trim();
-            const name = document.getElementById('cuName').value.trim();
-            const phone = document.getElementById('cuPhone').value.trim();
-            const password = document.getElementById('cuPassword').value;
+        const username = document.getElementById('cuUsername').value.trim();
+        const name = document.getElementById('cuName').value.trim();
+        const phone = document.getElementById('cuPhone').value.trim();
+        const password = document.getElementById('cuPassword').value;
 
-            const status = document.getElementById('createUserStatus');
-            status.textContent = "Creating user...";
+        const status = document.getElementById('createUserStatus');
+        status.textContent = "Creating user...";
+        status.style.color = "black";
 
-            if (!username || !password) {
-                status.textContent = "Username & Password required";
-                status.style.color = "red";
-                return;
-            }
-
-            try {
-                const res = await fetch('/api/admin/create-user', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    credentials: 'same-origin',
-                    body: JSON.stringify({ username, name, phone, password })
-                });
-
-                if (res.ok) {
-                    status.textContent = "User created successfully!";
-                    status.style.color = "green";
-
-                    // clear fields
-                    document.getElementById('cuUsername').value = "";
-                    document.getElementById('cuName').value = "";
-                    document.getElementById('cuPhone').value = "";
-                    document.getElementById('cuPassword').value = "";
-                } else {
-                    status.textContent = "Failed to create user";
-                    status.style.color = "red";
-                }
-            } catch (err) {
-                console.error(err);
-                status.textContent = "Error creating user";
-                status.style.color = "red";
-            }
+        if (!username || !password) {
+            status.textContent = "Username & Password required";
+            status.style.color = "red";
+            return;
         }
+
+        try {
+            const res = await fetch('/api/admin/create-user', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify({ username, name, phone, password })
+            });
+
+            const body = await res.json().catch(() => ({}));
+
+            if (res.ok) {
+            status.textContent = "User created successfully!";
+            status.style.color = "green";
+            document.getElementById('cuUsername').value = "";
+            document.getElementById('cuName').value = "";
+            document.getElementById('cuPhone').value = "";
+            document.getElementById('cuPassword').value = "";
+            } else {
+            // show server error message (if any)
+            status.textContent = body.message || body.error || 'Failed to create user';
+            status.style.color = "red";
+            console.error('create-user response', res.status, body);
+            }
+        } catch (err) {
+            console.error(err);
+            status.textContent = "Error creating user (network/server)";
+            status.style.color = "red";
+        }
+        }
+
+        const res = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ password })
+        });
     </script>
 
 </body>
