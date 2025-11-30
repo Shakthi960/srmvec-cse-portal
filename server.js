@@ -160,11 +160,11 @@ app.get('/secure-form/:type', requireAdmin, (req, res) => {
   let formUrl = '';
 
   if (req.params.type === 'placement') {
-    formUrl = 'https://docs.google.com/forms/d/PLACEMENT_FORM_ID/viewform';
+    formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSc_WFKnWCs_VscOkD3uMvScdRAkaNVyl1FgDwumtDs7kEwG-A/viewform';
   } else if (req.params.type === 'achievements') {
-    formUrl = 'https://forms.gle/TDC4NB3eYB57AoEVA';
+    formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSemMq0OZq6uiRL_Kzx4CfqkkoB6-87dtBlCVrtgiaYmcKCz7g/viewform';
   } else if (req.params.type === 'coderizz') {
-    formUrl = 'https://docs.google.com/forms/d/CODERIZZ_FORM_ID/viewform';
+    formUrl = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdEsYQRtS12wMuKnrImujNyRso5JgpvgHG1SpBUfiWK3xiKUA/formResponse';
   }
 
   if (!formUrl) return res.status(404).end();
