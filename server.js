@@ -3,187 +3,204 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const fs = require('fs');
 const https = require('https');
-const { TableClient } = require('@azure/data-tables');
+
+const { TableClient } = require("@azure/data-tables");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// ===== STAFF & ADMIN CREDENTIALS (use env vars in Azure) =====
-const STAFF_EMAIL = process.env.STAFF_EMAIL || 'cse@srmvalliammai.ac.in';
-const STAFF_PHONE = process.env.STAFF_PHONE || '6383149466';
-
-// for real security REMOVE the default and set only in Azure
+// ----- CONFIG (set as app settings in Azure) -----
+const COOKIE_SECRET = process.env.COOKIE_SECRET || 'dev-secret-change-change-in-prod';
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'cse@admin2k25';
+const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING || '';
+const TABLE_NAME = process.env.TABLE_NAME || 'StaffNotes';
 
-const COOKIE_SECRET = process.env.COOKIE_SECRET || 'dev-secret-change-me';
+// ----- staff.json path (server-only) -----
+const STAFF_JSON = path.join(__dirname, 'staff.json');
 
-// ===== AZURE TABLES – StaffNotes table =====
-const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;
-
+// ----- init table client if connection string provided -----
 let tableClient = null;
 if (AZURE_STORAGE_CONNECTION_STRING) {
-  try {
-    tableClient = TableClient.fromConnectionString(
-      AZURE_STORAGE_CONNECTION_STRING,
-      'StaffNotes'
-    );
-    console.log('✅ TableClient initialised');
-  } catch (err) {
-    console.error('❌ Failed to create TableClient', err);
-  }
-} else {
-  console.warn('⚠️ AZURE_STORAGE_CONNECTION_STRING not set – notes will not be persisted.');
+  tableClient = new TableClient(AZURE_STORAGE_CONNECTION_STRING, TABLE_NAME);
 }
 
-// ===== MIDDLEWARE =====
+// ----- middlewares -----
 app.use(bodyParser.json());
 app.use(cookieParser(COOKIE_SECRET));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); // public site files
 
-// ===== AUTH MIDDLEWARE =====
+// ----- helpers: staff list -----
+function loadStaffList() {
+  if (!fs.existsSync(STAFF_JSON)) return [];
+  try {
+    const raw = fs.readFileSync(STAFF_JSON, 'utf8');
+    return JSON.parse(raw);
+  } catch (e) {
+    console.error('Failed to load staff.json', e);
+    return [];
+  }
+}
+function findStaffByEmailAndPhone(email, phone) {
+  const list = loadStaffList();
+  return list.find(s => s.email === email && (s.phone === phone || s.phone === (`+91${phone}`) || s.phone.replace(/\D/g,'') === phone.replace(/\D/g,'')));
+}
+
+// ----- Azure Table helpers (notes) -----
+async function getNotesFromTable(email) {
+  if (!tableClient) return '';
+  try {
+    const entity = await tableClient.getEntity(email, 'notes');
+    return entity.notes || '';
+  } catch (err) {
+    // not found or error -> return empty
+    return '';
+  }
+}
+
+async function upsertNotesToTable(email, notes) {
+  if (!tableClient) throw new Error('Table storage not configured');
+  const entity = {
+    partitionKey: email,
+    rowKey: 'notes',
+    notes: notes || ''
+  };
+  await tableClient.upsertEntity(entity, "Merge");
+}
+
+// ----- auth middleware -----
 function requireAuth(req, res, next) {
   const { auth } = req.signedCookies;
-  if (!auth || auth !== STAFF_EMAIL) {
-    return res.status(401).json({ message: 'Unauthorized' });
-  }
+  if (!auth) return res.status(401).json({ message: 'Unauthorized' });
+  // auth value is staff email stored during login
+  const staff = loadStaffList().find(s => s.email === auth);
+  if (!staff) return res.status(401).json({ message: 'Unauthorized' });
+  req.staff = staff;
   next();
 }
 
 function requireAdmin(req, res, next) {
   const { adminAuth } = req.signedCookies;
-  if (!adminAuth || adminAuth !== 'true') {
-    return res.status(403).json({ error: 'Forbidden' });
-  }
+  if (!adminAuth || adminAuth !== 'true') return res.status(403).json({ error: 'Forbidden' });
   next();
 }
 
-// ===== STAFF LOGIN / LOGOUT & PROFILE =====
-
-// POST /api/login  { email, phone }
+// ----- API: staff login -----
 app.post('/api/login', (req, res) => {
   const { email, phone } = req.body || {};
-  if (email === STAFF_EMAIL && phone === STAFF_PHONE) {
-    res.cookie('auth', email, {
-      httpOnly: true,
-      signed: true,
-      sameSite: 'lax'
-    });
-    return res.json({ success: true });
-  }
-  return res.status(401).json({ success: false, message: 'Invalid credentials' });
-});
+  if (!email || !phone) return res.status(400).json({ success: false, message: 'Missing' });
 
-// GET /api/me – returns staff details if logged in
-app.get('/api/me', requireAuth, (req, res) => {
-  const staff = {
-    name: 'CSE Staff',
-    email: STAFF_EMAIL,
-    phone: STAFF_PHONE,
-    designation: 'Assistant Professor'
-  };
-  res.json(staff);
-});
+  const staff = findStaffByEmailAndPhone(email.trim(), phone.trim());
+  if (!staff) return res.status(401).json({ success: false, message: 'Invalid credentials' });
 
-// POST /api/logout – clear auth cookie
-app.post('/api/logout', (req, res) => {
-  res.clearCookie('auth');
+  // set signed httpOnly cookie with email as value
+  res.cookie('auth', staff.email, {
+    httpOnly: true,
+    signed: true,
+    sameSite: 'lax',
+    secure: !!process.env.WEBSITE_SITE_NAME // secure only on https hosting
+  });
+
   return res.json({ success: true });
 });
 
-// ===== NOTES USING AZURE TABLE STORAGE =====
+// GET current staff profile
+app.get('/api/me', requireAuth, (req, res) => {
+  const { staff } = req;
+  // return only safe fields
+  res.json({
+    name: staff.name,
+    email: staff.email,
+    phone: staff.phone,
+    designation: staff.designation || ''
+  });
+});
 
-// GET /api/notes – get notes for logged-in staff
+// Staff notes routes (Azure Table)
 app.get('/api/notes', requireAuth, async (req, res) => {
-  if (!tableClient) {
-    // no table configured – just return empty
-    return res.json({ notes: '' });
-  }
-
   try {
-    const email = STAFF_EMAIL;
-    const entity = await tableClient.getEntity(email, 'notes');
-    res.json({ notes: entity.notes || '' });
+    const email = req.staff.email;
+    const notes = tableClient ? await getNotesFromTable(email) : '';
+    res.json({ notes });
   } catch (err) {
-    // 404 when entity not found – just return empty string
-    if (err.statusCode === 404) {
-      return res.json({ notes: '' });
-    }
-    console.error('Error reading notes from table:', err);
+    console.error('GET notes failed', err);
     res.status(500).json({ notes: '' });
   }
 });
 
-// POST /api/notes – save notes
 app.post('/api/notes', requireAuth, async (req, res) => {
-  if (!tableClient) {
-    // no table configured – pretend success but nothing is stored
-    return res.json({ success: true });
-  }
-
   try {
+    if (!tableClient) return res.status(500).json({ success: false, message: 'Storage not configured' });
     const { notes } = req.body || {};
-    const email = STAFF_EMAIL;
-
-    const entity = {
-      partitionKey: email,
-      rowKey: 'notes',
-      notes: notes || ''
-    };
-
-    await tableClient.upsertEntity(entity);
+    const email = req.staff.email;
+    await upsertNotesToTable(email, notes || '');
     res.json({ success: true });
   } catch (err) {
-    console.error('Error saving notes to table:', err);
+    console.error('SAVE notes failed', err);
     res.status(500).json({ success: false });
   }
 });
 
-// ===== ADMIN LOGIN + SECURE GOOGLE FORMS PROXY =====
+// staff logout
+app.post('/api/logout', (req, res) => {
+  res.clearCookie('auth');
+  res.json({ success: true });
+});
 
-// ADMIN LOGIN
+// ----- ADMIN login (password only) -----
 app.post('/api/admin/login', (req, res) => {
   const { password } = req.body || {};
+  if (!password) return res.status(400).json({ success: false });
+
   if (password === ADMIN_PASSWORD) {
     res.cookie('adminAuth', 'true', {
       httpOnly: true,
       signed: true,
-      sameSite: 'lax'
+      sameSite: 'lax',
+      secure: !!process.env.WEBSITE_SITE_NAME
     });
     return res.json({ success: true });
   }
   return res.status(401).json({ success: false });
 });
 
-// Secure proxy route – hides real Google Form URLs
+// Admin logout
+app.post('/api/admin/logout', (req, res) => {
+  res.clearCookie('adminAuth');
+  res.json({ success: true });
+});
+
+// ----- Admin-only secure form proxy (hides GForm URLs from client) -----
 app.get('/secure-form/:type', requireAdmin, (req, res) => {
-  let formUrl = '';
+  // Map type -> actual Google Form URL (server-side, not public)
+  const forms = {
+    placement: process.env.GFORM_PLACEMENT || '',
+    achievements: process.env.GFORM_ACHIEVEMENTS || '',
+    coderizz: process.env.GFORM_CODERIZZ || ''
+  };
 
-  if (req.params.type === 'placement') {
-    formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSc_WFKnWCs_VscOkD3uMvScdRAkaNVyl1FgDwumtDs7kEwG-A/viewform';
-  } else if (req.params.type === 'achievements') {
-    formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSemMq0OZq6uiRL_Kzx4CfqkkoB6-87dtBlCVrtgiaYmcKCz7g/viewform';
-  } else if (req.params.type === 'coderizz') {
-    formUrl = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdEsYQRtS12wMuKnrImujNyRso5JgpvgHG1SpBUfiWK3xiKUA/formResponse';
-  }
+  const url = forms[req.params.type];
+  if (!url) return res.status(404).send('Form not configured');
 
-  if (!formUrl) return res.status(404).end();
-
-  https.get(formUrl, proxyRes => {
-    res.setHeader('Content-Type', proxyRes.headers['content-type'] || 'text/html');
+  // Basic proxy fetch and stream back to client (this hides the real GForm URL)
+  https.get(url, proxyRes => {
+    // forward content-type and status
+    res.status(proxyRes.statusCode || 200);
+    const contentType = proxyRes.headers['content-type'];
+    if (contentType) res.setHeader('Content-Type', contentType);
+    // pipe content
     proxyRes.pipe(res);
-  }).on('error', err => {
-    console.error('Error proxying form:', err);
-    res.status(500).end('Error loading form');
+  }).on('error', (err) => {
+    console.error('proxy error', err);
+    res.status(502).send('Failed to load form');
   });
 });
 
-// ===== ROOT ROUTE =====
+// fallback to index
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// ===== START SERVER =====
-app.listen(PORT, () => {
-  console.log('Server running on port', PORT);
-});
+// listen
+app.listen(PORT, () => console.log(`Server running on ${PORT}`));

@@ -1,95 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   <title>Staff Login – CSE Dept</title>
-  <link rel="icon" href="image.png" />
-  <link rel="stylesheet" href="styles.css" />
-  <script>
-    (function () {
-      try {
-        const saved = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const theme = saved || (prefersDark ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
-      } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
-    })();
-  </script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- reuse your nav -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="brand">
-        <img src="image.png" alt="CSE logo">
-        <div>
-          <h1>CSE Department</h1>
-          <div class="brand-sub">SRM Valliammai Engineering College</div>
-        </div>
-      </a>
-      <div class="menu">
-        <a href="index.html">Home</a>
-        <a href="login.html">Staff Login</a>
-      </div>
-      <button class="hamb" id="hamb" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="index.html">Home</a>
-      <a href="login.html">Staff Login</a>
-    </div>
-  </nav>
+  <nav class="nav"> ... </nav>
 
-  <main style="max-width:400px;margin:140px auto 40px;padding:0 20px;">
-  <h2>Staff Login</h2>
-  <p class="muted-sm">Login using your registered email & phone number.</p>
-  <form id="loginForm">
-    <label class="muted-sm">Email</label>
-    <input type="email" id="email" required>
+  <main style="max-width:400px;margin:140px auto 40px;">
+    <h2>Staff Login</h2>
+    <p class="muted-sm">Login using your registered email & phone number.</p>
+    <form id="loginForm">
+      <label class="muted-sm">Email</label>
+      <input type="email" id="email" required>
+      <label class="muted-sm" style="margin-top:10px;display:block;">Phone</label>
+      <input type="tel" id="phone" required>
+      <button type="submit" class="btn-primary" style="margin-top:12px;">Login</button>
+    </form>
+    <p id="error" style="color:red;margin-top:10px;"></p>
+  </main>
 
-    <label class="muted-sm" style="margin-top:10px;display:block;">Phone</label>
-    <input type="tel" id="phone" required>
-
-    <button type="submit" class="btn-primary" style="margin-top:12px;">Login</button>
-  </form>
-  <p id="error" style="color:red;margin-top:10px;"></p>
-</main>
-
-  <script>
-  const form = document.getElementById("loginForm");
-  const errorEl = document.getElementById("error");
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    errorEl.textContent = "";
-
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-
-    try {
-      const res = await fetch("/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, phone })
-      });
-
-      if (res.ok) {
-        // backend sets httpOnly cookie – no need to store in localStorage
-        window.location.href = "admin.html";
-      } else {
-        errorEl.textContent = "Invalid email or phone number.";
-      }
-    } catch (err) {
-      console.error(err);
-      errorEl.textContent = "Server error. Please try again.";
+<script>
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const err = document.getElementById('error');
+  err.textContent = '';
+  try {
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ email, phone })
+    });
+    if (res.ok) {
+      // server sets httpOnly cookie; redirect to staff dashboard
+      window.location.href = 'staff-dashboard.html';
+    } else {
+      err.textContent = 'Invalid credentials';
     }
-  });
+  } catch (e) {
+    console.error(e);
+    err.textContent = 'Server error';
+  }
+});
 </script>
-
-
-
 </body>
 </html>

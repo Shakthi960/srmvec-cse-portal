@@ -1,62 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Staff Dashboard – CSE Dept</title>
-  <link rel="icon" href="image.png" />
-  <link rel="stylesheet" href="styles.css" />
-  <script>
-    (function () {
-      try {
-        const saved = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const theme = saved || (prefersDark ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
-      } catch (e) {
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
-    })();
-  </script>
+  <meta charset="utf-8">
+  <title>Staff Portal – CSE Dept</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- NAV with Dashboard link after quick links -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="brand">
-        <img src="image.png" alt="CSE logo">
-        <div>
-          <h1>CSE Department</h1>
-          <div class="brand-sub">SRM Valliammai Engineering College</div>
-        </div>
-      </a>
-      <div class="menu">
-        <a href="index.html">Home</a>
-        <a href="index.html#about">About us</a>
-        <a href="index.html#faculty">Faculty</a>
-        <a href="index.html#labs">Labs</a>
-        <a href="index.html#placements">Placements</a>
-        <a href="index.html#alumni">Alumni</a>
-        <a href="index.html#blog">Blog</a>
-        <a href="index.html#contact">Contact</a>
-
-        <!-- dashboard button (only useful if logged in) -->
-        <a href="dashboard.html">Dashboard</a>
-      </div>
-      <button class="hamb" id="hamb" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="index.html">Home</a>
-      <a href="dashboard.html">Dashboard</a>
-    </div>
-  </nav>
+  <nav class="nav"> ... </nav>
 
   <main style="max-width:900px;margin:130px auto 40px;padding:0 20px;">
-    <h2>Staff Dashboard</h2>
-    <p class="muted">Welcome back, <span id="staffName">Staff</span>.</p>
+    <h2>Staff Portal</h2>
+    <p class="muted">Welcome back, <span id="staffName">Staff</span></p>
 
-    <div class="grid-2" style="margin-top:18px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:16px;">
       <div class="card">
         <h3>Profile</h3>
         <p><strong>Name:</strong> <span id="name"></span></p>
@@ -67,58 +23,58 @@
 
       <div class="card">
         <h3>Notes</h3>
-        <p class="muted-sm">Your private notes are saved securely and will appear every time you log in.</p>
-        <textarea id="notes" style="width:100%;height:180px;margin-top:10px;"></textarea>
-        <button class="btn-primary" style="margin-top:10px;" id="saveNotesBtn">Save Notes</button>
-        <p id="notesStatus" class="muted-sm" style="margin-top:8px;"></p>
+        <textarea id="notes" style="width:100%;height:220px"></textarea>
+        <div style="display:flex;gap:8px;margin-top:10px;">
+          <button id="saveNotesBtn" class="btn-primary">Save Notes</button>
+          <button id="logoutBtn" class="btn-outline">Logout</button>
+        </div>
+        <div id="notesStatus" style="margin-top:8px;color:var(--muted)"></div>
       </div>
-      <button class="btn-primary" id="logoutBtn" style="margin-top:10px;">Logout</button>
     </div>
   </main>
 
-  <script>
-    const LOGIN_KEY = "staffLoggedIn";
-    const NOTES_KEY = "staffNotes";
-
-    // 🚫 If not logged in, send back to login
-    if (localStorage.getItem(LOGIN_KEY) !== "true") {
-      window.location.href = "login.html";
-    }
-
-    // 🔐 Same staff details as login
-    const STAFF = {
-      name: "CSE Staff",
-      email: "cse@srmvalliammai.ac.in",
-      phone: "6383149466",
-      designation: "Faculty"
-    };
-
-    // Fill profile info
-    document.getElementById('staffName').textContent = STAFF.name;
-    document.getElementById('name').textContent = STAFF.name;
-    document.getElementById('email').textContent = STAFF.email;
-    document.getElementById('phone').textContent = STAFF.phone;
-    document.getElementById('designation').textContent = STAFF.designation;
-
-    // Notes: load from localStorage
-    const notesEl = document.getElementById('notes');
-    const statusEl = document.getElementById('notesStatus');
-
-    notesEl.value = localStorage.getItem(NOTES_KEY) || "";
-
-    document.getElementById('saveNotesBtn').addEventListener('click', () => {
-      localStorage.setItem(NOTES_KEY, notesEl.value);
-      statusEl.textContent = "Saved!";
-      setTimeout(() => statusEl.textContent = "", 2000);
+<script>
+async function loadProfile() {
+  const res = await fetch('/api/me');
+  if (!res.ok) return window.location.href = 'login.html';
+  const data = await res.json();
+  document.getElementById('staffName').textContent = data.name;
+  document.getElementById('name').textContent = data.name;
+  document.getElementById('email').textContent = data.email;
+  document.getElementById('phone').textContent = data.phone;
+  document.getElementById('designation').textContent = data.designation;
+}
+async function loadNotes() {
+  const res = await fetch('/api/notes');
+  if (!res.ok) return;
+  const data = await res.json();
+  document.getElementById('notes').value = data.notes || '';
+}
+document.getElementById('saveNotesBtn').addEventListener('click', async () => {
+  const notes = document.getElementById('notes').value;
+  const status = document.getElementById('notesStatus');
+  try {
+    const res = await fetch('/api/notes', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ notes })
     });
-
-      document.getElementById('logoutBtn').addEventListener('click', () => {
-        localStorage.removeItem(LOGIN_KEY);
-        window.location.href = "login.html";
-      });
-
-  </script>
-  
-
+    if (res.ok) {
+      status.textContent = 'Saved';
+      setTimeout(()=>status.textContent='',2000);
+    } else {
+      status.textContent = 'Save failed';
+    }
+  } catch (e) {
+    status.textContent = 'Save error';
+  }
+});
+document.getElementById('logoutBtn').addEventListener('click', async () => {
+  await fetch('/api/logout', { method: 'POST' });
+  window.location.href = 'login.html';
+});
+loadProfile();
+loadNotes();
+</script>
 </body>
 </html>
